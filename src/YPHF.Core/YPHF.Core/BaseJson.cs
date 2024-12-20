@@ -5,49 +5,46 @@
  *
  */
 
+#region
+
 using System.Text.Json;
 
-namespace YPHF.Core
+#endregion
+
+namespace YPHF.Core;
+
+/// <summary>
+///     Class JsonExtensions.
+/// </summary>
+public static class BaseJson
 {
     /// <summary>
-    /// Class JsonExtensions.
+    ///     Des the json.
     /// </summary>
-    public static class BaseJson
+    /// <typeparam name="T"></typeparam>
+    /// <param name="json">The json.</param>
+    /// <returns>T.</returns>
+    /// <exception cref="System.Exception">json</exception>
+    /// <exception cref="System.Exception">result is null</exception>
+    public static T DeJson<T>(this string json)
     {
-        /// <summary>
-        /// Des the json.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="json">The json.</param>
-        /// <returns>T.</returns>
-        /// <exception cref="System.Exception">json</exception>
-        /// <exception cref="System.Exception">result is null</exception>
-        public static T DeJson<T>(this string json)
-        {
-            if (string.IsNullOrEmpty(json))
-            {
-                throw new Exception("json 不能为空");
-            }
+        if (string.IsNullOrEmpty(json)) throw new Exception("json 不能为空");
 
-            var result = JsonSerializer.Deserialize<T>(json);
+        var result = JsonSerializer.Deserialize<T>(json);
 
-            return result ?? default!;
-        }
+        return result ?? default!;
+    }
 
-        /// <summary>
-        /// Converts to json.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns>System.String.</returns>
-        /// <exception cref="System.Exception">obj</exception>
-        public static string ToJson(this object obj)
-        {
-            if (obj == null)
-            {
-                throw new Exception("obj 不能为空");
-            }
+    /// <summary>
+    ///     Converts to json.
+    /// </summary>
+    /// <param name="obj">The object.</param>
+    /// <returns>System.String.</returns>
+    /// <exception cref="System.Exception">obj</exception>
+    public static string ToJson(this object obj)
+    {
+        if (obj == null) throw new Exception("obj 不能为空");
 
-            return JsonSerializer.Serialize(obj);
-        }
+        return JsonSerializer.Serialize(obj);
     }
 }

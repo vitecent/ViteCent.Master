@@ -5,12 +5,11 @@
  *
  */
 
-namespace YPHF.Core.Orm
+namespace YPHF.Core.Orm;
+
+/// <summary>
+///     Interface IBaseModel
+/// </summary>
+public interface IBaseModel
 {
-    /// <summary>
-    /// Interface IBaseModel
-    /// </summary>
-    public interface IBaseModel
-    {
-    }
 }

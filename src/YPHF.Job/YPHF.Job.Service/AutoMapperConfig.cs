@@ -5,22 +5,25 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 using YPHF.Job.Dto.Home;
 using YPHF.Job.Model;
 
-namespace YPHF.Job.Service
+#endregion
+
+namespace YPHF.Job.Service;
+
+/// <summary>
+/// </summary>
+public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
     /// </summary>
-    public class AutoMapperConfig : BaseMapperConfig
+    public override void Map()
     {
-        /// <summary>
-        /// </summary>
-        public override void Map()
-        {
-            CreateMap<HomeModel, HomeResult>();
-            CreateMap<HomeResult, HomeModel>();
-        }
+        CreateMap<HomeModel, HomeResult>();
+        CreateMap<HomeResult, HomeModel>();
     }
 }

@@ -5,21 +5,20 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum LinkEnum
+/// </summary>
+public enum LinkEnum
 {
     /// <summary>
-    /// Enum LinkEnum
+    ///     The in set
     /// </summary>
-    public enum LinkEnum
-    {
-        /// <summary>
-        /// The in set
-        /// </summary>
-        InSet = 1,
+    InSet = 1,
 
-        /// <summary>
-        /// The out set
-        /// </summary>
-        OutSet = 2,
-    }
+    /// <summary>
+    ///     The out set
+    /// </summary>
+    OutSet = 2
 }

@@ -5,13 +5,16 @@
  *
  */
 
+#region
+
 using YPHF.Core.Data;
 
-namespace YPHF.Airspace.Dto.Home
+#endregion
+
+namespace YPHF.Airspace.Dto.Home;
+
+/// <summary>
+/// </summary>
+public class HomeArgs : SearchArgs
 {
-    /// <summary>
-    /// </summary>
-    public class HomeArgs : SearchArgs
-    {
-    }
 }

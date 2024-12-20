@@ -5,6 +5,8 @@
  *
  */
 
+#region
+
 using AutoMapper;
 using YPHF.Basic.Dal;
 using YPHF.Basic.Dto.Home;
@@ -13,44 +15,45 @@ using YPHF.Core.Data;
 using YPHF.Core.Orm;
 using YPHF.Core.Orm.SqlSugar;
 
-namespace YPHF.Basic.Bll
+#endregion
+
+namespace YPHF.Basic.Bll;
+
+/// <summary>
+/// </summary>
+public class HomeBll : BaseBll<HomeModel>, IHomeBll
 {
     /// <summary>
     /// </summary>
-    public class HomeBll : BaseBll<HomeModel>, IHomeBll
+    private readonly HomeDal dal;
+
+    /// <summary>
+    /// </summary>
+    private readonly IMapper mapper;
+
+    /// <summary>
+    /// </summary>
+    public HomeBll()
     {
-        /// <summary>
-        /// </summary>
-        private readonly HomeDal dal;
+        dal = new HomeDal();
 
-        /// <summary>
-        /// </summary>
-        private readonly IMapper mapper;
+        var context = BaseHttpContext.Context;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+    }
 
-        /// <summary>
-        /// </summary>
-        public HomeBll()
-        {
-            dal = new HomeDal();
+    /// <summary>
+    /// </summary>
+    public override IBaseDal<HomeModel> DAL => dal;
 
-            var context = BaseHttpContext.Context;
-            mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
-        }
+    /// <summary>
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
+    public async Task<PageResult<HomeResult>> PageAsync(HomeArgs args)
+    {
+        var model = await base.PageAsync(args);
+        var result = mapper.Map<List<HomeResult>>(model);
 
-        /// <summary>
-        /// </summary>
-        public override IBaseDal<HomeModel> DAL => dal;
-
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        public async Task<PageResult<HomeResult>> PageAsync(HomeArgs args)
-        {
-            var model = await base.PageAsync(args);
-            var result = mapper.Map<List<HomeResult>>(model);
-
-            return new PageResult<HomeResult>(args.Offset, args.Limit, args.Total, result);
-        }
+        return new PageResult<HomeResult>(args.Offset, args.Limit, args.Total, result);
     }
 }

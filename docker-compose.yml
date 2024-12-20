@@ -89,9 +89,9 @@ services:
       dockerfile: src/YPHF.Auth/YPHF.Auth.Service/Dockerfile
 
 
-  yphf.airspace.serice:
-    image: ${DOCKER_REGISTRY-}yphfairspaceserice
+  yphf.airspace.Service:
+    image: ${DOCKER_REGISTRY-}yphfairspaceService
     build:
       context: .
-      dockerfile: src/YPHF.Airspace/YPHF.Airspace.Serice/Dockerfile
+      dockerfile: src/YPHF.Airspace/YPHF.Airspace.Service/Dockerfile
 

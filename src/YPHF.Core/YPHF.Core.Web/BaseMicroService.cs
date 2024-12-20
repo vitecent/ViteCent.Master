@@ -5,6 +5,8 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using YPHF.Core.Api.Swagger;
 using YPHF.Core.Cache.Redis;
@@ -12,56 +14,57 @@ using YPHF.Core.Orm.SqlSugar;
 using YPHF.Core.Register.Consul;
 using YPHF.Core.Trace.Zipkin;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+/// </summary>
+/// <remarks></remarks>
+/// <param name="title"></param>
+/// <param name="xmls"></param>
+public class BaseMicroService(string title, List<string> xmls) : MicroService
 {
     /// <summary>
     /// </summary>
-    /// <remarks></remarks>
-    /// <param name="title"></param>
-    /// <param name="xmls"></param>
-    public class BaseMicroService(string title, List<string> xmls) : MicroService
+    public Action<WebApplicationBuilder> OnBuild { get; set; } = default!;
+
+    /// <summary>
+    /// </summary>
+    public Action<WebApplication> OnSatrt { get; set; } = default!;
+
+    /// <summary>
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <returns></returns>
+    protected override async Task BuildAsync(WebApplicationBuilder builder)
     {
-        /// <summary>
-        /// </summary>
-        public Action<WebApplicationBuilder> OnBuild { get; set; } = default!;
+        var configuration = builder.Configuration;
+        var services = builder.Services;
 
-        /// <summary>
-        /// </summary>
-        public Action<WebApplication> OnSatrt { get; set; } = default!;
+        services.AddRedis(configuration);
+        services.AddConsul(configuration);
+        services.AddZipkin(configuration);
+        services.AddSqlSugger(configuration);
+        services.AddSwagger(title, xmls);
 
-        /// <summary>
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        protected override async Task BuildAsync(WebApplicationBuilder builder)
-        {
-            var configuration = builder.Configuration;
-            var services = builder.Services;
+        OnBuild?.Invoke(builder);
 
-            services.AddRedis(configuration);
-            services.AddConsul(configuration);
-            services.AddZipkin(configuration);
-            services.AddSqlSugger(configuration);
-            services.AddSwagger(title, xmls);
+        await base.BuildAsync(builder);
+    }
 
-            OnBuild?.Invoke(builder);
+    /// <summary>
+    /// </summary>
+    /// <param name="app"></param>
+    /// <returns></returns>
+    protected override async Task StartAsync(WebApplication app)
+    {
+        await app.UseConsulAsync();
+        app.UseZipkin();
+        app.UseSwaggerDashboard();
 
-            await base.BuildAsync(builder);
-        }
+        OnSatrt?.Invoke(app);
 
-        /// <summary>
-        /// </summary>
-        /// <param name="app"></param>
-        /// <returns></returns>
-        protected override async Task StartAsync(WebApplication app)
-        {
-            await app.UseConsulAsync();
-            app.UseZipkin();
-            app.UseSwaggerDashboard();
-
-            OnSatrt?.Invoke(app);
-
-            await base.StartAsync(app);
-        }
+        await base.StartAsync(app);
     }
 }

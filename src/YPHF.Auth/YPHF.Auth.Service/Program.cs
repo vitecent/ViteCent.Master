@@ -5,34 +5,43 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Auth.Service
+#endregion
+
+namespace YPHF.Auth.Service;
+
+/// <summary>
+///     程序入口类
+/// </summary>
+public class Program
 {
     /// <summary>
+    ///     程序入口方法
     /// </summary>
-    public class Program
+    /// <param name="args">命令行参数</param>
+    public static async Task Main(string[] args)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        public static async Task Main(string[] args)
+        // XML文档列表
+        var xmls = new List<string>
         {
-            var xmls = new List<string>()
-            {
-                //"YPHF.Auth.Service"
-            };
+            //"YPHF.Auth.Service"
+        };
 
-            var microService = new BaseMicroService("YPHF.Auth.Service", xmls)
+        // 创建微服务实例
+        var microService = new BaseMicroService("YPHF.Auth.Service", xmls)
+        {
+            // 配置构建器
+            OnBuild = builder =>
             {
-                OnBuild = (builder) =>
-                {
-                    builder.UseAutoMapper(typeof(AutoMapperConfig));
-                    builder.UseAutoFac(new AutoFacConfig());
-                }
-            };
+                builder.UseAutoMapper(typeof(AutoMapperConfig));
+                builder.UseAutoFac(new AutoFacConfig());
+            }
+        };
 
-            await microService.RunAsync(args);
-        }
+        // 运行微服务
+        await microService.RunAsync(args);
     }
 }

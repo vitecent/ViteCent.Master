@@ -5,22 +5,25 @@
  *
  */
 
+#region
+
 using Quartz;
 
-namespace YPHF.Job.Service.Jobs
+#endregion
+
+namespace YPHF.Job.Service.Jobs;
+
+/// <summary>
+/// </summary>
+public class HomeJob : IJob
 {
     /// <summary>
     /// </summary>
-    public class HomeJob : IJob
+    /// <param name="context"></param>
+    /// <returns></returns>
+    public async Task Execute(IJobExecutionContext context)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public async Task Execute(IJobExecutionContext context)
-        {
-            Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
-            await Task.CompletedTask;
-        }
+        Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
+        await Task.CompletedTask;
     }
 }

@@ -10,7 +10,7 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/YPHF.Airspace/YPHF.Airspace.Serice/YPHF.Airspace.Serice.csproj", "src/YPHF.Airspace/YPHF.Airspace.Serice/"]
+COPY ["src/YPHF.Airspace/YPHF.Airspace.Service/YPHF.Airspace.Service.csproj", "src/YPHF.Airspace/YPHF.Airspace.Service/"]
 COPY ["src/YPHF.Core/YPHF.Core.Web/YPHF.Core.Web.csproj", "src/YPHF.Core/YPHF.Core.Web/"]
 COPY ["src/YPHF.Core/YPHF.Core.Api.Swagger/YPHF.Core.Api.Swagger.csproj", "src/YPHF.Core/YPHF.Core.Api.Swagger/"]
 COPY ["src/YPHF.Core/YPHF.Core.Api/YPHF.Core.Api.csproj", "src/YPHF.Core/YPHF.Core.Api/"]
@@ -30,18 +30,18 @@ COPY ["src/YPHF.Dto/YPHF.Airspace.Dto/YPHF.Airspace.Dto.csproj", "src/YPHF.Dto/Y
 COPY ["src/YPHF.Airspace/YPHF.Airspace.Bll/YPHF.Airspace.Bll.csproj", "src/YPHF.Airspace/YPHF.Airspace.Bll/"]
 COPY ["src/YPHF.Airspace/YPHF.Airspace.Dal/YPHF.Airspace.Dal.csproj", "src/YPHF.Airspace/YPHF.Airspace.Dal/"]
 COPY ["src/YPHF.Airspace/YPHF.Airspace.Model/YPHF.Airspace.Model.csproj", "src/YPHF.Airspace/YPHF.Airspace.Model/"]
-RUN dotnet restore "./src/YPHF.Airspace/YPHF.Airspace.Serice/YPHF.Airspace.Serice.csproj"
+RUN dotnet restore "./src/YPHF.Airspace/YPHF.Airspace.Service/YPHF.Airspace.Service.csproj"
 COPY . .
-WORKDIR "/src/src/YPHF.Airspace/YPHF.Airspace.Serice"
-RUN dotnet build "./YPHF.Airspace.Serice.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/YPHF.Airspace/YPHF.Airspace.Service"
+RUN dotnet build "./YPHF.Airspace.Service.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # 此阶段用于发布要复制到最终阶段的服务项目
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./YPHF.Airspace.Serice.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./YPHF.Airspace.Service.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # 此阶段在生产中使用，或在常规模式下从 VS 运行时使用(在不使用调试配置时为默认值)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "YPHF.Airspace.Serice.dll"]
+ENTRYPOINT ["dotnet", "YPHF.Airspace.Service.dll"]

@@ -5,26 +5,29 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Files.Service
+#endregion
+
+namespace YPHF.Files.Service;
+
+/// <summary>
+/// </summary>
+public class Program
 {
     /// <summary>
     /// </summary>
-    public class Program
+    /// <param name="args"></param>
+    public static async Task Main(string[] args)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        public static async Task Main(string[] args)
+        var xmls = new List<string>
         {
-            var xmls = new List<string>()
-            {
-                //"YPHF.Files.Service"
-            };
+            //"YPHF.Files.Service"
+        };
 
-            var microService = new FilesMicroService("YPHF.Files.Service", xmls);
-            await microService.RunAsync(args);
-        }
+        var microService = new FilesMicroService("YPHF.Files.Service", xmls);
+        await microService.RunAsync(args);
     }
 }

@@ -12,13 +12,16 @@
  *
  */
 
+#region
+
 using YPHF.Core.Data;
 
-namespace YPHF.Gov.Dto.Home
+#endregion
+
+namespace YPHF.Gov.Dto.Home;
+
+/// <summary>
+/// </summary>
+public class HomeArgs : SearchArgs
 {
-    /// <summary>
-    /// </summary>
-    public class HomeArgs : SearchArgs
-    {
-    }
 }

@@ -5,26 +5,25 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum DataEnum
+/// </summary>
+public enum DataEnum
 {
     /// <summary>
-    /// Enum DataEnum
+    ///     The model
     /// </summary>
-    public enum DataEnum
-    {
-        /// <summary>
-        /// The model
-        /// </summary>
-        Model = 1,
+    Model = 1,
 
-        /// <summary>
-        /// The where
-        /// </summary>
-        Where = 2,
+    /// <summary>
+    ///     The where
+    /// </summary>
+    Where = 2,
 
-        /// <summary>
-        /// The SQL
-        /// </summary>
-        SQL = 3
-    }
+    /// <summary>
+    ///     The SQL
+    /// </summary>
+    SQL = 3
 }

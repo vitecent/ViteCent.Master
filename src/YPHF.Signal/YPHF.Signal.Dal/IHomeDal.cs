@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Signal.Dal
+namespace YPHF.Signal.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Events.Dal
+namespace YPHF.Events.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

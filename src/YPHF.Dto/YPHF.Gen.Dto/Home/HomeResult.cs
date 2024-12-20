@@ -5,22 +5,21 @@
  *
  */
 
-namespace YPHF.Gen.Dto.Home
+namespace YPHF.Gen.Dto.Home;
+
+/// <summary>
+/// </summary>
+public class HomeResult
 {
     /// <summary>
     /// </summary>
-    public class HomeResult
-    {
-        /// <summary>
-        /// </summary>
-        public string Code { get; set; } = default!;
+    public string Code { get; set; } = default!;
 
-        /// <summary>
-        /// </summary>
-        public string Id { get; set; } = default!;
+    /// <summary>
+    /// </summary>
+    public string Id { get; set; } = default!;
 
-        /// <summary>
-        /// </summary>
-        public string Name { get; set; } = default!;
-    }
+    /// <summary>
+    /// </summary>
+    public string Name { get; set; } = default!;
 }

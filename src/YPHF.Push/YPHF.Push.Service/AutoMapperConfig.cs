@@ -5,18 +5,21 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Push.Service
+#endregion
+
+namespace YPHF.Push.Service;
+
+/// <summary>
+/// </summary>
+public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
     /// </summary>
-    public class AutoMapperConfig : BaseMapperConfig
+    public override void Map()
     {
-        /// <summary>
-        /// </summary>
-        public override void Map()
-        {
-        }
     }
 }

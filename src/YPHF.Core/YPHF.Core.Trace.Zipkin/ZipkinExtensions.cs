@@ -5,6 +5,8 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,82 +17,77 @@ using zipkin4net.Middleware;
 using zipkin4net.Tracers.Zipkin;
 using zipkin4net.Transport.Http;
 
-namespace YPHF.Core.Trace.Zipkin
+#endregion
+
+namespace YPHF.Core.Trace.Zipkin;
+
+/// <summary>
+///     Zipkin 扩展方法类。
+/// </summary>
+public static class ZipkinExtensions
 {
     /// <summary>
+    ///     添加 Zipkin 服务。
     /// </summary>
-    public static class ZipkinExtensions
+    /// <param name="services">服务集合。</param>
+    /// <param name="configuration">配置。</param>
+    /// <returns>服务集合。</returns>
+    public static IServiceCollection AddZipkin(this IServiceCollection services, IConfiguration configuration)
     {
-        /// <summary>
-        /// Adds the consul.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        /// <param name="configuration">The configuration.</param>
-        /// <returns>IServiceCollection.</returns>
-        public static IServiceCollection AddZipkin(this IServiceCollection services, IConfiguration configuration)
+        var isDapr = configuration["Environment"] ?? "";
+
+        if (isDapr != "Dapr")
         {
-            var isDapr = configuration["Environment"] ?? "";
+            // 设置采样率
+            TraceManager.SamplingRate = 1.0f;
 
-            if (isDapr != "Dapr")
-            {
-                TraceManager.SamplingRate = 1.0f;
+            var loggerFactory = new LoggerFactory();
+            var logger = new TracingLogger(loggerFactory, "zipkin4net");
 
-                var loggerFactory = new LoggerFactory();
-                var logger = new TracingLogger(loggerFactory, "zipkin4net");
+            var traceUri = configuration["Trace"];
 
-                var traceUri = configuration["Trace"];
+            if (string.IsNullOrWhiteSpace(traceUri)) throw new Exception("Appsettings Must Be Trace");
 
-                if (string.IsNullOrWhiteSpace(traceUri))
-                {
-                    throw new Exception("Appsettings Must Be Trace");
-                }
+            // 配置 Zipkin 发送器和追踪器
+            var httpSender = new HttpZipkinSender(traceUri, "application/json");
+            var tracer = new ZipkinTracer(httpSender, new JSONSpanSerializer());
 
-                var httpSender = new HttpZipkinSender(traceUri, "application/json");
-                var tracer = new ZipkinTracer(httpSender, new JSONSpanSerializer());
-
-                TraceManager.RegisterTracer(tracer);
-                TraceManager.Start(logger);
-            }
-
-            return services;
+            // 注册追踪器并启动追踪管理器
+            TraceManager.RegisterTracer(tracer);
+            TraceManager.Start(logger);
         }
 
-        /// <summary>
-        /// Uses the consul.
-        /// </summary>
-        /// <param name="app">The app.</param>
-        /// <returns>IApplicationBuilder.</returns>
-        public static IApplicationBuilder UseZipkin(this WebApplication app)
+        return services;
+    }
+
+    /// <summary>
+    ///     使用 Zipkin 中间件。
+    /// </summary>
+    /// <param name="app">应用程序构建器。</param>
+    /// <returns>应用程序构建器。</returns>
+    public static IApplicationBuilder UseZipkin(this WebApplication app)
+    {
+        var configuration = app.Configuration;
+
+        var isDapr = configuration["Environment"] ?? "";
+
+        if (isDapr != "Dapr")
         {
-            var configuration = app.Configuration;
+            var serviceName = configuration["Service:Name"];
 
-            var isDapr = configuration["Environment"] ?? "";
+            var check = configuration["Service:Check"];
 
-            if (isDapr != "Dapr")
-            {
-                var serviceName = configuration["Service:Name"];
+            if (string.IsNullOrWhiteSpace(check)) check = Const.Check;
 
-                var check = configuration["Service:Check"];
+            // 使用 Zipkin 追踪中间件
+            app.UseTracing(serviceName, null, x => { return x != check; });
 
-                if (string.IsNullOrWhiteSpace(check))
-                {
-                    check = Const.Check;
-                }
+            var lifetime = app.Lifetime;
 
-                app.UseTracing(serviceName, null, x =>
-                {
-                    return x != check;
-                });
-
-                var lifetime = app.Lifetime;
-
-                lifetime.ApplicationStopping.Register(() =>
-                {
-                    TraceManager.Stop();
-                });
-            }
-
-            return app;
+            // 注册应用程序停止事件以停止追踪管理器
+            lifetime.ApplicationStopping.Register(() => { TraceManager.Stop(); });
         }
+
+        return app;
     }
 }

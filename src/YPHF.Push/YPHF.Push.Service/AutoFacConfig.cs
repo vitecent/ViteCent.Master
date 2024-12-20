@@ -5,20 +5,23 @@
  *
  */
 
+#region
+
 using Autofac;
 
-namespace YPHF.Push.Service
+#endregion
+
+namespace YPHF.Push.Service;
+
+/// <summary>
+/// </summary>
+public class AutoFacConfig : Module
 {
     /// <summary>
     /// </summary>
-    public class AutoFacConfig : Module
+    /// <param name="builder"></param>
+    protected override void Load(ContainerBuilder builder)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="builder"></param>
-        protected override void Load(ContainerBuilder builder)
-        {
-            base.Load(builder);
-        }
+        base.Load(builder);
     }
 }

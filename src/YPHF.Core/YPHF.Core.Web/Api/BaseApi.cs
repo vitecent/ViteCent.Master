@@ -5,23 +5,26 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Mvc;
 using YPHF.Core.Data;
 
-namespace YPHF.Core.Web.Api
+#endregion
+
+namespace YPHF.Core.Web.Api;
+
+/// <summary>
+/// </summary>
+/// <typeparam name="Args"></typeparam>
+/// <typeparam name="Result"></typeparam>
+public abstract class BaseApi<Args, Result> : ControllerBase
+    where Args : BaseArgs
+    where Result : BaseResult
 {
     /// <summary>
     /// </summary>
-    /// <typeparam name="Args"></typeparam>
-    /// <typeparam name="Result"></typeparam>
-    public abstract class BaseApi<Args, Result> : ControllerBase
-        where Args : BaseArgs
-        where Result : BaseResult
-    {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        public abstract Task<Result> InvokeAsync(Args args);
-    }
+    /// <param name="args"></param>
+    /// <returns></returns>
+    public abstract Task<Result> InvokeAsync(Args args);
 }

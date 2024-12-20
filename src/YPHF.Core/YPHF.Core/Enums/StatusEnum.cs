@@ -5,21 +5,20 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum StatusEnum
+/// </summary>
+public enum StatusEnum
 {
     /// <summary>
-    /// Enum StatusEnum
+    ///     The enable
     /// </summary>
-    public enum StatusEnum
-    {
-        /// <summary>
-        /// The enable
-        /// </summary>
-        Enable = 1,
+    Enable = 1,
 
-        /// <summary>
-        /// The disable
-        /// </summary>
-        Disable = 2
-    }
+    /// <summary>
+    ///     The disable
+    /// </summary>
+    Disable = 2
 }

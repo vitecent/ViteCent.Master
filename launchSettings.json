@@ -17,7 +17,7 @@
         "yphf.events.services": "StartDebugging",
         "yphf.basic.service": "StartDebugging",
         "yphf.auth.service": "StartDebugging",
-        "yphf.airspace.serice": "StartDebugging"
+        "yphf.airspace.Service": "StartDebugging"
       }
     }
   }

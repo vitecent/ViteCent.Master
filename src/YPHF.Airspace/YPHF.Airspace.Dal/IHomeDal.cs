@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Airspace.Dal
+namespace YPHF.Airspace.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

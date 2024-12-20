@@ -5,29 +5,28 @@
  *
  */
 
-namespace YPHF.Core.Data
+namespace YPHF.Core.Data;
+
+/// <summary>
+///     Class BaseDept.
+/// </summary>
+public class BaseDept
 {
     /// <summary>
-    /// Class BaseDept.
+    ///     Gets or sets the code.
     /// </summary>
-    public class BaseDept
-    {
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>The code.</value>
-        public string Code { get; set; } = default!;
+    /// <value>The code.</value>
+    public string Code { get; set; } = default!;
 
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>The identifier.</value>
-        public string Id { get; set; } = default!;
+    /// <summary>
+    ///     Gets or sets the identifier.
+    /// </summary>
+    /// <value>The identifier.</value>
+    public string Id { get; set; } = default!;
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>The name.</value>
-        public string Name { get; set; } = default!;
-    }
+    /// <summary>
+    ///     Gets or sets the name.
+    /// </summary>
+    /// <value>The name.</value>
+    public string Name { get; set; } = default!;
 }

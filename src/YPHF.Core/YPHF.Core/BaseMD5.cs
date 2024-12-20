@@ -5,36 +5,42 @@
  *
  */
 
+#region
+
 using System.Security.Cryptography;
 using System.Text;
 
-namespace YPHF.Core
+#endregion
+
+namespace YPHF.Core;
+
+/// <summary>
+///     Class MD5Helper.
+/// </summary>
+public static class MD5Helper
 {
     /// <summary>
-    /// Class MD5Helper.
+    ///     Encrypts the m d5.
     /// </summary>
-    public static class MD5Helper
+    /// <param name="str">The string.</param>
+    /// <returns>System.String.</returns>
+    public static string EncryptMD5(this string str)
     {
-        /// <summary>
-        /// Encrypts the m d5.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <returns>System.String.</returns>
-        public static string EncryptMD5(this string str) => str.EncryptMD5(Encoding.Default);
+        return str.EncryptMD5(Encoding.Default);
+    }
 
-        /// <summary>
-        /// Encrypts the m d5.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>System.String.</returns>
-        public static string EncryptMD5(this string str, Encoding encoding)
-        {
-            var buffer = str.StringToByte(encoding);
-            var provider = MD5.Create();
-            var hash = provider.ComputeHash(buffer);
+    /// <summary>
+    ///     Encrypts the m d5.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="encoding">The encoding.</param>
+    /// <returns>System.String.</returns>
+    public static string EncryptMD5(this string str, Encoding encoding)
+    {
+        var buffer = str.StringToByte(encoding);
+        var provider = MD5.Create();
+        var hash = provider.ComputeHash(buffer);
 
-            return BitConverter.ToString(hash).Replace("-", "");
-        }
+        return BitConverter.ToString(hash).Replace("-", "");
     }
 }

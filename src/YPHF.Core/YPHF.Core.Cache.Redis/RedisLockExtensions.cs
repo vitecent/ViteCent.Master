@@ -5,35 +5,35 @@
  *
  */
 
+#region
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YPHF.Core.Cache.Redis
+#endregion
+
+namespace YPHF.Core.Cache.Redis;
+
+/// <summary>
+///     Class RedisLockExtensions.
+/// </summary>
+public static class RedisLockExtensions
 {
     /// <summary>
-    /// Class RedisLockExtensions.
+    ///     Adds the redis lock.
     /// </summary>
-    public static class RedisLockExtensions
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>IServiceCollection.</returns>
+    /// <exception cref="System.Exception">Cache</exception>
+    public static IServiceCollection AddRedisLock(this IServiceCollection services, IConfiguration configuration)
     {
-        /// <summary>
-        /// Adds the redis lock.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        /// <param name="configuration">The configuration.</param>
-        /// <returns>IServiceCollection.</returns>
-        /// <exception cref="System.Exception">Cache</exception>
-        public static IServiceCollection AddRedisLock(this IServiceCollection services, IConfiguration configuration)
-        {
-            var strConn = configuration["Cache"];
+        var strConn = configuration["Cache"];
 
-            if (string.IsNullOrWhiteSpace(strConn))
-            {
-                throw new Exception("Appsettings Must Be Cache");
-            }
+        if (string.IsNullOrWhiteSpace(strConn)) throw new Exception("Appsettings Must Be Cache");
 
-            services.AddTransient<IBaseLock>(x => new RedisLock(strConn));
+        services.AddTransient<IBaseLock>(x => new RedisLock(strConn));
 
-            return services;
-        }
+        return services;
     }
 }

@@ -5,22 +5,25 @@
  *
  */
 
+#region
+
 using YPHF.Basic.Dto.Home;
 using YPHF.Basic.Model;
 using YPHF.Core.Web;
 
-namespace YPHF.Basic.Service
+#endregion
+
+namespace YPHF.Basic.Service;
+
+/// <summary>
+/// </summary>
+public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
     /// </summary>
-    public class AutoMapperConfig : BaseMapperConfig
+    public override void Map()
     {
-        /// <summary>
-        /// </summary>
-        public override void Map()
-        {
-            CreateMap<HomeModel, HomeResult>();
-            CreateMap<HomeResult, HomeModel>();
-        }
+        CreateMap<HomeModel, HomeResult>();
+        CreateMap<HomeResult, HomeModel>();
     }
 }

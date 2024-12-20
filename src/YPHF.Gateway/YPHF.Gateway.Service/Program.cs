@@ -5,38 +5,38 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Gateway.Service
+#endregion
+
+namespace YPHF.Gateway.Service;
+
+/// <summary>
+/// </summary>
+public class Program
 {
     /// <summary>
     /// </summary>
-    public class Program
+    public static async Task Main(string[] args)
     {
-        /// <summary>
-        /// </summary>
-        public static async Task Main(string[] args)
+        var xmls = new List<string>
         {
-            var xmls = new List<string>()
-            {
-                "YPHF.Gateway.Service"
-            };
+            "YPHF.Gateway.Service"
+        };
 
-            var microService = new BaseMicroService("YPHF.Gateway.Service", xmls)
+        var microService = new BaseMicroService("YPHF.Gateway.Service", xmls)
+        {
+            OnBuild = builder =>
             {
-                OnBuild = (builder) =>
-                {
-                    builder.Services.AddGateway();
-                    builder.UseAutoMapper(typeof(AutoMapperConfig));
-                    builder.UseAutoFac(new AutoFacConfig());
-                },
-                OnSatrt = (app) =>
-                {
-                    app.UseGateway();
-                }
-            };
+                builder.Services.AddGateway();
+                builder.UseAutoMapper(typeof(AutoMapperConfig));
+                builder.UseAutoFac(new AutoFacConfig());
+            },
+            OnSatrt = app => { app.UseGateway(); }
+        };
 
-            await microService.RunAsync(args);
-        }
+        await microService.RunAsync(args);
     }
 }

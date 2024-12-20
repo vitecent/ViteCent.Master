@@ -5,26 +5,25 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum HideEnum
+/// </summary>
+public enum HideEnum
 {
     /// <summary>
-    /// Enum HideEnum
+    ///     The start
     /// </summary>
-    public enum HideEnum
-    {
-        /// <summary>
-        /// The start
-        /// </summary>
-        Start = 1,
+    Start = 1,
 
-        /// <summary>
-        /// The middle
-        /// </summary>
-        Middle = 2,
+    /// <summary>
+    ///     The middle
+    /// </summary>
+    Middle = 2,
 
-        /// <summary>
-        /// The end
-        /// </summary>
-        End = 3
-    }
+    /// <summary>
+    ///     The end
+    /// </summary>
+    End = 3
 }

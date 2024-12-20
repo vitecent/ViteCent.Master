@@ -5,28 +5,31 @@
  *
  */
 
+#region
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YPHF.Core.Orm.SqlSugar
+#endregion
+
+namespace YPHF.Core.Orm.SqlSugar;
+
+/// <summary>
+///     Class SqlSuggerExtensions.
+/// </summary>
+public static class SqlSuggerExtensions
 {
     /// <summary>
-    /// Class SqlSuggerExtensions.
+    ///     Adds the SQL sugger.
     /// </summary>
-    public static class SqlSuggerExtensions
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>IServiceCollection.</returns>
+    /// <exception cref="System.Exception">DataBase</exception>
+    public static IServiceCollection AddSqlSugger(this IServiceCollection services, IConfiguration configuration)
     {
-        /// <summary>
-        /// Adds the SQL sugger.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        /// <param name="configuration">The configuration.</param>
-        /// <returns>IServiceCollection.</returns>
-        /// <exception cref="System.Exception">DataBase</exception>
-        public static IServiceCollection AddSqlSugger(this IServiceCollection services, IConfiguration configuration)
-        {
-            FactoryConfigExtensions.SetConfig(configuration);
+        FactoryConfigExtensions.SetConfig(configuration);
 
-            return services;
-        }
+        return services;
     }
 }

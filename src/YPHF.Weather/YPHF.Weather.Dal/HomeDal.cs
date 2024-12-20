@@ -5,19 +5,22 @@
  *
  */
 
+#region
+
 using YPHF.Core.Orm.SqlSugar;
 using YPHF.Weather.Model;
 
-namespace YPHF.Weather.Dal
+#endregion
+
+namespace YPHF.Weather.Dal;
+
+/// <summary>
+/// </summary>
+/// <summary>
+/// </summary>
+public class HomeDal : BaseDal<HomeModel>, IHomeDal
 {
     /// <summary>
     /// </summary>
-    /// <summary>
-    /// </summary>
-    public class HomeDal : BaseDal<HomeModel>, IHomeDal
-    {
-        /// <summary>
-        /// </summary>
-        public override string DataBaseName => "XBNET-OMS";
-    }
+    public override string DataBaseName => "XBNET-OMS";
 }

@@ -5,27 +5,30 @@
  *
  */
 
+#region
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace YPHF.Core.Logging.Log4Net
+#endregion
+
+namespace YPHF.Core.Logging.Log4Net;
+
+/// <summary>
+///     Class Log4NetExtensions.
+/// </summary>
+public static class Log4NetExtensions
 {
     /// <summary>
-    /// Class Log4NetExtensions.
+    ///     Uses the log4 net.
     /// </summary>
-    public static class Log4NetExtensions
+    /// <param name="services">The services.</param>
+    public static void AddLog4Net(this IServiceCollection services)
     {
-        /// <summary>
-        /// Uses the log4 net.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        public static void AddLog4Net(this IServiceCollection services)
+        services.AddLogging(configuration =>
         {
-            services.AddLogging(configuration =>
-            {
-                configuration.ClearProviders();
-                configuration.AddLog4Net();
-            });
-        }
+            configuration.ClearProviders();
+            configuration.AddLog4Net();
+        });
     }
 }

@@ -5,26 +5,25 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum CommandEnum
+/// </summary>
+public enum CommandEnum
 {
     /// <summary>
-    /// Enum CommandEnum
+    ///     The insert
     /// </summary>
-    public enum CommandEnum
-    {
-        /// <summary>
-        /// The insert
-        /// </summary>
-        Insert = 1,
+    Insert = 1,
 
-        /// <summary>
-        /// The update
-        /// </summary>
-        Update = 2,
+    /// <summary>
+    ///     The update
+    /// </summary>
+    Update = 2,
 
-        /// <summary>
-        /// The delete
-        /// </summary>
-        Delete = 3
-    }
+    /// <summary>
+    ///     The delete
+    /// </summary>
+    Delete = 3
 }

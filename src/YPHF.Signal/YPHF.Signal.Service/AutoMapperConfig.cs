@@ -5,22 +5,25 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 using YPHF.Signal.Dto.Home;
 using YPHF.Signal.Model;
 
-namespace YPHF.Signal.Service
+#endregion
+
+namespace YPHF.Signal.Service;
+
+/// <summary>
+/// </summary>
+public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
     /// </summary>
-    public class AutoMapperConfig : BaseMapperConfig
+    public override void Map()
     {
-        /// <summary>
-        /// </summary>
-        public override void Map()
-        {
-            CreateMap<HomeModel, HomeResult>();
-            CreateMap<HomeResult, HomeModel>();
-        }
+        CreateMap<HomeModel, HomeResult>();
+        CreateMap<HomeResult, HomeModel>();
     }
 }

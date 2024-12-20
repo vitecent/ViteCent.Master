@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Gov.Dal
+namespace YPHF.Gov.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Weather.Dal
+namespace YPHF.Weather.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

@@ -5,28 +5,31 @@
  *
  */
 
+#region
+
 using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+/// </summary>
+public static class BaseAutoFac
 {
     /// <summary>
     /// </summary>
-    public static class BaseAutoFac
+    /// <param name="builder"></param>
+    /// <param name="module"></param>
+    public static void UseAutoFac(this WebApplicationBuilder builder, IModule module)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="module"></param>
-        public static void UseAutoFac(this WebApplicationBuilder builder, IModule module)
+        builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+        builder.Host.ConfigureContainer<ContainerBuilder>((context, configuration) =>
         {
-            builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-            builder.Host.ConfigureContainer<ContainerBuilder>((context, configuration) =>
-            {
-                configuration.RegisterModule(module);
-            });
-        }
+            configuration.RegisterModule(module);
+        });
     }
 }

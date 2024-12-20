@@ -5,25 +5,30 @@
  *
  */
 
-namespace YPHF.Core
+namespace YPHF.Core;
+
+/// <summary>
+///     Class Base64Extensions.
+/// </summary>
+public static class Base64
 {
     /// <summary>
-    /// Class Base64Extensions.
+    ///     Decrypts the base64.
     /// </summary>
-    public static class Base64
+    /// <param name="str">The string.</param>
+    /// <returns>System.Byte[].</returns>
+    public static byte[] DecryptBase64(this string str)
     {
-        /// <summary>
-        /// Decrypts the base64.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <returns>System.Byte[].</returns>
-        public static byte[] DecryptBase64(this string str) => Convert.FromBase64String(str);
+        return Convert.FromBase64String(str);
+    }
 
-        /// <summary>
-        /// Encrypts the base64.
-        /// </summary>
-        /// <param name="buffer">The buffer.</param>
-        /// <returns>System.String.</returns>
-        public static string EncryptBase64(this byte[] buffer) => Convert.ToBase64String(buffer);
+    /// <summary>
+    ///     Encrypts the base64.
+    /// </summary>
+    /// <param name="buffer">The buffer.</param>
+    /// <returns>System.String.</returns>
+    public static string EncryptBase64(this byte[] buffer)
+    {
+        return Convert.ToBase64String(buffer);
     }
 }

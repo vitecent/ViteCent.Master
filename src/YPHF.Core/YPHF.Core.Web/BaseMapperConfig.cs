@@ -5,20 +5,26 @@
  *
  */
 
+#region
+
 using AutoMapper;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+/// </summary>
+public abstract class BaseMapperConfig : Profile
 {
     /// <summary>
     /// </summary>
-    public abstract class BaseMapperConfig : Profile
+    public BaseMapperConfig()
     {
-        /// <summary>
-        /// </summary>
-        public BaseMapperConfig() => Map();
-
-        /// <summary>
-        /// </summary>
-        public abstract void Map();
+        Map();
     }
+
+    /// <summary>
+    /// </summary>
+    public abstract void Map();
 }

@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Gen.Dal
+namespace YPHF.Gen.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

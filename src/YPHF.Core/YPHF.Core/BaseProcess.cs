@@ -5,69 +5,72 @@
  *
  */
 
+#region
+
 using System.Diagnostics;
 
-namespace YPHF.Core
+#endregion
+
+namespace YPHF.Core;
+
+/// <summary>
+///     Class ProcessExtensions.
+/// </summary>
+public class BaseProcess
 {
     /// <summary>
-    /// Class ProcessExtensions.
+    ///     Executes the specified command.
     /// </summary>
-    public class BaseProcess
+    /// <param name="cmd">The command.</param>
+    /// <returns>System.String.</returns>
+    public static string Execute(string cmd)
     {
-        /// <summary>
-        /// Executes the specified command.
-        /// </summary>
-        /// <param name="cmd">The command.</param>
-        /// <returns>System.String.</returns>
-        public static string Execute(string cmd) => Execute(cmd, default!);
+        return Execute(cmd, default!);
+    }
 
-        /// <summary>
-        /// Executes the specified command.
-        /// </summary>
-        /// <param name="cmd">The command.</param>
-        /// <param name="arguments"></param>
-        /// <returns>System.String.</returns>
-        public static string Execute(string cmd, string arguments)
+    /// <summary>
+    ///     Executes the specified command.
+    /// </summary>
+    /// <param name="cmd">The command.</param>
+    /// <param name="arguments"></param>
+    /// <returns>System.String.</returns>
+    public static string Execute(string cmd, string arguments)
+    {
+        var p = new Process();
+        var startInfo = new ProcessStartInfo
         {
-            var p = new Process();
-            var startInfo = new ProcessStartInfo
-            {
-                FileName = cmd,
-                CreateNoWindow = true,
-                RedirectStandardInput = true,
-                RedirectStandardError = false,
-                RedirectStandardOutput = true,
-                UseShellExecute = false,
-                ErrorDialog = false,
-                WorkingDirectory = Environment.CurrentDirectory,
-                Verb = "runas"
-            };
+            FileName = cmd,
+            CreateNoWindow = true,
+            RedirectStandardInput = true,
+            RedirectStandardError = false,
+            RedirectStandardOutput = true,
+            UseShellExecute = false,
+            ErrorDialog = false,
+            WorkingDirectory = Environment.CurrentDirectory,
+            Verb = "runas"
+        };
 
-            if (!string.IsNullOrWhiteSpace(arguments))
+        if (!string.IsNullOrWhiteSpace(arguments)) startInfo.Arguments = arguments;
+
+        p.StartInfo = startInfo;
+
+        p.Start();
+        var i = 1;
+
+        while (!p.HasExited)
+        {
+            i++;
+            p.WaitForExit(500);
+            if (i == 5)
             {
-                startInfo.Arguments = arguments;
+                p.Kill();
+                return default!;
             }
-
-            p.StartInfo = startInfo;
-
-            p.Start();
-            var i = 1;
-
-            while (!p.HasExited)
-            {
-                i++;
-                p.WaitForExit(500);
-                if (i == 5)
-                {
-                    p.Kill();
-                    return default!;
-                }
-            }
-
-            var result = p.StandardOutput.ReadToEnd();
-            p.Close();
-
-            return result;
         }
+
+        var result = p.StandardOutput.ReadToEnd();
+        p.Close();
+
+        return result;
     }
 }

@@ -5,30 +5,33 @@
  *
  */
 
+#region
+
 using SqlSugar;
 using YPHF.Core.Orm.SqlSugar;
 
-namespace YPHF.Signal.Model
+#endregion
+
+namespace YPHF.Signal.Model;
+
+/// <summary>
+/// </summary>
+[Serializable]
+[SugarTable("base_airport")]
+public class HomeModel : BaseModel
 {
     /// <summary>
     /// </summary>
-    [Serializable]
-    [SugarTable("base_airport")]
-    public class HomeModel : BaseModel
-    {
-        /// <summary>
-        /// </summary>
-        [SugarColumn(ColumnName = "Code")]
-        public string Code { get; set; } = default!;
+    [SugarColumn(ColumnName = "Code")]
+    public string Code { get; set; } = default!;
 
-        /// <summary>
-        /// </summary>
-        [SugarColumn(ColumnName = "Id", IsPrimaryKey = true)]
-        public string Id { get; set; } = default!;
+    /// <summary>
+    /// </summary>
+    [SugarColumn(ColumnName = "Id", IsPrimaryKey = true)]
+    public string Id { get; set; } = default!;
 
-        /// <summary>
-        /// </summary>
-        [SugarColumn(ColumnName = "Name")]
-        public string Name { get; set; } = default!;
-    }
+    /// <summary>
+    /// </summary>
+    [SugarColumn(ColumnName = "Name")]
+    public string Name { get; set; } = default!;
 }

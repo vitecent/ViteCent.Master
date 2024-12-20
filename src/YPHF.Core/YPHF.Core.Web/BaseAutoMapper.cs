@@ -5,22 +5,25 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+/// </summary>
+public static class BaseAutoMapper
 {
     /// <summary>
     /// </summary>
-    public static class BaseAutoMapper
+    /// <param name="builder"></param>
+    /// <param name="types"></param>
+    public static void UseAutoMapper(this WebApplicationBuilder builder, params Type[] types)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="types"></param>
-        public static void UseAutoMapper(this WebApplicationBuilder builder, params Type[] types)
-        {
-            builder.Services.AddAutoMapper(types);
-        }
+        builder.Services.AddAutoMapper(types);
     }
 }

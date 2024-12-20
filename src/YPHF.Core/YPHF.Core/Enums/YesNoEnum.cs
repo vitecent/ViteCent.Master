@@ -5,21 +5,20 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum YesNoEnum
+/// </summary>
+public enum YesNoEnum
 {
     /// <summary>
-    /// Enum YesNoEnum
+    ///     The yes
     /// </summary>
-    public enum YesNoEnum
-    {
-        /// <summary>
-        /// The yes
-        /// </summary>
-        Yes = 1,
+    Yes = 1,
 
-        /// <summary>
-        /// The no
-        /// </summary>
-        No = 2
-    }
+    /// <summary>
+    ///     The no
+    /// </summary>
+    No = 2
 }

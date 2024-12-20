@@ -5,26 +5,31 @@
  *
  */
 
-namespace YPHF.Core
+namespace YPHF.Core;
+
+/// <summary>
+///     DoubleHelper
+/// </summary>
+public static class DoubleHelper
 {
     /// <summary>
-    /// DoubleHelper
+    ///     Gets the double.
     /// </summary>
-    public static class DoubleHelper
+    /// <param name="str">The string.</param>
+    /// <returns>System.Double.</returns>
+    public static double GetDouble(this string str)
     {
-        /// <summary>
-        /// Gets the double.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <returns>System.Double.</returns>
-        public static double GetDouble(this string str) => str.GetDouble(default);
+        return str.GetDouble(default);
+    }
 
-        /// <summary>
-        /// Gets the double.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>System.Double.</returns>
-        public static double GetDouble(this string str, double defaultValue) => double.TryParse(str, out double value) ? value : defaultValue;
+    /// <summary>
+    ///     Gets the double.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <param name="defaultValue">The default value.</param>
+    /// <returns>System.Double.</returns>
+    public static double GetDouble(this string str, double defaultValue)
+    {
+        return double.TryParse(str, out var value) ? value : defaultValue;
     }
 }

@@ -5,19 +5,22 @@
  *
  */
 
+#region
+
 using YPHF.Basic.Model;
 using YPHF.Core.Orm.SqlSugar;
 
-namespace YPHF.Basic.Dal
+#endregion
+
+namespace YPHF.Basic.Dal;
+
+/// <summary>
+/// </summary>
+/// <summary>
+/// </summary>
+public class HomeDal : BaseDal<HomeModel>, IHomeDal
 {
     /// <summary>
     /// </summary>
-    /// <summary>
-    /// </summary>
-    public class HomeDal : BaseDal<HomeModel>, IHomeDal
-    {
-        /// <summary>
-        /// </summary>
-        public override string DataBaseName => "XBNET-OMS";
-    }
+    public override string DataBaseName => "XBNET-OMS";
 }

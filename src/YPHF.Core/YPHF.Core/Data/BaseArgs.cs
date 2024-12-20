@@ -5,12 +5,11 @@
  *
  */
 
-namespace YPHF.Core.Data
+namespace YPHF.Core.Data;
+
+/// <summary>
+///     Class BaseArgs.
+/// </summary>
+public class BaseArgs
 {
-    /// <summary>
-    /// Class BaseArgs.
-    /// </summary>
-    public class BaseArgs
-    {
-    }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YPHF.Airspace", "YPHF.Airspace", "{B58BB604-4FF2-457C-9E12-1EFAA82B9108}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Serice", "src\YPHF.Airspace\YPHF.Airspace.Serice\YPHF.Airspace.Serice.csproj", "{AD32C394-C921-4F5B-8A3B-558F1D2C60D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Service", "src\YPHF.Airspace\YPHF.Airspace.Service\YPHF.Airspace.Service.csproj", "{AD32C394-C921-4F5B-8A3B-558F1D2C60D4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Bll", "src\YPHF.Airspace\YPHF.Airspace.Bll\YPHF.Airspace.Bll.csproj", "{C7B03FC4-06D0-4B6D-A7A4-7B823CB19984}"
 EndProject

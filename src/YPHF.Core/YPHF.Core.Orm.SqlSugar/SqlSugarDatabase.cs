@@ -5,18 +5,17 @@
  *
  */
 
-namespace YPHF.Core.Orm.SqlSugar
+namespace YPHF.Core.Orm.SqlSugar;
+
+/// <summary>
+///     Class SqlSugarDataBase. Implements the <see cref="YPHF.Core.Orm.BaseDataBase" />
+/// </summary>
+/// <seealso cref="YPHF.Core.Orm.BaseDataBase" />
+public class SqlSugarDataBase : BaseDataBase
 {
     /// <summary>
-    /// Class SqlSugarDataBase. Implements the <see cref="YPHF.Core.Orm.BaseDataBase"/>
+    ///     Gets or sets the tables.
     /// </summary>
-    /// <seealso cref="YPHF.Core.Orm.BaseDataBase"/>
-    public class SqlSugarDataBase : BaseDataBase
-    {
-        /// <summary>
-        /// Gets or sets the tables.
-        /// </summary>
-        /// <value>The tables.</value>
-        public List<SqlSugarTable> Tables { get; set; } = default!;
-    }
+    /// <value>The tables.</value>
+    public List<SqlSugarTable> Tables { get; set; } = default!;
 }

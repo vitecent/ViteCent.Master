@@ -102,7 +102,7 @@ services:
       - "80"
 
 
-  yphf.airspace.serice:
+  yphf.airspace.Service:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80

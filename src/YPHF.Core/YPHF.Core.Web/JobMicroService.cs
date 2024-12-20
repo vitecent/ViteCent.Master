@@ -5,6 +5,8 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using Quartz;
 using YPHF.Core.Api.Swagger;
@@ -14,71 +16,90 @@ using YPHF.Core.Orm.SqlSugar;
 using YPHF.Core.Register.Consul;
 using YPHF.Core.Trace.Zipkin;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+///     JobMicroService 类，继承自 MicroService，用于配置和启动微服务。
+/// </summary>
+public class JobMicroService(string title, List<string> xmls) : MicroService
 {
     /// <summary>
+    ///     Quartz 调度器实例。
     /// </summary>
-    public class JobMicroService(string title, List<string> xmls) : MicroService
+    private IScheduler scheduler = default!;
+
+    /// <summary>
+    ///     在构建 WebApplicationBuilder 时执行的操作。
+    /// </summary>
+    public Action<WebApplicationBuilder> OnBuild { get; set; } = default!;
+
+    /// <summary>
+    ///     在注册 Quartz 调度器时执行的操作。
+    /// </summary>
+    public Action<IScheduler> OnRegist { get; set; } = default!;
+
+    /// <summary>
+    ///     异步构建 WebApplicationBuilder。
+    /// </summary>
+    /// <param name="builder">WebApplicationBuilder 实例。</param>
+    /// <returns>异步任务。</returns>
+    protected override async Task BuildAsync(WebApplicationBuilder builder)
     {
-        /// <summary>
-        /// </summary>
-        private IScheduler scheduler = default!;
+        var configuration = builder.Configuration;
+        var services = builder.Services;
 
-        /// <summary>
-        /// </summary>
-        public Action<WebApplicationBuilder> OnBuild { get; set; } = default!;
+        // 添加 Redis 服务
+        services.AddRedis(configuration);
+        // 添加 Consul 服务
+        services.AddConsul(configuration);
+        // 添加 Zipkin 服务
+        services.AddZipkin(configuration);
+        // 添加 SqlSugar ORM 服务
+        services.AddSqlSugger(configuration);
+        // 添加 Swagger 服务
+        services.AddSwagger(title, xmls);
 
-        /// <summary>
-        /// </summary>
-        public Action<IScheduler> OnRegist { get; set; } = default!;
+        // 初始化 Quartz 调度器
+        scheduler = await services.AddQuarzAsync();
 
-        /// <summary>
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        protected override async Task BuildAsync(WebApplicationBuilder builder)
+        // 创建并启动一个新线程来注册 Quartz 调度器
+        var job = new Thread(() => OnRegist?.Invoke(scheduler))
         {
-            var configuration = builder.Configuration;
-            var services = builder.Services;
+            IsBackground = true,
+            Priority = ThreadPriority.Highest,
+            Name = "Job"
+        };
 
-            services.AddRedis(configuration);
-            services.AddConsul(configuration);
-            services.AddZipkin(configuration);
-            services.AddSqlSugger(configuration);
-            services.AddSwagger(title, xmls);
+        job.Start();
 
-            scheduler = await services.AddQuarzAsync();
+        // 执行 OnBuild 操作
+        OnBuild?.Invoke(builder);
 
-            var job = new Thread(() => OnRegist?.Invoke(scheduler))
-            {
-                IsBackground = true,
-                Priority = ThreadPriority.Highest,
-                Name = "Job"
-            };
+        // 调用基类的 BuildAsync 方法
+        await base.BuildAsync(builder);
+    }
 
-            job.Start();
+    /// <summary>
+    ///     异步启动 WebApplication。
+    /// </summary>
+    /// <param name="app">WebApplication 实例。</param>
+    /// <returns>异步任务。</returns>
+    protected override async Task StartAsync(WebApplication app)
+    {
+        if (scheduler != null)
+            // 使用 Quartz 调度器
+            app.UseQuarz(scheduler);
 
-            OnBuild?.Invoke(builder);
+        // 使用 Consul 服务
+        await app.UseConsulAsync();
+        // 使用 Zipkin 服务
+        app.UseZipkin();
+        // 使用 Swagger 仪表板
+        app.UseSwaggerDashboard();
 
-            await base.BuildAsync(builder);
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="app"></param>
-        /// <returns></returns>
-        protected override async Task StartAsync(WebApplication app)
-        {
-            if (scheduler != null)
-            {
-                app.UseQuarz(scheduler);
-            }
-
-            await app.UseConsulAsync();
-            app.UseZipkin();
-            app.UseSwaggerDashboard();
-
-            await base.StartAsync(app);
-        }
+        // 调用基类的 StartAsync 方法
+        await base.StartAsync(app);
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Serice", "YPHF.Airspace.Serice\YPHF.Airspace.Serice.csproj", "{BEF243DB-4DE7-4DFD-A69C-1ED84CE1F160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Service", "YPHF.Airspace.Service\YPHF.Airspace.Service.csproj", "{BEF243DB-4DE7-4DFD-A69C-1ED84CE1F160}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Airspace.Bll", "YPHF.Airspace.Bll\YPHF.Airspace.Bll.csproj", "{C9394C22-CC94-42AE-B3CB-4D42149A5E07}"
 EndProject

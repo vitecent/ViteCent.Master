@@ -5,58 +5,50 @@
  *
  */
 
-namespace YPHF.Core.Cache.Redis
+namespace YPHF.Core.Cache.Redis;
+
+/// <summary>
+///     Class RedisLock. Implements the <see cref="YPHF.Core.Cache.IBaseLock" />
+/// </summary>
+/// <seealso cref="YPHF.Core.Cache.IBaseLock" />
+/// <param name="configuration"></param>
+public class RedisLock(string configuration) : IBaseLock
 {
     /// <summary>
-    /// Class RedisLock. Implements the <see cref="YPHF.Core.Cache.IBaseLock"/>
+    ///     The redis
     /// </summary>
-    /// <seealso cref="YPHF.Core.Cache.IBaseLock"/>
-    /// <param name="configuration"></param>
-    public class RedisLock(string configuration) : IBaseLock
+    private readonly RedisCache redis = new(configuration, 1);
+
+    /// <summary>
+    ///     The key
+    /// </summary>
+    private string key = string.Empty;
+
+    /// <summary>
+    ///     Locks the specified key.
+    /// </summary>
+    /// <param name="key">The key.</param>
+    /// <param name="time">The time.</param>
+    /// <returns>result</returns>
+    public bool Lock(string key, TimeSpan time)
     {
-        /// <summary>
-        /// The redis
-        /// </summary>
-        private readonly RedisCache redis = new(configuration, 1);
-
-        /// <summary>
-        /// The key
-        /// </summary>
-        private string key = string.Empty;
-
-        /// <summary>
-        /// Locks the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="time">The time.</param>
-        /// <returns>result</returns>
-        public bool Lock(string key, TimeSpan time)
+        if (string.IsNullOrWhiteSpace(this.key))
         {
-            if (string.IsNullOrWhiteSpace(this.key))
-            {
-                this.key = key;
+            this.key = key;
 
-                if (!redis.HasKey(key))
-                {
-                    return redis.SetString(key, string.Empty, time);
-                }
-            }
-
-            return false;
+            if (!redis.HasKey(key)) return redis.SetString(key, string.Empty, time);
         }
 
-        /// <summary>
-        /// Releases this instance.
-        /// </summary>
-        public void Release()
-        {
-            if (redis.HasKey(key))
-            {
-                if (redis.DeleteKey(key))
-                {
-                    key = default!;
-                }
-            }
-        }
+        return false;
+    }
+
+    /// <summary>
+    ///     Releases this instance.
+    /// </summary>
+    public void Release()
+    {
+        if (redis.HasKey(key))
+            if (redis.DeleteKey(key))
+                key = default!;
     }
 }

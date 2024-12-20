@@ -5,11 +5,10 @@
  *
  */
 
-namespace YPHF.Job.Dal
+namespace YPHF.Job.Dal;
+
+/// <summary>
+/// </summary>
+public interface IHomeDal
 {
-    /// <summary>
-    /// </summary>
-    public interface IHomeDal
-    {
-    }
 }

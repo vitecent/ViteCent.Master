@@ -5,34 +5,37 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Push.Service
+#endregion
+
+namespace YPHF.Push.Service;
+
+/// <summary>
+/// </summary>
+public class Program
 {
     /// <summary>
     /// </summary>
-    public class Program
+    /// <param name="args"></param>
+    public static async Task Main(string[] args)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        public static async Task Main(string[] args)
+        var xmls = new List<string>
         {
-            var xmls = new List<string>()
-            {
-                //"YPHF.Push.Service"
-            };
+            //"YPHF.Push.Service"
+        };
 
-            var microService = new BaseMicroService("YPHF.Push.Service", xmls)
+        var microService = new BaseMicroService("YPHF.Push.Service", xmls)
+        {
+            OnBuild = builder =>
             {
-                OnBuild = (builder) =>
-                {
-                    builder.UseAutoMapper(typeof(AutoMapperConfig));
-                    builder.UseAutoFac(new AutoFacConfig());
-                }
-            };
+                builder.UseAutoMapper(typeof(AutoMapperConfig));
+                builder.UseAutoFac(new AutoFacConfig());
+            }
+        };
 
-            await microService.RunAsync(args);
-        }
+        await microService.RunAsync(args);
     }
 }

@@ -5,25 +5,30 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Mvc;
 using YPHF.Core.Data;
 using YPHF.Core.Web.Api;
 
-namespace YPHF.Gateway.Service.HomeApi
+#endregion
+
+namespace YPHF.Gateway.Service.HomeApi;
+
+/// <summary>
+/// </summary>
+[ApiController]
+[Route("Home")]
+public class Index : BaseApi<BaseArgs, BaseResult>
 {
     /// <summary>
     /// </summary>
-    [ApiController]
-    [Route("Home")]
-    public class Index : BaseApi<BaseArgs, BaseResult>
+    /// <param name="args"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [Route("Index")]
+    public override async Task<BaseResult> InvokeAsync([FromBody] BaseArgs args)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("Index")]
-        public override async Task<BaseResult> InvokeAsync([FromBody] BaseArgs args)
-            => await Task.FromResult(new BaseResult("Gateway Is Running At 7000"));
+        return await Task.FromResult(new BaseResult("Gateway Is Running At 7000"));
     }
 }

@@ -5,42 +5,42 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Mvc;
 using YPHF.Core;
 using YPHF.Core.Data;
 using YPHF.Core.Web.Api;
 using YPHF.Files.Dto.File;
 
-namespace YPHF.Files.Service.FileApi
+#endregion
+
+namespace YPHF.Files.Service.FileApi;
+
+/// <summary>
+///     删除文件
+/// </summary>
+[ApiController]
+[Route("File")]
+public class DeleteFile : BaseApi<GetFileArgs, BaseResult>
 {
     /// <summary>
-    /// 删除文件
+    ///     删除文件
     /// </summary>
-    [ApiController]
-    [Route("File")]
-    public class DeleteFile : BaseApi<GetFileArgs, BaseResult>
+    /// <param name="args">参数</param>
+    /// <returns>处理结果</returns>
+    [HttpPost]
+    [Route("DeleteFile")]
+    public override async Task<BaseResult> InvokeAsync([FromBody] GetFileArgs args)
     {
-        /// <summary>
-        /// 删除文件
-        /// </summary>
-        /// <param name="args">参数</param>
-        /// <returns>处理结果</returns>
-        [HttpPost]
-        [Route("DeleteFile")]
-        public override async Task<BaseResult> InvokeAsync([FromBody] GetFileArgs args)
-        {
-            var root = $"{Environment.CurrentDirectory}/wwwroot";
+        var root = $"{Environment.CurrentDirectory}/wwwroot";
 
-            var exist = await new FileExist().InvokeAsync(args);
+        var exist = await new FileExist().InvokeAsync(args);
 
-            if (!exist.IsSuccessStatusCode)
-            {
-                return exist;
-            }
+        if (!exist.IsSuccessStatusCode) return exist;
 
-            BaseFile.Delete($"{root}/{args.Path}");
+        BaseFile.Delete($"{root}/{args.Path}");
 
-            return new BaseResult();
-        }
+        return new BaseResult();
     }
 }

@@ -5,19 +5,22 @@
  *
  */
 
+#region
+
 using YPHF.Core.Data;
 using YPHF.Gov.Dto.Home;
 
-namespace YPHF.Gov.Bll
+#endregion
+
+namespace YPHF.Gov.Bll;
+
+/// <summary>
+/// </summary>
+public interface IHomeBll
 {
     /// <summary>
     /// </summary>
-    public interface IHomeBll
-    {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        Task<PageResult<HomeResult>> PageAsync(HomeArgs args);
-    }
+    /// <param name="args"></param>
+    /// <returns></returns>
+    Task<PageResult<HomeResult>> PageAsync(HomeArgs args);
 }

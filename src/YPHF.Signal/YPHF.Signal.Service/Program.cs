@@ -5,34 +5,37 @@
  *
  */
 
+#region
+
 using YPHF.Core.Web;
 
-namespace YPHF.Signal.Service
+#endregion
+
+namespace YPHF.Signal.Service;
+
+/// <summary>
+/// </summary>
+public class Program
 {
     /// <summary>
     /// </summary>
-    public class Program
+    /// <param name="args"></param>
+    public static async Task Main(string[] args)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="args"></param>
-        public static async Task Main(string[] args)
+        var xmls = new List<string>
         {
-            var xmls = new List<string>()
-            {
-                //"YPHF.Signal.Service"
-            };
+            //"YPHF.Signal.Service"
+        };
 
-            var microService = new BaseMicroService("YPHF.Signal.Service", xmls)
+        var microService = new BaseMicroService("YPHF.Signal.Service", xmls)
+        {
+            OnBuild = builder =>
             {
-                OnBuild = (builder) =>
-                {
-                    builder.UseAutoMapper(typeof(AutoMapperConfig));
-                    builder.UseAutoFac(new AutoFacConfig());
-                }
-            };
+                builder.UseAutoMapper(typeof(AutoMapperConfig));
+                builder.UseAutoFac(new AutoFacConfig());
+            }
+        };
 
-            await microService.RunAsync(args);
-        }
+        await microService.RunAsync(args);
     }
 }

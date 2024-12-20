@@ -5,21 +5,20 @@
  *
  */
 
-namespace YPHF.Core.Enums
+namespace YPHF.Core.Enums;
+
+/// <summary>
+///     Enum OrderEnum
+/// </summary>
+public enum OrderEnum
 {
     /// <summary>
-    /// Enum OrderEnum
+    ///     The asc
     /// </summary>
-    public enum OrderEnum
-    {
-        /// <summary>
-        /// The asc
-        /// </summary>
-        Asc = 1,
+    Asc = 1,
 
-        /// <summary>
-        /// The desc
-        /// </summary>
-        Desc = 2
-    }
+    /// <summary>
+    ///     The desc
+    /// </summary>
+    Desc = 2
 }

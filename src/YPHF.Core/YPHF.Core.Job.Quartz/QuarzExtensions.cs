@@ -5,47 +5,46 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 using Quartz.Impl;
-using System;
 
-namespace YPHF.Core.Job.Quartz
+#endregion
+
+namespace YPHF.Core.Job.Quartz;
+
+/// <summary>
+/// </summary>
+public static class QuarzExtensions
 {
     /// <summary>
     /// </summary>
-    public static class QuarzExtensions
+    /// <param name="services"></param>
+    /// <returns></returns>
+    public static async Task<IScheduler> AddQuarzAsync(this IServiceCollection services)
     {
-        /// <summary>
-        /// </summary>
-        /// <param name="services"></param>
-        /// <returns></returns>
-        public static async Task<IScheduler> AddQuarzAsync(this IServiceCollection services)
-        {
-            var factory = new StdSchedulerFactory();
-            var scheduler = await factory.GetScheduler();
+        var factory = new StdSchedulerFactory();
+        var scheduler = await factory.GetScheduler();
 
-            await scheduler.Start();
+        await scheduler.Start();
 
-            return scheduler;
-        }
+        return scheduler;
+    }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="app"></param>
-        /// <param name="scheduler"></param>
-        /// <returns></returns>
-        public static IApplicationBuilder UseQuarz(this WebApplication app, IScheduler scheduler)
-        {
-            var lifetime = app.Lifetime;
+    /// <summary>
+    /// </summary>
+    /// <param name="app"></param>
+    /// <param name="scheduler"></param>
+    /// <returns></returns>
+    public static IApplicationBuilder UseQuarz(this WebApplication app, IScheduler scheduler)
+    {
+        var lifetime = app.Lifetime;
 
-            lifetime.ApplicationStopping.Register(async () =>
-            {
-                await scheduler.Shutdown();
-            });
+        lifetime.ApplicationStopping.Register(async () => { await scheduler.Shutdown(); });
 
-            return app;
-        }
+        return app;
     }
 }

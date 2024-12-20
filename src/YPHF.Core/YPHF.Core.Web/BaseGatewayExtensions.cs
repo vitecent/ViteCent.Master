@@ -5,36 +5,39 @@
  *
  */
 
+#region
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YPHF.Core.Web
+#endregion
+
+namespace YPHF.Core.Web;
+
+/// <summary>
+///     Class BaseGatewayExtensions.
+/// </summary>
+public static class BaseGatewayExtensions
 {
     /// <summary>
-    /// Class BaseGatewayExtensions.
+    ///     Adds the consul.
     /// </summary>
-    public static class BaseGatewayExtensions
+    /// <param name="services">The services.</param>
+    /// <returns>IServiceCollection.</returns>
+    public static IServiceCollection AddGateway(this IServiceCollection services)
     {
-        /// <summary>
-        /// Adds the consul.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        /// <returns>IServiceCollection.</returns>
-        public static IServiceCollection AddGateway(this IServiceCollection services)
-        {
-            services.AddHttpClient();
+        services.AddHttpClient();
 
-            return services;
-        }
+        return services;
+    }
 
-        /// <summary>
-        /// Uses the gateway.
-        /// </summary>
-        /// <param name="app">The app.</param>
-        /// <returns>IApplicationBuilder.</returns>
-        public static void UseGateway(this WebApplication app)
-        {
-            app.UseMiddleware<BaseGateway>();
-        }
+    /// <summary>
+    ///     Uses the gateway.
+    /// </summary>
+    /// <param name="app">The app.</param>
+    /// <returns>IApplicationBuilder.</returns>
+    public static void UseGateway(this WebApplication app)
+    {
+        app.UseMiddleware<BaseGateway>();
     }
 }
