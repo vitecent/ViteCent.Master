@@ -7,7 +7,6 @@
 
 #region
 
-using System.IO.Compression;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -15,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
+
+using System.IO.Compression;
 using YPHF.Core.Data;
 using YPHF.Core.Logging.Log4Net;
 using YPHF.Core.Web.Filter;

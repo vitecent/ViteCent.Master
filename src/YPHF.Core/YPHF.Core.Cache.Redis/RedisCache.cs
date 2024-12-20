@@ -116,6 +116,27 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
+    ///     Gets the sorted set.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="key">The key.</param>
+    /// <param name="strart">The strart.</param>
+    /// <param name="stop">The stop.</param>
+    /// <param name="order">The order.</param>
+    /// <returns>List&lt;T&gt;.</returns>
+    public List<T> GetSortedSet<T>(string key, long strart = default, long stop = int.MaxValue,
+        Order order = Order.Descending)
+    {
+        var list = new List<T>();
+
+        if (HasKey(key))
+            foreach (var value in DataBase.SortedSetRangeByRank(key, strart, stop, order))
+                list.Add(value.ToString().DeJson<T>());
+
+        return list;
+    }
+
+    /// <summary>
     ///     Gets the string.
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -279,26 +300,5 @@ public class RedisCache : IBaseCache
     public bool SetString<T>(string key, T value, TimeSpan? expireTime = null)
     {
         return DataBase.StringSet(key, value?.ToJson(), expireTime);
-    }
-
-    /// <summary>
-    ///     Gets the sorted set.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="key">The key.</param>
-    /// <param name="strart">The strart.</param>
-    /// <param name="stop">The stop.</param>
-    /// <param name="order">The order.</param>
-    /// <returns>List&lt;T&gt;.</returns>
-    public List<T> GetSortedSet<T>(string key, long strart = default, long stop = int.MaxValue,
-        Order order = Order.Descending)
-    {
-        var list = new List<T>();
-
-        if (HasKey(key))
-            foreach (var value in DataBase.SortedSetRangeByRank(key, strart, stop, order))
-                list.Add(value.ToString().DeJson<T>());
-
-        return list;
     }
 }

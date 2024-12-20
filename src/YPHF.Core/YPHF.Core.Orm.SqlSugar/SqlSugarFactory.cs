@@ -7,8 +7,8 @@
 
 #region
 
-using System.Linq.Expressions;
 using SqlSugar;
+using System.Linq.Expressions;
 using YPHF.Core.Data;
 using YPHF.Core.Enums;
 
@@ -80,15 +80,6 @@ public class SqlSugarFactory : IFactory, IDisposable
 
                 var sql = $"Time: {client.Ado.SqlExecutionTime.TotalMilliseconds} ms, SQL:{text}";
             };
-    }
-
-    /// <summary>
-    ///     Performs application-defined tasks associated with freeing, releasing, or resetting
-    ///     unmanaged resources.
-    /// </summary>
-    public void Dispose()
-    {
-        client?.Dispose();
     }
 
     /// <summary>
@@ -186,7 +177,26 @@ public class SqlSugarFactory : IFactory, IDisposable
     public void Delete<T>(string sql, object parameters = default!) where T : class, new()
     {
         commands.Add(new Command
-            { CommandType = CommandEnum.Delete, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
+        { CommandType = CommandEnum.Delete, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
+    }
+
+    /// <summary>
+    ///     Performs application-defined tasks associated with freeing, releasing, or resetting
+    ///     unmanaged resources.
+    /// </summary>
+    public void Dispose()
+    {
+        client?.Dispose();
+    }
+
+    /// <summary>
+    ///     Fastests this instance.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>IFastest&lt;T&gt;.</returns>
+    public IFastest<T> Fastest<T>() where T : class, new()
+    {
+        return client.Fastest<T>();
     }
 
     /// <summary>
@@ -218,7 +228,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     public void Insert<T>(string sql, object parameters = default!) where T : class, new()
     {
         commands.Add(new Command
-            { CommandType = CommandEnum.Insert, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
+        { CommandType = CommandEnum.Insert, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
     }
 
     /// <summary>
@@ -250,6 +260,16 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
+    ///     Queries this instance.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>ISugarQueryable&lt;T&gt;.</returns>
+    public ISugarQueryable<T> Query<T>() where T : class, new()
+    {
+        return client.Queryable<T>();
+    }
+
+    /// <summary>
     ///     Updates the specified model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -268,7 +288,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     public void Update<T>(T model, Expression<Func<T, object>> columns) where T : class, new()
     {
         commands.Add(new Command
-            { CommandType = CommandEnum.Update, DataType = DataEnum.Where, Model = model, Where = columns });
+        { CommandType = CommandEnum.Update, DataType = DataEnum.Where, Model = model, Where = columns });
     }
 
     /// <summary>
@@ -290,7 +310,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     public void Update<T>(List<T> models, Expression<Func<T, object>> columns) where T : class, new()
     {
         commands.Add(new Command
-            { CommandType = CommandEnum.Update, DataType = DataEnum.Where, Model = models, Where = columns });
+        { CommandType = CommandEnum.Update, DataType = DataEnum.Where, Model = models, Where = columns });
     }
 
     /// <summary>
@@ -302,27 +322,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     public void Update<T>(string sql, object parameters = default!) where T : class, new()
     {
         commands.Add(new Command
-            { CommandType = CommandEnum.Update, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
-    }
-
-    /// <summary>
-    ///     Fastests this instance.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns>IFastest&lt;T&gt;.</returns>
-    public IFastest<T> Fastest<T>() where T : class, new()
-    {
-        return client.Fastest<T>();
-    }
-
-    /// <summary>
-    ///     Queries this instance.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns>ISugarQueryable&lt;T&gt;.</returns>
-    public ISugarQueryable<T> Query<T>() where T : class, new()
-    {
-        return client.Queryable<T>();
+        { CommandType = CommandEnum.Update, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
     }
 
     /// <summary>
