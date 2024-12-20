@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Dapr.AspNetCore" Version="1.12.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.2" />
+		<PackageReference Include="Polly" Version="8.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\YPHF.Core.Api.Swagger\YPHF.Core.Api.Swagger.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Cache.Redis\YPHF.Core.Cache.Redis.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Job.Quartz\YPHF.Core.Job.Quartz.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Logging.Log4Net\YPHF.Core.Logging.Log4Net.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Orm.SqlSugar\YPHF.Core.Orm.SqlSugar.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Register.Consul\YPHF.Core.Register.Consul.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Trace.Zipkin\YPHF.Core.Trace.Zipkin.csproj" />
+	</ItemGroup>
+
+</Project>

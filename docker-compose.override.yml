@@ -1,0 +1,111 @@
+services:
+  yphf.weather.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+  yphf.statistics.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.signal.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.push.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.plan.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.job.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.gov.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.gen.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.gateway.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.files.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.events.services:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.basic.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.auth.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+
+
+  yphf.airspace.serice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "80"
+

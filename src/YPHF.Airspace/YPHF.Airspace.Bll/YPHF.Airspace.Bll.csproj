@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\YPHF.Core\YPHF.Core.Orm.SqlSugar\YPHF.Core.Orm.SqlSugar.csproj" />
+		<ProjectReference Include="..\..\YPHF.Core\YPHF.Core.Web\YPHF.Core.Web.csproj" />
+		<ProjectReference Include="..\..\YPHF.Dto\YPHF.Airspace.Dto\YPHF.Airspace.Dto.csproj" />
+		<ProjectReference Include="..\YPHF.Airspace.Dal\YPHF.Airspace.Dal.csproj" />
+		<ProjectReference Include="..\YPHF.Airspace.Model\YPHF.Airspace.Model.csproj" />
+	</ItemGroup>
+
+</Project>

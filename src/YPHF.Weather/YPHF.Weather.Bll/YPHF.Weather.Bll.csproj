@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="AutoMapper" Version="12.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\YPHF.Core\YPHF.Core\YPHF.Core.csproj" />
+		<ProjectReference Include="..\..\YPHF.Dto\YPHF.Weather.Dto\YPHF.Weather.Dto.csproj" />
+		<ProjectReference Include="..\YPHF.Weather.Dal\YPHF.Weather.Dal.csproj" />
+		<ProjectReference Include="..\YPHF.Weather.Model\YPHF.Weather.Model.csproj" />
+	</ItemGroup>
+
+</Project>

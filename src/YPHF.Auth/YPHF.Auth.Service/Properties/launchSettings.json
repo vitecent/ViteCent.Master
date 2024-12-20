@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "YPHF.Auth": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:8010",
+      "dotnetRunMessages": true
+    }
+  }
+}

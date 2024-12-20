@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Consul" Version="1.7.14.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\YPHF.Core.Cache\YPHF.Core.Cache.csproj" />
+		<ProjectReference Include="..\YPHF.Core.Register\YPHF.Core.Register.csproj" />
+		<ProjectReference Include="..\YPHF.Core\YPHF.Core.csproj" />
+	</ItemGroup>
+
+</Project>

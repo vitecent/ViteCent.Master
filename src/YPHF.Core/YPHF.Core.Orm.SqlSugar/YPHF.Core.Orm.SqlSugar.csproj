@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.156" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\YPHF.Core.Orm\YPHF.Core.Orm.csproj" />
+		<ProjectReference Include="..\YPHF.Core\YPHF.Core.csproj" />
+	</ItemGroup>
+
+</Project>
