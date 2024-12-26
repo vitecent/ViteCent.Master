@@ -8,12 +8,12 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     DoubleHelper
+/// DoubleHelper
 /// </summary>
 public static class DoubleHelper
 {
     /// <summary>
-    ///     Gets the double.
+    /// Gets the double.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.Double.</returns>
@@ -23,7 +23,7 @@ public static class DoubleHelper
     }
 
     /// <summary>
-    ///     Gets the double.
+    /// Gets the double.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="defaultValue">The default value.</param>

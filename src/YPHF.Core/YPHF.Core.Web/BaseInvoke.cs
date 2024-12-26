@@ -67,7 +67,7 @@ public class BaseInvoke<Args, Result>
     /// <returns></returns>
     public async Task<Result> InvokePostAsync(string service, string api, Args args, string token = "")
     {
-        var isDapr = configuration["Environment"] ?? "";
+        var isDapr = configuration["Environment"] ?? default!;
 
         if (isDapr == "Dapr") return await InvokeDaprMethodAsync(HttpMethod.Post, service, api, args, token);
 

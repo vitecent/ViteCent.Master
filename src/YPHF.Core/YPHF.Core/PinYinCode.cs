@@ -8,12 +8,12 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     Class PinYinCode.
+/// Class PinYinCode.
 /// </summary>
 public class PinYinCode
 {
     /// <summary>
-    ///     The codes
+    /// The codes
     /// </summary>
     internal static string[] Codes =
     [

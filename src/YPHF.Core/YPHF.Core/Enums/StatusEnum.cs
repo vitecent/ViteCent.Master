@@ -8,17 +8,17 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum StatusEnum
+/// Enum StatusEnum
 /// </summary>
 public enum StatusEnum
 {
     /// <summary>
-    ///     The enable
+    /// The enable
     /// </summary>
     Enable = 1,
 
     /// <summary>
-    ///     The disable
+    /// The disable
     /// </summary>
     Disable = 2
 }

@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class AESExtensions.
+/// Class AESExtensions.
 /// </summary>
 public static class BaseAES
 {
     /// <summary>
-    ///     Decrypts the aes.
+    /// Decrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -31,7 +31,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Decrypts the aes.
+    /// Decrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -43,7 +43,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Decrypts the aes.
+    /// Decrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -56,7 +56,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Decrypts the aes.
+    /// Decrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -82,7 +82,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Encrypts the aes.
+    /// Encrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -93,7 +93,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Encrypts the aes.
+    /// Encrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -105,7 +105,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Encrypts the aes.
+    /// Encrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -118,7 +118,7 @@ public static class BaseAES
     }
 
     /// <summary>
-    ///     Encrypts the aes.
+    /// Encrypts the aes.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>

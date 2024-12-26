@@ -8,19 +8,19 @@
 namespace YPHF.Core.Data;
 
 /// <summary>
-///     Class BaseResult.
+/// Class BaseResult.
 /// </summary>
 public class BaseResult
 {
     /// <summary>
-    ///     Initializes a new instance of the <see cref="BaseResult" /> class.
+    /// Initializes a new instance of the <see cref="BaseResult" /> class.
     /// </summary>
     public BaseResult()
     {
     }
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="BaseResult" /> class.
+    /// Initializes a new instance of the <see cref="BaseResult" /> class.
     /// </summary>
     /// <param name="content">The content.</param>
     public BaseResult(string content)
@@ -29,7 +29,7 @@ public class BaseResult
     }
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="BaseResult" /> class.
+    /// Initializes a new instance of the <see cref="BaseResult" /> class.
     /// </summary>
     /// <param name="code">The code.</param>
     /// <param name="content">The content.</param>
@@ -41,19 +41,19 @@ public class BaseResult
     }
 
     /// <summary>
-    ///     Gets or sets the content.
+    /// Gets or sets the content.
     /// </summary>
     /// <value>The content.</value>
     public string Content { get; set; } = default!;
 
     /// <summary>
-    ///     Gets or sets a value indicating whether this <see cref="BaseResult" /> is succeed.
+    /// Gets or sets a value indicating whether this <see cref="BaseResult" /> is succeed.
     /// </summary>
     /// <value><c>true</c> if succeed; otherwise, <c>false</c>.</value>
     public bool IsSuccessStatusCode { get; set; } = true;
 
     /// <summary>
-    ///     Gets or sets the code.
+    /// Gets or sets the code.
     /// </summary>
     /// <value>The code.</value>
     public int StatusCode { get; set; } = 200;

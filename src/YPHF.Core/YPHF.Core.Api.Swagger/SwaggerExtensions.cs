@@ -29,16 +29,26 @@ public static class SwaggerExtensions
     /// <returns></returns>
     public static IServiceCollection AddSwagger(this IServiceCollection services, string title, List<string> xmls)
     {
+        var logger = BaseLogger.GetLogger();
+
         services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo { Title = title, Version = "v1" });
+
+            logger.Info($"Swagger Title ：{title}");
+
             foreach (var xml in xmls)
             {
                 var path = Path.Combine(AppContext.BaseDirectory, $"{xml}.xml");
+
+                logger.Info($"Swagger Xml ：{path}");
+
                 options.IncludeXmlComments(path, true);
             }
 
             options.OrderActionsBy(x => x.RelativePath);
+
+            logger.Info($"Swagger Add Token In Header");
 
             options.AddSecurityDefinition("Token", new OpenApiSecurityScheme
             {
@@ -47,6 +57,7 @@ public static class SwaggerExtensions
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.ApiKey
             });
+
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {

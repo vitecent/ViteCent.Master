@@ -8,24 +8,24 @@
 namespace YPHF.Core.Cache.Redis;
 
 /// <summary>
-///     Class RedisLock. Implements the <see cref="YPHF.Core.Cache.IBaseLock" />
+/// Class RedisLock. Implements the <see cref="YPHF.Core.Cache.IBaseLock" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Cache.IBaseLock" />
 /// <param name="configuration"></param>
 public class RedisLock(string configuration) : IBaseLock
 {
     /// <summary>
-    ///     The redis
+    /// The redis
     /// </summary>
     private readonly RedisCache redis = new(configuration, 1);
 
     /// <summary>
-    ///     The key
+    /// The key
     /// </summary>
     private string key = string.Empty;
 
     /// <summary>
-    ///     Locks the specified key.
+    /// Locks the specified key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="time">The time.</param>
@@ -43,7 +43,7 @@ public class RedisLock(string configuration) : IBaseLock
     }
 
     /// <summary>
-    ///     Releases this instance.
+    /// Releases this instance.
     /// </summary>
     public void Release()
     {

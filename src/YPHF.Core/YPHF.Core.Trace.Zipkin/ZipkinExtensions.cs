@@ -22,46 +22,50 @@ using zipkin4net.Transport.Http;
 namespace YPHF.Core.Trace.Zipkin;
 
 /// <summary>
-///     Zipkin 扩展方法类。
+/// Zipkin 扩展方法类。
 /// </summary>
 public static class ZipkinExtensions
 {
     /// <summary>
-    ///     添加 Zipkin 服务。
+    /// 添加 Zipkin 服务。
     /// </summary>
     /// <param name="services">服务集合。</param>
     /// <param name="configuration">配置。</param>
     /// <returns>服务集合。</returns>
     public static IServiceCollection AddZipkin(this IServiceCollection services, IConfiguration configuration)
     {
-        var isDapr = configuration["Environment"] ?? "";
+        var isDapr = configuration["Environment"] ?? default!;
 
         if (isDapr != "Dapr")
         {
+            var logger = BaseLogger.GetLogger();
+
             // 设置采样率
             TraceManager.SamplingRate = 1.0f;
 
             var loggerFactory = new LoggerFactory();
-            var logger = new TracingLogger(loggerFactory, "zipkin4net");
+            var log = new TracingLogger(loggerFactory, "ZipkinExtensions");
 
-            var traceUri = configuration["Trace"];
+            var uri = configuration["Trace"];
 
-            if (string.IsNullOrWhiteSpace(traceUri)) throw new Exception("Appsettings Must Be Trace");
+            logger.Info($"Zipkin RegisterUri ：{uri}");
+
+            if (string.IsNullOrWhiteSpace(uri)) throw new Exception("Appsettings Must Be Trace");
 
             // 配置 Zipkin 发送器和追踪器
-            var httpSender = new HttpZipkinSender(traceUri, "application/json");
+            var httpSender = new HttpZipkinSender(uri, "application/json");
             var tracer = new ZipkinTracer(httpSender, new JSONSpanSerializer());
 
             // 注册追踪器并启动追踪管理器
             TraceManager.RegisterTracer(tracer);
-            TraceManager.Start(logger);
+            TraceManager.Start(log);
         }
 
         return services;
     }
 
     /// <summary>
-    ///     使用 Zipkin 中间件。
+    /// 使用 Zipkin 中间件。
     /// </summary>
     /// <param name="app">应用程序构建器。</param>
     /// <returns>应用程序构建器。</returns>
@@ -69,7 +73,7 @@ public static class ZipkinExtensions
     {
         var configuration = app.Configuration;
 
-        var isDapr = configuration["Environment"] ?? "";
+        var isDapr = configuration["Environment"] ?? default!;
 
         if (isDapr != "Dapr")
         {

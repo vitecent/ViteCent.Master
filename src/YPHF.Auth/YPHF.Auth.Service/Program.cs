@@ -14,12 +14,12 @@ using YPHF.Core.Web;
 namespace YPHF.Auth.Service;
 
 /// <summary>
-///     程序入口类
+/// 程序入口类
 /// </summary>
 public class Program
 {
     /// <summary>
-    ///     程序入口方法
+    /// 程序入口方法
     /// </summary>
     /// <param name="args">命令行参数</param>
     public static async Task Main(string[] args)

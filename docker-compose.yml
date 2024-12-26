@@ -1,97 +1,150 @@
 services:
-  yphf.weather.service:
-    image: ${DOCKER_REGISTRY-}yphfweatherservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Weather/YPHF.Weather.Service/Dockerfile
+  redis:
+    image: redis:latest
 
-  yphf.statistics.service:
-    image: ${DOCKER_REGISTRY-}yphfstatisticsservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Statistics/YPHF.Statistics.Service/Dockerfile
+  consul:
+    image: consul:1.15.4
 
+  zipkin:
+    image: openzipkin/zipkin:latest
 
-  yphf.signal.service:
-    image: ${DOCKER_REGISTRY-}yphfsignalservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Signal/YPHF.Signal.Service/Dockerfile
+  dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
 
-
-  yphf.push.service:
-    image: ${DOCKER_REGISTRY-}yphfpushservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Push/YPHF.Push.Service/Dockerfile
-
-
-  yphf.plan.service:
-    image: ${DOCKER_REGISTRY-}yphfplanservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Plan/YPHF.Plan.Service/Dockerfile
-
-
-  yphf.job.service:
-    image: ${DOCKER_REGISTRY-}yphfjobservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Job/YPHF.Job.Service/Dockerfile
-
-
-  yphf.gov.service:
-    image: ${DOCKER_REGISTRY-}yphfgovservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Gov/YPHF.Gov.Service/Dockerfile
-
-
-  yphf.gen.service:
-    image: ${DOCKER_REGISTRY-}yphfgenservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Gen/YPHF.Gen.Service/Dockerfile
-
-
-  yphf.gateway.service:
-    image: ${DOCKER_REGISTRY-}yphfgatewayservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Gateway/YPHF.Gateway.Service/Dockerfile
-
-
-  yphf.files.service:
-    image: ${DOCKER_REGISTRY-}yphffilesservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Files/YPHF.Files.Service/Dockerfile
-
-
-  yphf.events.services:
-    image: ${DOCKER_REGISTRY-}yphfeventsservices
-    build:
-      context: .
-      dockerfile: src/YPHF.Events/YPHF.Events.Services/Dockerfile
-
-
-  yphf.basic.service:
-    image: ${DOCKER_REGISTRY-}yphfbasicservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Basic/YPHF.Basic.Service/Dockerfile
-
-
-  yphf.auth.service:
-    image: ${DOCKER_REGISTRY-}yphfauthservice
-    build:
-      context: .
-      dockerfile: src/YPHF.Auth/YPHF.Auth.Service/Dockerfile
-
-
-  yphf.airspace.Service:
-    image: ${DOCKER_REGISTRY-}yphfairspaceService
+  yphf.airspace.service:
+    image: ${DOCKER_REGISTRY-}yphfairspaceservice:1.0.0
     build:
       context: .
       dockerfile: src/YPHF.Airspace/YPHF.Airspace.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
 
+  yphf.auth.service:
+    image: ${DOCKER_REGISTRY-}yphfauthservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Auth/YPHF.Auth.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.basic.service:
+    image: ${DOCKER_REGISTRY-}yphfbasicservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Basic/YPHF.Basic.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.events.services:
+    image: ${DOCKER_REGISTRY-}yphfeventsservices:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Events/YPHF.Events.Services/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.files.service:
+    image: ${DOCKER_REGISTRY-}yphffilesservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Files/YPHF.Files.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.gateway.service:
+    image: ${DOCKER_REGISTRY-}yphfgatewayservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Gateway/YPHF.Gateway.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.gen.service:
+    image: ${DOCKER_REGISTRY-}yphfgenservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Gen/YPHF.Gen.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.gov.service:
+    image: ${DOCKER_REGISTRY-}yphfgovservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Gov/YPHF.Gov.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.job.service:
+    image: ${DOCKER_REGISTRY-}yphfjobservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Job/YPHF.Job.Service/Dockerfile
+    depends_on:
+      - redis
+
+  yphf.plan.service:
+    image: ${DOCKER_REGISTRY-}yphfplanservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Plan/YPHF.Plan.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.push.service:
+    image: ${DOCKER_REGISTRY-}yphfpushservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Push/YPHF.Push.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.signal.service:
+    image: ${DOCKER_REGISTRY-}yphfsignalservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Signal/YPHF.Signal.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.statistics.service:
+    image: ${DOCKER_REGISTRY-}yphfstatisticsservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Statistics/YPHF.Statistics.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin
+
+  yphf.weather.service:
+    image: ${DOCKER_REGISTRY-}yphfweatherservice:1.0.0
+    build:
+      context: .
+      dockerfile: src/YPHF.Weather/YPHF.Weather.Service/Dockerfile
+    depends_on:
+      - redis
+      - consul
+      - zipkin

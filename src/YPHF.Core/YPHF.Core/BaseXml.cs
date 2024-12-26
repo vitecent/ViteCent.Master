@@ -15,12 +15,12 @@ using System.Xml.Serialization;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class XmlExtensions.
+/// Class XmlExtensions.
 /// </summary>
 public static class BaseXml
 {
     /// <summary>
-    ///     Des the XML.
+    /// Des the XML.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="xml">The XML.</param>
@@ -44,7 +44,7 @@ public static class BaseXml
     }
 
     /// <summary>
-    ///     Converts to xml.
+    /// Converts to xml.
     /// </summary>
     /// <param name="obj">The object.</param>
     /// <returns>XmlDocument.</returns>

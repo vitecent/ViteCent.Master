@@ -15,12 +15,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace YPHF.Core.Web;
 
 /// <summary>
-///     Class BaseGatewayExtensions.
+/// Class BaseGatewayExtensions.
 /// </summary>
 public static class BaseGatewayExtensions
 {
     /// <summary>
-    ///     Adds the consul.
+    /// Adds the consul.
     /// </summary>
     /// <param name="services">The services.</param>
     /// <returns>IServiceCollection.</returns>
@@ -32,7 +32,7 @@ public static class BaseGatewayExtensions
     }
 
     /// <summary>
-    ///     Uses the gateway.
+    /// Uses the gateway.
     /// </summary>
     /// <param name="app">The app.</param>
     /// <returns>IApplicationBuilder.</returns>

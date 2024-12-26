@@ -18,7 +18,7 @@ namespace YPHF.Files.Dto.File;
 public class GetFileArgs : BaseArgs
 {
     /// <summary>
-    ///     文件路径
+    /// 文件路径
     /// </summary>
     public string Path { get; set; } = default!;
 }

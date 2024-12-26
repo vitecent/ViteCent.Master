@@ -10,6 +10,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Timeout;
 using YPHF.Core.Cache;
@@ -21,7 +22,7 @@ using YPHF.Core.Register;
 namespace YPHF.Core.Web;
 
 /// <summary>
-///     Class BaseGateway.
+/// Class BaseGateway.
 /// </summary>
 /// <param name="next"></param>
 /// <param name="httpClient"></param>
@@ -34,28 +35,31 @@ public class BaseGateway(
     IBaseCache cache)
 {
     /// <summary>
-    ///     The register
+    /// The register
     /// </summary>
     private readonly IRegister register = serviceProvider.GetService<IRegister>() ?? default!;
 
     /// <summary>
-    ///     Invokes the specified context.
+    /// Invokes the specified context.
     /// </summary>
     /// <param name="context">The context.</param>
-    public async Task Invoke(HttpContext context)
+    /// <param name="logger">The logger.</param>
+    public async Task Invoke(HttpContext context, ILogger logger)
     {
-        var TraceingId = string.Empty;
+        var traceingId = string.Empty;
 
-        if (context.Request.Headers.TryGetValue(Const.TraceingId, out var value)) TraceingId = value.ToString();
+        if (context.Request.Headers.TryGetValue(Const.TraceingId, out var value)) traceingId = value.ToString();
 
-        if (string.IsNullOrWhiteSpace(TraceingId))
+        if (string.IsNullOrWhiteSpace(traceingId))
         {
-            TraceingId = Guid.NewGuid().ToString("N");
+            traceingId = Guid.NewGuid().ToString("N");
             context.Request.Headers.Remove(Const.TraceingId);
-            context.Request.Headers.TryAdd(Const.TraceingId, TraceingId);
+            context.Request.Headers.TryAdd(Const.TraceingId, traceingId);
         }
 
-        context.Response.Headers.TryAdd(Const.TraceingId, TraceingId);
+        logger.LogInformation($"Gateway TraceingId {traceingId}");
+
+        context.Response.Headers.TryAdd(Const.TraceingId, traceingId);
 
         var uri = await GetServiceUri(context);
 
@@ -78,6 +82,8 @@ public class BaseGateway(
 
             await policyWrap.ExecuteAsync(async () =>
             {
+                logger.LogInformation($"Gateway Url {uri}");
+
                 var request = new HttpRequestMessage
                 {
                     Method = new HttpMethod(context.Request.Method),
@@ -90,7 +96,12 @@ public class BaseGateway(
                         request.Content?.Headers.TryAddWithoutValidation(header.Key, [.. header.Value]);
 
                 using var response = await httpClient.CreateClient().SendAsync(request);
-                context.Response.StatusCode = (int)response.StatusCode;
+
+                var statusCode = (int)response.StatusCode;
+
+                context.Response.StatusCode = statusCode;
+
+                logger.LogInformation($"Gateway StatusCode {statusCode}");
 
                 foreach (var header in response.Headers) context.Response.Headers[header.Key] = header.Value.ToArray();
 
@@ -99,7 +110,11 @@ public class BaseGateway(
 
                 context.Response.Headers.Remove("Transfer-Encoding");
 
-                await response.Content.CopyToAsync(context.Response.Body);
+                var body = context.Response.Body;
+
+                logger.LogInformation($"Gateway Response {body}");
+
+                await response.Content.CopyToAsync(body);
             });
 
             return;
@@ -109,7 +124,7 @@ public class BaseGateway(
     }
 
     /// <summary>
-    ///     Gets the service URI.
+    /// Gets the service URI.
     /// </summary>
     /// <param name="context">The context.</param>
     /// <returns>System.String.</returns>
@@ -123,22 +138,14 @@ public class BaseGateway(
 
         var key =
             pathAndQuery.Split("/", StringSplitOptions.RemoveEmptyEntries).Where(x => x != "api").FirstOrDefault() ??
-            "";
+            default!;
 
         if (key == "check" && key == "gateway") return default!;
 
         var services = new Dictionary<string, List<ServiceConfig>>();
 
-        if (!cache.HasKey(Const.RegistServices))
-        {
-            services = await register.DiscoverAsync();
-
-            cache.SetString(Const.RegistServices, services, TimeSpan.FromMinutes(1));
-        }
-        else
-        {
+        if (cache.HasKey(Const.RegistServices))
             services = cache.GetString<Dictionary<string, List<ServiceConfig>>>(Const.RegistServices);
-        }
 
         if (services.TryGetValue(key, out var list))
         {

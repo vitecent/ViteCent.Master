@@ -18,14 +18,14 @@ using YPHF.Files.Dto.File;
 namespace YPHF.Files.Service.FileApi;
 
 /// <summary>
-///     删除文件
+/// 删除文件
 /// </summary>
 [ApiController]
 [Route("File")]
 public class DeleteFile : BaseApi<GetFileArgs, BaseResult>
 {
     /// <summary>
-    ///     删除文件
+    /// 删除文件
     /// </summary>
     /// <param name="args">参数</param>
     /// <returns>处理结果</returns>

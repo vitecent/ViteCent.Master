@@ -10,7 +10,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using YPHF.Core.Cache;
 using YPHF.Core.Data;
 
 #endregion
@@ -18,12 +17,12 @@ using YPHF.Core.Data;
 namespace YPHF.Core.Register.Consul;
 
 /// <summary>
-///     Class ConsulExtensions.
+/// Class ConsulExtensions.
 /// </summary>
 public static class ConsulExtensions
 {
     /// <summary>
-    ///     Adds the consul.
+    /// Adds the consul.
     /// </summary>
     /// <param name="services">The services.</param>
     /// <param name="configuration">The configuration.</param>
@@ -32,70 +31,86 @@ public static class ConsulExtensions
     /// <exception cref="System.Exception">Register</exception>
     public static IServiceCollection AddConsul(this IServiceCollection services, IConfiguration configuration)
     {
-        var serviceProvider = services.BuildServiceProvider();
-
-        var cache = serviceProvider.GetService<IBaseCache>() ?? throw new Exception("Three Must Be ICache");
-
-        var uri = configuration["Register"];
+        var uri = configuration["Register"] ?? default!;
 
         if (string.IsNullOrWhiteSpace(uri)) throw new Exception("Appsettings Must Be Register");
 
-        services.AddTransient<IRegister>(x => new ConsulRegister(uri, cache));
+        services.AddTransient<IRegister>(x => new ConsulRegister(uri));
 
         return services;
     }
 
     /// <summary>
-    ///     Uses the consul.
+    /// Uses the consul.
     /// </summary>
     /// <param name="app">The app.</param>
+    /// <param name="logger">The app.</param>
     /// <returns>IApplicationBuilder.</returns>
-    /// <exception cref="System.Exception">ICache is need</exception>
-    /// <exception cref="System.Exception">Register</exception>
-    /// <exception cref="System.Exception">ServiceConfig.Name</exception>
-    /// <exception cref="System.Exception">ServiceConfig.Port</exception>
-    /// <exception cref="System.Exception">ServiceConfig.Address</exception>
     public static async Task<IApplicationBuilder> UseConsulAsync(this WebApplication app)
     {
-        var serviceProvider = app.Services;
-
-        var cache = serviceProvider.GetService<IBaseCache>() ?? throw new Exception("Three Must Be ICache");
+        var logger = BaseLogger.GetLogger();
 
         var configuration = app.Configuration;
 
-        var uri = configuration["Register"];
+        var uri = configuration["Register"] ?? default!;
+
+        logger.Info($"Consul RegisterUri ：{uri}");
 
         if (string.IsNullOrWhiteSpace(uri)) throw new Exception("Appsettings Must Be Register");
 
-        var serviceName = configuration["Service:Name"];
+        var serviceName = configuration["Service:Name"] ?? default!;
+
+        logger.Info($"Consul ServiceName ：{serviceName}");
 
         if (string.IsNullOrWhiteSpace(serviceName)) throw new Exception("Appsettings Must Be ServiceConfig.Name");
 
-        var flagServicePort = int.TryParse(configuration["Service:Port"], out var servicePort);
+        var isDapr = configuration["Environment"] ?? default!;
+
+        logger.Info($"Consul IsDapr ：{isDapr}");
+
+        var configPoint = configuration["Port"] ?? default!;
+
+        if (isDapr != "Dapr") configPoint = configuration["Service:Port"] ?? default!;
+
+        logger.Info($"Consul ServicePoint ：{configPoint}");
+
+        var flagServicePort = int.TryParse(configPoint, out var servicePort);
 
         if (!flagServicePort || servicePort < 1) throw new Exception("Appsettings Must Be ServiceConfig.Port");
 
-        var serviceId = configuration["Service:Id"];
+        var serviceId = configuration["Service:Id"] ?? default!;
 
         if (string.IsNullOrWhiteSpace(serviceId)) serviceId = $"{serviceName}:{servicePort}";
 
-        var address = configuration["Service:Address"];
+        logger.Info($"Consul ServiceId ：{serviceId}");
+
+        var address = configuration["Service:Address"] ?? default!;
+
+        logger.Info($"Consul ServiceAddress ：{address}");
 
         if (string.IsNullOrWhiteSpace(address)) throw new Exception("Appsettings Must Be ServiceConfig.Address");
 
-        var flagTimeout = int.TryParse(configuration["Service:Timeout"], out var timeout);
+        var flagTimeout = int.TryParse(configuration["Service:Timeout"] ?? default!, out var timeout);
 
         if (!flagTimeout || timeout < 1) timeout = 5;
 
-        var flagDeregister = int.TryParse(configuration["Service:Deregister"], out var deregister);
+        logger.Info($"Consul ServiceTimeout ：{timeout}");
+
+        var flagDeregister = int.TryParse(configuration["Service:Deregister"] ?? default!, out var deregister);
 
         if (!flagDeregister || deregister < 1) deregister = 30;
 
-        _ = bool.TryParse(configuration["Service:Https"], out var iShttps);
+        logger.Info($"Consul ServiceDeregister ：{deregister}");
 
-        var check = configuration["Service:Check"];
+        var isHttps = bool.TryParse(configuration["Service:Https"] ?? default!, out var iShttps);
+
+        logger.Info($"Consul ServiceHttps ：{isHttps}");
+
+        var check = configuration["Service:Check"] ?? default!;
 
         if (string.IsNullOrWhiteSpace(check)) check = Const.Check;
+
+        logger.Info($"Consul ServiceCheck ：{check}");
 
         var service = new ServiceConfig
         {
@@ -109,7 +124,7 @@ public static class ConsulExtensions
             Check = check
         };
 
-        await new ConsulRegister(uri, cache).RegisterAsync(service);
+        await new ConsulRegister(uri).RegisterAsync(service);
 
         if (check == Const.Check) app.MapGet(check, () => new BaseResult());
 
@@ -117,7 +132,7 @@ public static class ConsulExtensions
 
         lifetime.ApplicationStopping.Register(async () =>
         {
-            await new ConsulRegister(uri, cache).DeregisterAsync(serviceId);
+            await new ConsulRegister(uri).DeregisterAsync(serviceId);
         });
 
         return app;

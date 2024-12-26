@@ -15,12 +15,12 @@ using YPHF.Core.Enums;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class StringExtensions.
+/// Class StringExtensions.
 /// </summary>
 public static class BaseString
 {
     /// <summary>
-    ///     Bytes to stream.
+    /// Bytes to stream.
     /// </summary>
     /// <param name="buffer">The buffer.</param>
     /// <returns>Stream.</returns>
@@ -30,7 +30,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Bytes to stream.
+    /// Bytes to stream.
     /// </summary>
     /// <param name="buffer">The buffer.</param>
     /// <param name="encoding">The encoding.</param>
@@ -41,7 +41,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Bytes to string.
+    /// Bytes to string.
     /// </summary>
     /// <param name="buffer">The buffer.</param>
     /// <returns>System.String.</returns>
@@ -51,7 +51,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Bytes to string.
+    /// Bytes to string.
     /// </summary>
     /// <param name="buffer">The buffer.</param>
     /// <param name="encoding">The encoding.</param>
@@ -62,7 +62,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Hides the string.
+    /// Hides the string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="hide">The hide.</param>
@@ -105,7 +105,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Repeats the specified length.
+    /// Repeats the specified length.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
@@ -126,7 +126,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Shows the string.
+    /// Shows the string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="hide">The hide.</param>
@@ -164,7 +164,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Streams to byte.
+    /// Streams to byte.
     /// </summary>
     /// <param name="stream">The stream.</param>
     /// <returns>System.Byte[].</returns>
@@ -179,7 +179,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Streams to string.
+    /// Streams to string.
     /// </summary>
     /// <param name="stream">The stream.</param>
     /// <returns>System.String.</returns>
@@ -189,7 +189,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Streams to string.
+    /// Streams to string.
     /// </summary>
     /// <param name="stream">The stream.</param>
     /// <param name="encoding">The encoding.</param>
@@ -200,7 +200,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Strings to byte.
+    /// Strings to byte.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.Byte[].</returns>
@@ -210,7 +210,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Strings to byte.
+    /// Strings to byte.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding.</param>
@@ -221,7 +221,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Strings to stream.
+    /// Strings to stream.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>Stream.</returns>
@@ -231,7 +231,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Strings to stream.
+    /// Strings to stream.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding.</param>
@@ -242,7 +242,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Converts to camelcase.
+    /// Converts to camelcase.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -255,7 +255,7 @@ public static class BaseString
     }
 
     /// <summary>
-    ///     Converts to camelcase.
+    /// Converts to camelcase.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="split">The split.</param>

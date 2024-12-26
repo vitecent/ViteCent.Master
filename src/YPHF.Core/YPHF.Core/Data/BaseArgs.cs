@@ -8,7 +8,7 @@
 namespace YPHF.Core.Data;
 
 /// <summary>
-///     Class BaseArgs.
+/// Class BaseArgs.
 /// </summary>
 public class BaseArgs
 {

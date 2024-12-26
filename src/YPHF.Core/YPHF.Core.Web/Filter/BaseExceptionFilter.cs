@@ -10,7 +10,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
-
 using System.Text.Json;
 using YPHF.Core.Data;
 

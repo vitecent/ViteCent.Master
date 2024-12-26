@@ -14,19 +14,19 @@ using YPHF.Core.Enums;
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class SqlSugarField. Implements the <see cref="YPHF.Core.Orm.BaseField" />
+/// Class SqlSugarField. Implements the <see cref="YPHF.Core.Orm.BaseField" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Orm.BaseField" />
 public class SqlSugarField : BaseField
 {
     /// <summary>
-    ///     Gets the type of the column.
+    /// Gets the type of the column.
     /// </summary>
     /// <value>The type of the column.</value>
     public string ColumnType => Length < 1 ? Type : $"{Type}({Length})";
 
     /// <summary>
-    ///     Gets the type of the data.
+    /// Gets the type of the data.
     /// </summary>
     /// <value>The type of the data.</value>
     public string DataType => Type.Replace("varchar", "string")
@@ -57,7 +57,7 @@ public class SqlSugarField : BaseField
         .Replace("smallmoney", "decimal");
 
     /// <summary>
-    ///     Gets the has primary.
+    /// Gets the has primary.
     /// </summary>
     /// <value>The has primary.</value>
     public string HasPrimary => IsPrimaryKey == (int)YesNoEnum.Yes ? "IsPrimaryKey = true, " : "";

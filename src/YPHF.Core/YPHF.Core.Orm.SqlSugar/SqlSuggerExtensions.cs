@@ -15,12 +15,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class SqlSuggerExtensions.
+/// Class SqlSuggerExtensions.
 /// </summary>
 public static class SqlSuggerExtensions
 {
     /// <summary>
-    ///     Adds the SQL sugger.
+    /// Adds the SQL sugger.
     /// </summary>
     /// <param name="services">The services.</param>
     /// <param name="configuration">The configuration.</param>

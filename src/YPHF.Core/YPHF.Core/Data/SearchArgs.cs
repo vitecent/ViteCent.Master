@@ -15,48 +15,48 @@ using YPHF.Core.Enums;
 namespace YPHF.Core.Data;
 
 /// <summary>
-///     Class SearchArgs. Implements the <see cref="YPHF.Core.Data.BaseArgs" />
+/// Class SearchArgs. Implements the <see cref="YPHF.Core.Data.BaseArgs" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Data.BaseArgs" />
 public class SearchArgs : BaseArgs
 {
     /// <summary>
-    ///     The index
+    /// The index
     /// </summary>
     private int index = 1;
 
     /// <summary>
-    ///     Gets or sets
+    /// Gets or sets
     /// </summary>
     /// <value></value>
     public List<SearchItem> Args { get; set; } = [];
 
     /// <summary>
-    ///     Gets or sets the limit.
+    /// Gets or sets the limit.
     /// </summary>
     /// <value>The limit.</value>
     public int Limit { get; set; } = default!;
 
     /// <summary>
-    ///     Gets or sets the offset.
+    /// Gets or sets the offset.
     /// </summary>
     /// <value>The offset.</value>
     public int Offset { get; set; } = default!;
 
     /// <summary>
-    ///     Gets or sets the order.
+    /// Gets or sets the order.
     /// </summary>
     /// <value>The order.</value>
     public List<OrderField> Order { get; set; } = [];
 
     /// <summary>
-    ///     Gets or sets the total.
+    /// Gets or sets the total.
     /// </summary>
     /// <value>The total.</value>
     public int Total { get; set; } = default!;
 
     /// <summary>
-    ///     Converts to sql.
+    /// Converts to sql.
     /// </summary>
     /// <returns>(string, object).</returns>
     public (string, object) ToSQL()
@@ -160,7 +160,7 @@ public class SearchArgs : BaseArgs
     }
 
     /// <summary>
-    ///     Converts to sql.
+    /// Converts to sql.
     /// </summary>
     /// <param name="item">The item.</param>
     /// <param name="parameters">The parameters.</param>
@@ -270,7 +270,7 @@ public class SearchArgs : BaseArgs
                 else if (item.Method == SearchEnum.LikeRight)
                     parameters.Add($"{item.Field}{index}", $"{item.Value}%");
                 else
-                    parameters.Add($"{item.Field}{index}", item.Value ?? "");
+                    parameters.Add($"{item.Field}{index}", item.Value ?? default!);
                 index++;
             }
         }

@@ -7,6 +7,7 @@
 
 #region
 
+using log4net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -14,7 +15,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-
 using System.IO.Compression;
 using YPHF.Core.Data;
 using YPHF.Core.Logging.Log4Net;
@@ -25,13 +25,27 @@ using YPHF.Core.Web.Filter;
 namespace YPHF.Core.Web;
 
 /// <summary>
+/// 微服务基类，提供启动、配置、构建和停止的抽象方法
 /// </summary>
 public abstract class MicroService
 {
+    private readonly ILog logger;
+
     /// <summary>
+    ///
     /// </summary>
-    /// <param name="args"></param>
-    /// <returns></returns>
+    protected MicroService()
+    {
+        logger = BaseLogger.GetLogger();
+
+        logger.Info("开始初始化微服务");
+    }
+
+    /// <summary>
+    /// 运行微服务
+    /// </summary>
+    /// <param name="args">启动参数</param>
+    /// <returns>异步任务</returns>
     public virtual async Task RunAsync(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -42,7 +56,11 @@ public abstract class MicroService
 
         //Builder
         var services = builder.Services;
+
         services.AddLog4Net();
+
+        services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+        BaseHttpContext.Services = services;
 
         services.AddResponseCompression();
         services.Configure<GzipCompressionProviderOptions>(options => { options.Level = CompressionLevel.Fastest; });
@@ -57,9 +75,6 @@ public abstract class MicroService
             }).AddDapr();
 
         await BuildAsync(builder);
-
-        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        BaseHttpContext.Services = services;
 
         //App
         var app = builder.Build();
@@ -85,37 +100,45 @@ public abstract class MicroService
     }
 
     /// <summary>
+    /// 构建微服务
     /// </summary>
-    /// <param name="builder"></param>
-    /// <returns></returns>
+    /// <param name="builder">Web 应用程序构建器</param>
+    /// <returns>异步任务</returns>
     protected virtual async Task BuildAsync(WebApplicationBuilder builder)
     {
+        logger.Info("开始构建微服务");
         await Task.CompletedTask;
     }
 
     /// <summary>
+    /// 配置微服务
     /// </summary>
-    /// <param name="configuration"></param>
-    /// <returns></returns>
+    /// <param name="configuration">配置对象</param>
+    /// <returns>异步任务</returns>
     protected virtual async Task ConfigAsync(IConfiguration configuration)
     {
+        logger.Info("开始配置微服务");
         await Task.CompletedTask;
     }
 
     /// <summary>
+    /// 启动微服务
     /// </summary>
-    /// <param name="app"></param>
-    /// <returns></returns>
+    /// <param name="app">Web 应用程序</param>
+    /// <returns>异步任务</returns>
     protected virtual async Task StartAsync(WebApplication app)
     {
+        logger.Info("开始启动微服务");
         await Task.CompletedTask;
     }
 
     /// <summary>
+    /// 停止微服务
     /// </summary>
-    /// <returns></returns>
+    /// <returns>异步任务</returns>
     protected virtual async Task StopAsync()
     {
+        logger.Info("开始停止微服务");
         await Task.CompletedTask;
     }
 }

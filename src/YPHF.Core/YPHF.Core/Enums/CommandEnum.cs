@@ -8,22 +8,22 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum CommandEnum
+/// Enum CommandEnum
 /// </summary>
 public enum CommandEnum
 {
     /// <summary>
-    ///     The insert
+    /// The insert
     /// </summary>
     Insert = 1,
 
     /// <summary>
-    ///     The update
+    /// The update
     /// </summary>
     Update = 2,
 
     /// <summary>
-    ///     The delete
+    /// The delete
     /// </summary>
     Delete = 3
 }

@@ -8,12 +8,12 @@
 namespace YPHF.Core.Cache;
 
 /// <summary>
-///     Interface ILock
+/// Interface ILock
 /// </summary>
 public interface IBaseLock
 {
     /// <summary>
-    ///     Locks the specified key.
+    /// Locks the specified key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="time">The time.</param>
@@ -21,7 +21,7 @@ public interface IBaseLock
     bool Lock(string key, TimeSpan time);
 
     /// <summary>
-    ///     Releases this instance.
+    /// Releases this instance.
     /// </summary>
     void Release();
 }

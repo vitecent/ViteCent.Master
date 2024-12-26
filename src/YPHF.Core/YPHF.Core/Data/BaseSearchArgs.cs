@@ -14,12 +14,12 @@ using YPHF.Core.Enums;
 namespace YPHF.Core.Data;
 
 /// <summary>
-///     Class SearchArgsExtensions.
+/// Class SearchArgsExtensions.
 /// </summary>
 public static class BaseSearchArgs
 {
     /// <summary>
-    ///     Adds
+    /// Adds
     /// </summary>
     /// <param name="args"></param>
     /// <param name="field">The field.</param>
@@ -41,18 +41,18 @@ public static class BaseSearchArgs
     }
 
     /// <summary>
-    ///     Adds the conmpany identifier.
+    /// Adds the conmpany identifier.
     /// </summary>
     /// <param name="args"></param>
     /// <param name="user">The user.</param>
     /// <param name="field">The field.</param>
     public static void AddConmpanyId(this SearchArgs args, BaseUserInfo user, string field = "CompanyId")
     {
-        if (user.IsSuperAdmin == (int)YesNoEnum.No) args.AddArgs(field, user?.Company?.Id ?? "");
+        if (user.IsSuperAdmin == (int)YesNoEnum.No) args.AddArgs(field, user?.Company?.Id ?? default!);
     }
 
     /// <summary>
-    ///     Adds the order.
+    /// Adds the order.
     /// </summary>
     /// <param name="args"></param>
     /// <param name="field">The field.</param>
@@ -69,7 +69,7 @@ public static class BaseSearchArgs
     }
 
     /// <summary>
-    ///     Check arguments company identifier as an asynchronous operation.
+    /// Check arguments company identifier as an asynchronous operation.
     /// </summary>
     /// <param name="companyId">The company identifier.</param>
     /// <param name="user">The user.</param>

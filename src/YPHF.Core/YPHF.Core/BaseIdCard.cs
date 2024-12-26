@@ -8,12 +8,12 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     Class IdCardHelper.
+/// Class IdCardHelper.
 /// </summary>
 public static class IdCardHelper
 {
     /// <summary>
-    ///     Gets the identifier card birthday.
+    /// Gets the identifier card birthday.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -30,7 +30,7 @@ public static class IdCardHelper
     }
 
     /// <summary>
-    ///     Gets the identifier card birthday15.
+    /// Gets the identifier card birthday15.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -40,7 +40,7 @@ public static class IdCardHelper
     }
 
     /// <summary>
-    ///     Gets the identifier card birthday18.
+    /// Gets the identifier card birthday18.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -50,7 +50,7 @@ public static class IdCardHelper
     }
 
     /// <summary>
-    ///     Determines whether [is identifier card] [the specified string].
+    /// Determines whether [is identifier card] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if [is identifier card] [the specified string]; otherwise, <c>false</c>.</returns>
@@ -66,11 +66,11 @@ public static class IdCardHelper
     }
 
     /// <summary>
-    ///     Determines whether [is identifier card15] [the specified string].
+    /// Determines whether [is identifier card15] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is identifier card15] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is identifier card15] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsIdCard15(this string str)
     {
@@ -90,11 +90,11 @@ public static class IdCardHelper
     }
 
     /// <summary>
-    ///     Determines whether [is identifier card18] [the specified string].
+    /// Determines whether [is identifier card18] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is identifier card18] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is identifier card18] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsIdCard18(this string str)
     {

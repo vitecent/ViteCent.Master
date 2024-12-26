@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class RSAHelper.
+/// Class RSAHelper.
 /// </summary>
 public static class RSAHelper
 {
     /// <summary>
-    ///     Decrypts the RSA.
+    /// Decrypts the RSA.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -31,7 +31,7 @@ public static class RSAHelper
     }
 
     /// <summary>
-    ///     Decrypts the RSA.
+    /// Decrypts the RSA.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -49,7 +49,7 @@ public static class RSAHelper
     }
 
     /// <summary>
-    ///     Encrypts the RSA.
+    /// Encrypts the RSA.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -60,7 +60,7 @@ public static class RSAHelper
     }
 
     /// <summary>
-    ///     Encrypts the RSA.
+    /// Encrypts the RSA.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>

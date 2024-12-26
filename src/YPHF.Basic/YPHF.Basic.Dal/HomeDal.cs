@@ -22,5 +22,5 @@ public class HomeDal : BaseDal<HomeModel>, IHomeDal
 {
     /// <summary>
     /// </summary>
-    public override string DataBaseName => "XBNET-OMS";
+    public override string DataBaseName => "YPHF";
 }

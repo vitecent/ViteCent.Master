@@ -8,7 +8,7 @@
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class BaseModel. Implements the <see cref="YPHF.Core.Orm.IBaseModel" />
+/// Class BaseModel. Implements the <see cref="YPHF.Core.Orm.IBaseModel" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Orm.IBaseModel" />
 [Serializable]

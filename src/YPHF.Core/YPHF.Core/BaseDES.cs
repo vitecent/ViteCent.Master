@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class DESHelper.
+/// Class DESHelper.
 /// </summary>
 public static class DESHelper
 {
     /// <summary>
-    ///     Decrypts the DES.
+    /// Decrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -31,7 +31,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Decrypts the DES.
+    /// Decrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -43,7 +43,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Decrypts the DES.
+    /// Decrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -56,7 +56,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Decrypts the DES.
+    /// Decrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -84,7 +84,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Encrypts the DES.
+    /// Encrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -95,7 +95,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Encrypts the DES.
+    /// Encrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -107,7 +107,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Encrypts the DES.
+    /// Encrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>
@@ -120,7 +120,7 @@ public static class DESHelper
     }
 
     /// <summary>
-    ///     Encrypts the DES.
+    /// Encrypts the DES.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="key">The key.</param>

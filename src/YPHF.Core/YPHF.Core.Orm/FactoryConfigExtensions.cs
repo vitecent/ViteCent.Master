@@ -8,28 +8,29 @@
 #region
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 #endregion
 
 namespace YPHF.Core.Orm;
 
 /// <summary>
-///     Class FactoryConfigExtensions.
+/// Class FactoryConfigExtensions.
 /// </summary>
 public class FactoryConfigExtensions
 {
     /// <summary>
-    ///     The configs
+    /// The configs
     /// </summary>
     private static readonly List<FactoryConfig> configs = [];
 
     /// <summary>
-    ///     The key
+    /// The key
     /// </summary>
     private static readonly object key = new();
 
     /// <summary>
-    ///     Gets the configuration.
+    /// Gets the configuration.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>FactoryConfig.</returns>
@@ -47,7 +48,7 @@ public class FactoryConfigExtensions
     }
 
     /// <summary>
-    ///     Sets the configuration.
+    /// Sets the configuration.
     /// </summary>
     /// <param name="configuration">The configuration.</param>
     /// <exception cref="System.Exception">DataBase</exception>
@@ -57,6 +58,8 @@ public class FactoryConfigExtensions
     /// <exception cref="System.Exception">DataBase.Slaves</exception>
     public static void SetConfig(IConfiguration configuration)
     {
+        var logger = BaseLogger.GetLogger();
+
         var dataBase = configuration.GetSection("DataBase");
 
         if (dataBase == null) throw new Exception("Appsettings Must Be DataBase");
@@ -67,13 +70,19 @@ public class FactoryConfigExtensions
         {
             var name = configuration[$"DataBase:{i}:Name"];
 
+            logger.Info($"DataBase Name {i} ：{name}");
+
             if (string.IsNullOrWhiteSpace(name)) throw new Exception("DataBase.Name");
 
             var type = configuration[$"DataBase:{i}:Type"];
 
+            logger.Info($"DataBase Type {i} ：{type}");
+
             if (string.IsNullOrWhiteSpace(type)) throw new Exception("DataBase.Type");
 
             var master = configuration[$"DataBase:{i}:Master"];
+
+            logger.Info($"DataBase Master {i} ：{master}");
 
             if (string.IsNullOrWhiteSpace(master)) throw new Exception("DataBase.Master");
 
@@ -94,6 +103,8 @@ public class FactoryConfigExtensions
                 for (var j = 0; j < slaveCount; j++)
                 {
                     var value = configuration[$"DataBase:{i}:Slaves:{j}"];
+
+                    logger.Info($"DataBase Slaves {i} ：{value}");
 
                     if (string.IsNullOrWhiteSpace(value)) throw new Exception("DataBase.Slaves");
 

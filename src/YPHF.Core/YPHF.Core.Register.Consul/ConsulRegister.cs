@@ -15,25 +15,24 @@ using YPHF.Core.Cache;
 namespace YPHF.Core.Register.Consul;
 
 /// <summary>
-///     Class ConsulRegister. Implements the <see cref="YPHF.Core.Register.IRegister" />
+/// Class ConsulRegister. Implements the <see cref="YPHF.Core.Register.IRegister" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Register.IRegister" />
 /// <param name="uri"></param>
-/// <param name="cahce"></param>
-public class ConsulRegister(string uri, IBaseCache cahce) : IRegister
+public class ConsulRegister(string uri) : IRegister
 {
     /// <summary>
-    ///     The key
+    /// The key
     /// </summary>
     private static readonly object key = new();
 
     /// <summary>
-    ///     The client
+    /// The client
     /// </summary>
     private readonly ConsulClient client = new(x => { x.Address = new Uri(uri); });
 
     /// <summary>
-    ///     Deregisters the asynchronous.
+    /// Deregisters the asynchronous.
     /// </summary>
     /// <param name="serviceId">The service identifier.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>
@@ -43,65 +42,51 @@ public class ConsulRegister(string uri, IBaseCache cahce) : IRegister
     }
 
     /// <summary>
-    ///     Discovers the asynchronous.
+    /// Discovers the asynchronous.
     /// </summary>
     /// <returns>A Task&lt;Dictionary`2&gt; representing the asynchronous operation.</returns>
     public async Task<Dictionary<string, List<ServiceConfig>>> DiscoverAsync()
     {
-        return await Task.Run(() =>
+        var result = new Dictionary<string, List<ServiceConfig>>();
+
+        var services = await client.Agent.Services();
+
+        foreach (var service in services.Response)
         {
-            var result = new Dictionary<string, List<ServiceConfig>>();
+            var item = service.Value;
 
-            var cacheService = cahce.GetString<Dictionary<string, List<ServiceConfig>>>("CacheService");
-
-            if (cacheService == null)
-                lock (key)
+            if (result.TryGetValue(item.Service.ToLower(), out var list))
+            {
+                list.Add(new ServiceConfig
                 {
-                    if (cacheService == null)
+                    Id = service.Key,
+                    Name = item.Service,
+                    Address = item.Address,
+                    Port = item.Port
+                });
+            }
+            else
+            {
+                list =
+                [
+                    new ServiceConfig
                     {
-                        var services = client.Agent.Services().Result;
-
-                        foreach (var service in services.Response)
-                        {
-                            var item = service.Value;
-
-                            if (result.TryGetValue(item.Service.ToLower(), out var list))
-                            {
-                                list.Add(new ServiceConfig
-                                {
-                                    Id = service.Key,
-                                    Name = item.Service,
-                                    Address = item.Address,
-                                    Port = item.Port
-                                });
-                            }
-                            else
-                            {
-                                list =
-                                [
-                                    new ServiceConfig
-                                    {
-                                        Id = service.Key,
-                                        Name = item.Service,
-                                        Address = item.Address,
-                                        Port = item.Port
-                                    }
-                                ];
-
-                                result.Add(item.Service.ToLower(), list);
-                            }
-                        }
-
-                        cahce.SetString("CacheService", result, TimeSpan.FromSeconds(15));
+                        Id = service.Key,
+                        Name = item.Service,
+                        Address = item.Address,
+                        Port = item.Port
                     }
-                }
+                ];
 
-            return result;
-        });
+                result.Add(item.Service.ToLower(), list);
+            }
+        }
+
+        return result;
     }
 
     /// <summary>
-    ///     Register as an asynchronous operation.
+    /// Register as an asynchronous operation.
     /// </summary>
     /// <param name="microService">The micro service.</param>
     /// <returns>A Task representing the asynchronous operation.</returns>

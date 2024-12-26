@@ -17,25 +17,25 @@ using YPHF.Core.Enums;
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class SqlSugarFactory. Implements the <see cref="YPHF.Core.Orm.IFactory" /> Implements the
-///     <see cref="System.IDisposable" />
+/// Class SqlSugarFactory. Implements the <see cref="YPHF.Core.Orm.IFactory" /> Implements the
+/// <see cref="System.IDisposable" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Orm.IFactory" />
 /// <seealso cref="System.IDisposable" />
 public class SqlSugarFactory : IFactory, IDisposable
 {
     /// <summary>
-    ///     The client
+    /// The client
     /// </summary>
     private readonly SqlSugarClient client = default!;
 
     /// <summary>
-    ///     The commands
+    /// The commands
     /// </summary>
     private readonly List<Command> commands = [];
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="SqlSugarFactory" /> class.
+    /// Initializes a new instance of the <see cref="SqlSugarFactory" /> class.
     /// </summary>
     /// <param name="dataBase">The DataBase.</param>
     /// <param name="log">if set to <c>true</c> [log].</param>
@@ -76,14 +76,14 @@ public class SqlSugarFactory : IFactory, IDisposable
                                                              p.DbType == System.Data.DbType.VarNumeric)
                         text = text.Replace(p.ParameterName, p.Value == null ? "" : p.Value.ToString());
                     else
-                        text = text.Replace(p.ParameterName, $"'{p.Value ?? ""}'");
+                        text = text.Replace(p.ParameterName, $"'{p.Value ?? default!}'");
 
                 var sql = $"Time: {client.Ado.SqlExecutionTime.TotalMilliseconds} ms, SQL:{text}";
             };
     }
 
     /// <summary>
-    ///     Commits the asynchronous.
+    /// Commits the asynchronous.
     /// </summary>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
     public async Task<BaseResult> CommitAsync()
@@ -139,7 +139,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Deletes the specified where.
+    /// Deletes the specified where.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="where">The where.</param>
@@ -149,7 +149,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Deletes the specified model.
+    /// Deletes the specified model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="model">The model.</param>
@@ -159,7 +159,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Deletes the specified models.
+    /// Deletes the specified models.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="models">The models.</param>
@@ -169,7 +169,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Deletes the specified SQL.
+    /// Deletes the specified SQL.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="sql">The SQL.</param>
@@ -181,8 +181,8 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Performs application-defined tasks associated with freeing, releasing, or resetting
-    ///     unmanaged resources.
+    /// Performs application-defined tasks associated with freeing, releasing, or resetting
+    /// unmanaged resources.
     /// </summary>
     public void Dispose()
     {
@@ -190,7 +190,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Fastests this instance.
+    /// Fastests this instance.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns>IFastest&lt;T&gt;.</returns>
@@ -200,7 +200,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Inserts the specified model.
+    /// Inserts the specified model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="model">The model.</param>
@@ -210,7 +210,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Inserts the specified models.
+    /// Inserts the specified models.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="models">The models.</param>
@@ -220,7 +220,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Inserts the specified SQL.
+    /// Inserts the specified SQL.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="sql">The SQL.</param>
@@ -232,7 +232,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Pages the asynchronous.
+    /// Pages the asynchronous.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="args"></param>
@@ -260,7 +260,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Queries this instance.
+    /// Queries this instance.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns>ISugarQueryable&lt;T&gt;.</returns>
@@ -270,7 +270,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Updates the specified model.
+    /// Updates the specified model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="model">The model.</param>
@@ -280,7 +280,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Updates the specified model.
+    /// Updates the specified model.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="model">The model.</param>
@@ -292,7 +292,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Updates the specified models.
+    /// Updates the specified models.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="models">The models.</param>
@@ -302,7 +302,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Updates the specified models.
+    /// Updates the specified models.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="models">The models.</param>
@@ -314,7 +314,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Updates the specified SQL.
+    /// Updates the specified SQL.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="sql">The SQL.</param>
@@ -326,7 +326,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     }
 
     /// <summary>
-    ///     Gets the type of the DataBase.
+    /// Gets the type of the DataBase.
     /// </summary>
     /// <param name="type">The type.</param>
     /// <returns>DbType.</returns>

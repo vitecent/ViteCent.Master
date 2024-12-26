@@ -18,7 +18,7 @@ public class KeyValue<T>
     public string Key { get; set; } = default!;
 
     /// <summary>
-    ///     Gets or sets the value.
+    /// Gets or sets the value.
     /// </summary>
     /// <value>The value.</value>
     public T Value { get; set; } = default!;

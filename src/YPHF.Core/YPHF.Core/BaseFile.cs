@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class FileExtensions.
+/// Class FileExtensions.
 /// </summary>
 public class BaseFile
 {
     /// <summary>
-    ///     Copies the specified from.
+    /// Copies the specified from.
     /// </summary>
     /// <param name="from">From.</param>
     /// <param name="to">To.</param>
@@ -38,14 +38,14 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Creates the specified path.
+    /// Creates the specified path.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns>result</returns>
     public static bool Create(string path)
     {
         var _path = path.Replace(@"\", @"/");
-        var __path = Path.GetDirectoryName(path) ?? "";
+        var __path = Path.GetDirectoryName(path) ?? default!;
 
         if (!Directory.Exists(__path)) Directory.CreateDirectory(__path);
 
@@ -55,7 +55,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Cuts the specified from.
+    /// Cuts the specified from.
     /// </summary>
     /// <param name="from">From.</param>
     /// <param name="to">To.</param>
@@ -68,7 +68,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Deletes the specified path.
+    /// Deletes the specified path.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns>result</returns>
@@ -78,7 +78,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Deletes the specified path.
+    /// Deletes the specified path.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <param name="times">The times.</param>
@@ -91,7 +91,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Gets the file byte.
+    /// Gets the file byte.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns>System.Byte[].</returns>
@@ -101,7 +101,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Gets the file stream.
+    /// Gets the file stream.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns>Stream.</returns>
@@ -111,7 +111,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Opens the specified path.
+    /// Opens the specified path.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <returns>System.String.</returns>
@@ -121,7 +121,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Opens the specified path.
+    /// Opens the specified path.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <param name="encoding">The encoding.</param>
@@ -139,7 +139,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Writes the specified string.
+    /// Writes the specified string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="path">The path.</param>
@@ -154,7 +154,7 @@ public class BaseFile
     }
 
     /// <summary>
-    ///     Deletes the method.
+    /// Deletes the method.
     /// </summary>
     /// <param name="path">The path.</param>
     /// <param name="times">The times.</param>

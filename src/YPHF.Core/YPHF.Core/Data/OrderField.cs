@@ -14,18 +14,18 @@ using YPHF.Core.Enums;
 namespace YPHF.Core.Data;
 
 /// <summary>
-///     Class OrderField.
+/// Class OrderField.
 /// </summary>
 public class OrderField
 {
     /// <summary>
-    ///     Gets or sets the field.
+    /// Gets or sets the field.
     /// </summary>
     /// <value>The field.</value>
     public string Field { get; set; } = default!;
 
     /// <summary>
-    ///     Gets or sets the type of the order.
+    /// Gets or sets the type of the order.
     /// </summary>
     /// <value>The type of the order.</value>
     public OrderEnum OrderType { get; set; } = OrderEnum.Desc;

@@ -16,7 +16,7 @@ using YPHF.Core.Web.Api;
 namespace YPHF.Files.Service.FileApi;
 
 /// <summary>
-///     文件上传
+/// 文件上传
 /// </summary>
 /// <param name="configuration"></param>
 [ApiController]

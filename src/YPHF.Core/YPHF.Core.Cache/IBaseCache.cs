@@ -8,19 +8,19 @@
 namespace YPHF.Core.Cache;
 
 /// <summary>
-///     Interface ICache
+/// Interface ICache
 /// </summary>
 public interface IBaseCache
 {
     /// <summary>
-    ///     Deletes the key.
+    /// Deletes the key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
     bool DeleteKey(string key);
 
     /// <summary>
-    ///     Gets the hash.
+    /// Gets the hash.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -29,7 +29,7 @@ public interface IBaseCache
     T GetHash<T>(string key, string field);
 
     /// <summary>
-    ///     Gets the list.
+    /// Gets the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -38,7 +38,7 @@ public interface IBaseCache
     T GetList<T>(string key, int index);
 
     /// <summary>
-    ///     Gets the list.
+    /// Gets the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -48,7 +48,7 @@ public interface IBaseCache
     List<T> GetList<T>(string key, int start, int end);
 
     /// <summary>
-    ///     Gets the sorted set.
+    /// Gets the sorted set.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -58,7 +58,7 @@ public interface IBaseCache
     List<T> GetSortedSet<T>(string key, long start = 0, long stop = int.MaxValue);
 
     /// <summary>
-    ///     Gets the string.
+    /// Gets the string.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -66,7 +66,7 @@ public interface IBaseCache
     T GetString<T>(string key);
 
     /// <summary>
-    ///     Determines whether the specified key has hash.
+    /// Determines whether the specified key has hash.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="Field">The field.</param>
@@ -74,21 +74,21 @@ public interface IBaseCache
     bool HasHash(string key, string Field);
 
     /// <summary>
-    ///     Determines whether the specified key has key.
+    /// Determines whether the specified key has key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns><c>true</c> if the specified key has key; otherwise, <c>false</c>.</returns>
     bool HasKey(string key);
 
     /// <summary>
-    ///     Lefts the remove list.
+    /// Lefts the remove list.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
     bool LeftRemoveList(string key);
 
     /// <summary>
-    ///     Lefts the set list.
+    /// Lefts the set list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -97,7 +97,7 @@ public interface IBaseCache
     bool LeftSetList<T>(string key, T value);
 
     /// <summary>
-    ///     Removes the hash.
+    /// Removes the hash.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="field">The field.</param>
@@ -105,7 +105,7 @@ public interface IBaseCache
     bool RemoveHash(string key, string field);
 
     /// <summary>
-    ///     Removes the list.
+    /// Removes the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -114,7 +114,7 @@ public interface IBaseCache
     bool RemoveList<T>(string key, T value);
 
     /// <summary>
-    ///     Res the name key.
+    /// Res the name key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="newKey">The new key.</param>
@@ -122,14 +122,14 @@ public interface IBaseCache
     bool ReNameKey(string key, string newKey);
 
     /// <summary>
-    ///     Rights the remove list.
+    /// Rights the remove list.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
     bool RightRemoveList(string key);
 
     /// <summary>
-    ///     Rights the set list.
+    /// Rights the set list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -138,7 +138,7 @@ public interface IBaseCache
     bool RightSetList<T>(string key, T value);
 
     /// <summary>
-    ///     Sets the hash.
+    /// Sets the hash.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -148,7 +148,7 @@ public interface IBaseCache
     bool SetHash<T>(string key, string field, T value);
 
     /// <summary>
-    ///     Sets the key expire.
+    /// Sets the key expire.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="expireTime">The expire time.</param>
@@ -156,7 +156,7 @@ public interface IBaseCache
     bool SetKeyExpire(string key, TimeSpan expireTime);
 
     /// <summary>
-    ///     Sets the sorted set.
+    /// Sets the sorted set.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -165,7 +165,7 @@ public interface IBaseCache
     void SetSortedSet<T>(string key, T value, double score);
 
     /// <summary>
-    ///     Sets the string.
+    /// Sets the string.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>

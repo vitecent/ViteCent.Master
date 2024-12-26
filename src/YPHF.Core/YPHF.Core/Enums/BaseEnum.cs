@@ -14,12 +14,12 @@ using System.ComponentModel;
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     EnumHelper
+/// EnumHelper
 /// </summary>
 public static class BaseEnum
 {
     /// <summary>
-    ///     Gets the description.
+    /// Gets the description.
     /// </summary>
     /// <param name="enums">The enums.</param>
     /// <returns>System.String.</returns>
@@ -40,7 +40,7 @@ public static class BaseEnum
     }
 
     /// <summary>
-    ///     Gets the description by value.
+    /// Gets the description by value.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="value">The value.</param>

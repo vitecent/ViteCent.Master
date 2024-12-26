@@ -34,7 +34,7 @@ public class Program
                 builder.UseAutoMapper(typeof(AutoMapperConfig));
                 builder.UseAutoFac(new AutoFacConfig());
             },
-            OnSatrt = app => { app.UseGateway(); }
+            OnStart = app => { app.UseGateway(); }
         };
 
         await microService.RunAsync(args);

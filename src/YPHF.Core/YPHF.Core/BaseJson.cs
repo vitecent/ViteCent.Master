@@ -14,12 +14,12 @@ using System.Text.Json;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class JsonExtensions.
+/// Class JsonExtensions.
 /// </summary>
 public static class BaseJson
 {
     /// <summary>
-    ///     Des the json.
+    /// Des the json.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="json">The json.</param>
@@ -30,13 +30,13 @@ public static class BaseJson
     {
         if (string.IsNullOrEmpty(json)) throw new Exception("json 不能为空");
 
-        var result = JsonSerializer.Deserialize<T>(json);
+        var result = JsonSerializer.Deserialize<T>(json, JsonSerializerOptions.Web);
 
         return result ?? default!;
     }
 
     /// <summary>
-    ///     Converts to json.
+    /// Converts to json.
     /// </summary>
     /// <param name="obj">The object.</param>
     /// <returns>System.String.</returns>

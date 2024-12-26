@@ -8,12 +8,12 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     Class Base64Extensions.
+/// Class Base64Extensions.
 /// </summary>
 public static class Base64
 {
     /// <summary>
-    ///     Decrypts the base64.
+    /// Decrypts the base64.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.Byte[].</returns>
@@ -23,7 +23,7 @@ public static class Base64
     }
 
     /// <summary>
-    ///     Encrypts the base64.
+    /// Encrypts the base64.
     /// </summary>
     /// <param name="buffer">The buffer.</param>
     /// <returns>System.String.</returns>

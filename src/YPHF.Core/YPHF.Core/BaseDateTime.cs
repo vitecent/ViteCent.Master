@@ -8,17 +8,17 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     Class DateTimeHelper.
+/// Class DateTimeHelper.
 /// </summary>
 public static class DateTimeHelper
 {
     /// <summary>
-    ///     The mindate
+    /// The mindate
     /// </summary>
     private static readonly DateTime mindate = Convert.ToDateTime("1970/01/01 00:00:00");
 
     /// <summary>
-    ///     Froms the unix.
+    /// Froms the unix.
     /// </summary>
     /// <param name="unix">The unix.</param>
     /// <returns>DateTime.</returns>
@@ -37,7 +37,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Gets the date time.
+    /// Gets the date time.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="defaultValue">The default value.</param>
@@ -48,7 +48,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to dayend.
+    /// Converts to dayend.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>
@@ -58,7 +58,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to daystart.
+    /// Converts to daystart.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>
@@ -68,7 +68,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to monthend.
+    /// Converts to monthend.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>
@@ -82,7 +82,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to monthstart.
+    /// Converts to monthstart.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>
@@ -92,7 +92,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to unix.
+    /// Converts to unix.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>System.Double.</returns>
@@ -102,7 +102,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to yearend.
+    /// Converts to yearend.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>
@@ -112,7 +112,7 @@ public static class DateTimeHelper
     }
 
     /// <summary>
-    ///     Converts to yearstart.
+    /// Converts to yearstart.
     /// </summary>
     /// <param name="time">The time.</param>
     /// <returns>DateTime.</returns>

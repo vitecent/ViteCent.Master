@@ -8,22 +8,22 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum IdentifyEnum
+/// Enum IdentifyEnum
 /// </summary>
 public enum IdentifyEnum
 {
     /// <summary>
-    ///     The day
+    /// The day
     /// </summary>
     Day = 1,
 
     /// <summary>
-    ///     The month
+    /// The month
     /// </summary>
     Month = 2,
 
     /// <summary>
-    ///     The year
+    /// The year
     /// </summary>
     Year = 4
 }

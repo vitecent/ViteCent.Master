@@ -8,13 +8,13 @@
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class SqlSugarDataBase. Implements the <see cref="YPHF.Core.Orm.BaseDataBase" />
+/// Class SqlSugarDataBase. Implements the <see cref="YPHF.Core.Orm.BaseDataBase" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Orm.BaseDataBase" />
 public class SqlSugarDataBase : BaseDataBase
 {
     /// <summary>
-    ///     Gets or sets the tables.
+    /// Gets or sets the tables.
     /// </summary>
     /// <value>The tables.</value>
     public List<SqlSugarTable> Tables { get; set; } = default!;

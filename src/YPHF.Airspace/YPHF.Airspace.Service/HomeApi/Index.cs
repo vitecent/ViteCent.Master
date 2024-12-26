@@ -18,15 +18,17 @@ using YPHF.Core.Web.Api;
 namespace YPHF.Airspace.Service.HomeApi;
 
 /// <summary>
+/// Home API 控制器
 /// </summary>
 [ApiController]
 [Route("Home")]
 public class Index(IHomeBll bll) : BaseApi<HomeArgs, PageResult<HomeResult>>
 {
     /// <summary>
+    /// 处理首页请求
     /// </summary>
-    /// <param name="args"></param>
-    /// <returns></returns>
+    /// <param name="args">请求参数</param>
+    /// <returns>分页结果</returns>
     [HttpPost]
     [Route("Index")]
     public override async Task<PageResult<HomeResult>> InvokeAsync([FromBody] HomeArgs args)

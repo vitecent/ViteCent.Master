@@ -8,17 +8,17 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum OrderEnum
+/// Enum OrderEnum
 /// </summary>
 public enum OrderEnum
 {
     /// <summary>
-    ///     The asc
+    /// The asc
     /// </summary>
     Asc = 1,
 
     /// <summary>
-    ///     The desc
+    /// The desc
     /// </summary>
     Desc = 2
 }

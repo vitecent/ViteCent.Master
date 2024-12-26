@@ -15,27 +15,27 @@ using YPHF.Core.Data;
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class BaseBll. Implements the <see cref="YPHF.Core.Orm.IBaseBll{T}" />
+/// Class BaseBll. Implements the <see cref="YPHF.Core.Orm.IBaseBll{T}" />
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <seealso cref="YPHF.Core.Orm.IBaseBll{T}" />
 public abstract class BaseBll<T> : IBaseBll<T> where T : IBaseModel, new()
 {
     /// <summary>
-    ///     Initializes a new instance of the <see cref="BaseBll{T}" /> class.
+    /// Initializes a new instance of the <see cref="BaseBll{T}" /> class.
     /// </summary>
     protected BaseBll()
     {
     }
 
     /// <summary>
-    ///     Gets the dal.
+    /// Gets the dal.
     /// </summary>
     /// <value>The dal.</value>
     public abstract IBaseDal<T> DAL { get; }
 
     /// <summary>
-    ///     Adds the asynchronous.
+    /// Adds the asynchronous.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
@@ -45,7 +45,7 @@ public abstract class BaseBll<T> : IBaseBll<T> where T : IBaseModel, new()
     }
 
     /// <summary>
-    ///     Edits the asynchronous.
+    /// Edits the asynchronous.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
@@ -55,7 +55,7 @@ public abstract class BaseBll<T> : IBaseBll<T> where T : IBaseModel, new()
     }
 
     /// <summary>
-    ///     Gets the asynchronous.
+    /// Gets the asynchronous.
     /// </summary>
     /// <param name="where">The where.</param>
     /// <returns>A Task&lt;T&gt; representing the asynchronous operation.</returns>
@@ -65,7 +65,7 @@ public abstract class BaseBll<T> : IBaseBll<T> where T : IBaseModel, new()
     }
 
     /// <summary>
-    ///     Page as an asynchronous operation.
+    /// Page as an asynchronous operation.
     /// </summary>
     /// <param name="args"></param>
     /// <returns>A Task&lt;List`1&gt; representing the asynchronous operation.</returns>

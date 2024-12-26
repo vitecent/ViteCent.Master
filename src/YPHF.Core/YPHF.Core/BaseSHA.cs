@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class SHAExtensions.
+/// Class SHAExtensions.
 /// </summary>
 public static class BaseSHA
 {
     /// <summary>
-    ///     Encrypts the sha.
+    /// Encrypts the sha.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -30,7 +30,7 @@ public static class BaseSHA
     }
 
     /// <summary>
-    ///     Encrypts the sha.
+    /// Encrypts the sha.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding.</param>

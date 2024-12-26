@@ -8,17 +8,17 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum YesNoEnum
+/// Enum YesNoEnum
 /// </summary>
 public enum YesNoEnum
 {
     /// <summary>
-    ///     The yes
+    /// The yes
     /// </summary>
     Yes = 1,
 
     /// <summary>
-    ///     The no
+    /// The no
     /// </summary>
     No = 2
 }

@@ -15,20 +15,23 @@ using Microsoft.Extensions.DependencyInjection;
 namespace YPHF.Core.Cache.Redis;
 
 /// <summary>
-///     Class RedisExtensions.
+/// Redis扩展类。
 /// </summary>
 public static class RedisExtensions
 {
     /// <summary>
-    ///     Adds the redis.
+    /// 添加Redis缓存服务。
     /// </summary>
-    /// <param name="services">The services.</param>
-    /// <param name="configuration">The configuration.</param>
-    /// <returns>IServiceCollection.</returns>
-    /// <exception cref="System.Exception">Cache</exception>
+    /// <param name="services">服务集合。</param>
+    /// <param name="configuration">配置。</param>
+    /// <returns>服务集合。</returns>
+    /// <exception cref="System.Exception">当缓存配置为空时抛出异常。</exception>
     public static IServiceCollection AddRedis(this IServiceCollection services, IConfiguration configuration)
     {
-        var strConn = configuration["Cache"];
+        var logger = BaseLogger.GetLogger();
+
+        var strConn = configuration["Cache"] ?? default!;
+        logger.Info($"Redis Config ：{strConn}");
 
         if (string.IsNullOrWhiteSpace(strConn)) throw new Exception("Appsettings Must Be Cache");
 

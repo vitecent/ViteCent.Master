@@ -8,22 +8,22 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum HideEnum
+/// Enum HideEnum
 /// </summary>
 public enum HideEnum
 {
     /// <summary>
-    ///     The start
+    /// The start
     /// </summary>
     Start = 1,
 
     /// <summary>
-    ///     The middle
+    /// The middle
     /// </summary>
     Middle = 2,
 
     /// <summary>
-    ///     The end
+    /// The end
     /// </summary>
     End = 3
 }

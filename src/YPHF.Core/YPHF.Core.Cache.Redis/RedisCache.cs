@@ -14,18 +14,18 @@ using StackExchange.Redis;
 namespace YPHF.Core.Cache.Redis;
 
 /// <summary>
-///     Class RedisCache. Implements the <see cref="YPHF.Core.Cache.IBaseCache" />
+/// Class RedisCache. Implements the <see cref="YPHF.Core.Cache.IBaseCache" />
 /// </summary>
 /// <seealso cref="YPHF.Core.Cache.IBaseCache" />
 public class RedisCache : IBaseCache
 {
     /// <summary>
-    ///     The DataBase
+    /// The DataBase
     /// </summary>
     private readonly IDatabase DataBase;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="RedisCache" /> class.
+    /// Initializes a new instance of the <see cref="RedisCache" /> class.
     /// </summary>
     /// <param name="configuration">The configuration.</param>
     /// <param name="db">The DataBase.</param>
@@ -36,7 +36,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Deletes the key.
+    /// Deletes the key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
@@ -46,7 +46,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the hash.
+    /// Gets the hash.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -65,7 +65,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the list.
+    /// Gets the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -84,7 +84,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the list.
+    /// Gets the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -103,7 +103,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the sorted set.
+    /// Gets the sorted set.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -116,7 +116,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the sorted set.
+    /// Gets the sorted set.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -137,7 +137,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Gets the string.
+    /// Gets the string.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -155,7 +155,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Determines whether the specified key has hash.
+    /// Determines whether the specified key has hash.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="Field">The field.</param>
@@ -166,7 +166,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Determines whether the specified key has key.
+    /// Determines whether the specified key has key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns><c>true</c> if the specified key has key; otherwise, <c>false</c>.</returns>
@@ -176,7 +176,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Lefts the remove list.
+    /// Lefts the remove list.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
@@ -186,7 +186,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Lefts the set list.
+    /// Lefts the set list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -198,7 +198,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Removes the hash.
+    /// Removes the hash.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="field">The field.</param>
@@ -209,7 +209,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Removes the list.
+    /// Removes the list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -221,7 +221,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Res the name key.
+    /// Res the name key.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="newKey">The new key.</param>
@@ -232,7 +232,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Rights the remove list.
+    /// Rights the remove list.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <returns>result</returns>
@@ -242,7 +242,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Rights the set list.
+    /// Rights the set list.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -254,7 +254,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Sets the hash.
+    /// Sets the hash.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -267,7 +267,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Sets the key expire.
+    /// Sets the key expire.
     /// </summary>
     /// <param name="key">The key.</param>
     /// <param name="expireTime">The expire time.</param>
@@ -278,7 +278,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Sets the sorted set.
+    /// Sets the sorted set.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>
@@ -290,7 +290,7 @@ public class RedisCache : IBaseCache
     }
 
     /// <summary>
-    ///     Sets the string.
+    /// Sets the string.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="key">The key.</param>

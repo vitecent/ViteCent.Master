@@ -14,12 +14,12 @@ using System.Diagnostics;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class ProcessExtensions.
+/// Class ProcessExtensions.
 /// </summary>
 public class BaseProcess
 {
     /// <summary>
-    ///     Executes the specified command.
+    /// Executes the specified command.
     /// </summary>
     /// <param name="cmd">The command.</param>
     /// <returns>System.String.</returns>
@@ -29,7 +29,7 @@ public class BaseProcess
     }
 
     /// <summary>
-    ///     Executes the specified command.
+    /// Executes the specified command.
     /// </summary>
     /// <param name="cmd">The command.</param>
     /// <param name="arguments"></param>

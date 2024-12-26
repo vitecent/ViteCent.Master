@@ -8,32 +8,32 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum OperationEnum
+/// Enum OperationEnum
 /// </summary>
 public enum OperationEnum
 {
     /// <summary>
-    ///     The add
+    /// The add
     /// </summary>
     Add = 1,
 
     /// <summary>
-    ///     The edit
+    /// The edit
     /// </summary>
     Edit = 2,
 
     /// <summary>
-    ///     The enable
+    /// The enable
     /// </summary>
     Enable = 3,
 
     /// <summary>
-    ///     The disable
+    /// The disable
     /// </summary>
     Disable = 4,
 
     /// <summary>
-    ///     The delete
+    /// The delete
     /// </summary>
     Delete = 5
 }

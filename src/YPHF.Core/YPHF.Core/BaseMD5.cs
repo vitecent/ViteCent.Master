@@ -15,12 +15,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class MD5Helper.
+/// Class MD5Helper.
 /// </summary>
 public static class MD5Helper
 {
     /// <summary>
-    ///     Encrypts the m d5.
+    /// Encrypts the m d5.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -30,7 +30,7 @@ public static class MD5Helper
     }
 
     /// <summary>
-    ///     Encrypts the m d5.
+    /// Encrypts the m d5.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="encoding">The encoding.</param>

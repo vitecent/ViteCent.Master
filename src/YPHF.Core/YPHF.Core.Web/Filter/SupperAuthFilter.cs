@@ -62,9 +62,11 @@ public class SupperAuthFilter : ActionFilterAttribute
     private static bool IsAUth(BaseUserInfo user, string system, string resource, string operation)
     {
         var _system = user.Auth.FirstOrDefault(x => x.Code == system);
+
         if (_system != null)
         {
             var _resource = _system.Resources.FirstOrDefault(x => x.Code == resource);
+
             if (_resource != null)
             {
                 var _operation = _resource.Operations.FirstOrDefault(x => x.Code == operation);

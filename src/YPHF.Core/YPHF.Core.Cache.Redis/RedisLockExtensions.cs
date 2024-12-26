@@ -15,12 +15,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace YPHF.Core.Cache.Redis;
 
 /// <summary>
-///     Class RedisLockExtensions.
+/// Class RedisLockExtensions.
 /// </summary>
 public static class RedisLockExtensions
 {
     /// <summary>
-    ///     Adds the redis lock.
+    /// Adds the redis lock.
     /// </summary>
     /// <param name="services">The services.</param>
     /// <param name="configuration">The configuration.</param>

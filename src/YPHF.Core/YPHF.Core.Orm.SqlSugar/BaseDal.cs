@@ -15,19 +15,19 @@ using YPHF.Core.Data;
 namespace YPHF.Core.Orm.SqlSugar;
 
 /// <summary>
-///     Class BaseDal. Implements the <see cref="YPHF.Core.Orm.IBaseDal{T}" />
+/// Class BaseDal. Implements the <see cref="YPHF.Core.Orm.IBaseDal{T}" />
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <seealso cref="YPHF.Core.Orm.IBaseDal{T}" />
 public abstract class BaseDal<T> : IBaseDal<T> where T : BaseModel, new()
 {
     /// <summary>
-    ///     The client
+    /// The client
     /// </summary>
     public readonly SqlSugarFactory Client;
 
     /// <summary>
-    ///     Initializes a new instance of the <see cref="BaseDal{T}" /> class.
+    /// Initializes a new instance of the <see cref="BaseDal{T}" /> class.
     /// </summary>
     public BaseDal()
     {
@@ -35,13 +35,13 @@ public abstract class BaseDal<T> : IBaseDal<T> where T : BaseModel, new()
     }
 
     /// <summary>
-    ///     Gets the DataBase.
+    /// Gets the DataBase.
     /// </summary>
     /// <value>The DataBase.</value>
     public abstract string DataBaseName { get; }
 
     /// <summary>
-    ///     Adds the asynchronous.
+    /// Adds the asynchronous.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
@@ -52,7 +52,7 @@ public abstract class BaseDal<T> : IBaseDal<T> where T : BaseModel, new()
     }
 
     /// <summary>
-    ///     Edits the asynchronous.
+    /// Edits the asynchronous.
     /// </summary>
     /// <param name="model">The model.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
@@ -63,7 +63,7 @@ public abstract class BaseDal<T> : IBaseDal<T> where T : BaseModel, new()
     }
 
     /// <summary>
-    ///     Gets the asynchronous.
+    /// Gets the asynchronous.
     /// </summary>
     /// <param name="where">The where.</param>
     /// <returns>A Task&lt;T&gt; representing the asynchronous operation.</returns>
@@ -74,7 +74,7 @@ public abstract class BaseDal<T> : IBaseDal<T> where T : BaseModel, new()
     }
 
     /// <summary>
-    ///     Page as an asynchronous operation.
+    /// Page as an asynchronous operation.
     /// </summary>
     /// <param name="args"></param>
     /// <returns>A Task&lt;List`1&gt; representing the asynchronous operation.</returns>

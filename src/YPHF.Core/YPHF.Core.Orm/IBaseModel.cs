@@ -8,7 +8,7 @@
 namespace YPHF.Core.Orm;
 
 /// <summary>
-///     Interface IBaseModel
+/// Interface IBaseModel
 /// </summary>
 public interface IBaseModel
 {

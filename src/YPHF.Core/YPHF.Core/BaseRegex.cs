@@ -15,12 +15,12 @@ using YPHF.Core.Data;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class RegexExtensions.
+/// Class RegexExtensions.
 /// </summary>
 public static partial class BaseRegex
 {
     /// <summary>
-    ///     Determines whether the specified string is chinese.
+    /// Determines whether the specified string is chinese.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is chinese; otherwise, <c>false</c>.</returns>
@@ -30,7 +30,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is chinese english] [the specified string].
+    /// Determines whether [is chinese english] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if [is chinese english] [the specified string]; otherwise, <c>false</c>.</returns>
@@ -40,11 +40,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is chinese underline] [the specified string].
+    /// Determines whether [is chinese underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is chinese underline] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is chinese underline] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsChineseUnderline(this string str)
     {
@@ -52,7 +52,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified length is decimal.
+    /// Determines whether the specified length is decimal.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
@@ -63,7 +63,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is email.
+    /// Determines whether the specified string is email.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is email; otherwise, <c>false</c>.</returns>
@@ -73,7 +73,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is english.
+    /// Determines whether the specified string is english.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is english; otherwise, <c>false</c>.</returns>
@@ -83,7 +83,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is identifier card] [the specified length].
+    /// Determines whether [is identifier card] [the specified length].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
@@ -108,7 +108,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is ip.
+    /// Determines whether the specified string is ip.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is ip; otherwise, <c>false</c>.</returns>
@@ -118,7 +118,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified regex is match.
+    /// Determines whether the specified regex is match.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="regex">The regex.</param>
@@ -129,7 +129,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is mobile.
+    /// Determines whether the specified string is mobile.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is mobile; otherwise, <c>false</c>.</returns>
@@ -139,7 +139,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is negative.
+    /// Determines whether the specified string is negative.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is negative; otherwise, <c>false</c>.</returns>
@@ -149,12 +149,12 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is negative decimal] [the specified length].
+    /// Determines whether [is negative decimal] [the specified length].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
     /// <returns>
-    ///     <c>true</c> if [is negative decimal] [the specified length]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is negative decimal] [the specified length]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsNegativeDecimal(this string str, int length = 2)
     {
@@ -162,12 +162,12 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is negative decimal decimal] [the specified length].
+    /// Determines whether [is negative decimal decimal] [the specified length].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
     /// <returns>
-    ///     <c>true</c> if [is negative decimal decimal] [the specified length]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is negative decimal decimal] [the specified length]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsNegativeDecimalDecimal(this string str, int length = 2)
     {
@@ -175,7 +175,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is positive.
+    /// Determines whether the specified string is positive.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is positive; otherwise, <c>false</c>.</returns>
@@ -185,11 +185,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive chinese] [the specified string].
+    /// Determines whether [is positive chinese] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive chinese] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive chinese] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveChinese(this string str)
     {
@@ -197,11 +197,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive chinese english] [the specified string].
+    /// Determines whether [is positive chinese english] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive chinese english] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive chinese english] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveChineseEnglish(this string str)
     {
@@ -209,12 +209,12 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive chinese english underline] [the specified string].
+    /// Determines whether [is positive chinese english underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive chinese english underline] [the specified string];
-    ///     otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive chinese english underline] [the specified string];
+    /// otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveChineseEnglishUnderline(this string str)
     {
@@ -222,11 +222,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive chinese underline] [the specified string].
+    /// Determines whether [is positive chinese underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive chinese underline] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive chinese underline] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveChineseUnderline(this string str)
     {
@@ -234,12 +234,12 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive decimal] [the specified length].
+    /// Determines whether [is positive decimal] [the specified length].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive decimal] [the specified length]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive decimal] [the specified length]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveDecimal(this string str, int length = 2)
     {
@@ -247,11 +247,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive english] [the specified string].
+    /// Determines whether [is positive english] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive english] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive english] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveEnglish(this string str)
     {
@@ -259,11 +259,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive english underline] [the specified string].
+    /// Determines whether [is positive english underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive english underline] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive english underline] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveEnglishUnderline(this string str)
     {
@@ -271,11 +271,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive negative] [the specified string].
+    /// Determines whether [is positive negative] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive negative] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive negative] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveNegative(this string str)
     {
@@ -283,11 +283,11 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether [is positive underline] [the specified string].
+    /// Determines whether [is positive underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive underline] [the specified string]; otherwise, <c>false</c>.
+    /// <c>true</c> if [is positive underline] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveUnderline(this string str)
     {
@@ -295,7 +295,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Determines whether the specified string is URL.
+    /// Determines whether the specified string is URL.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns><c>true</c> if the specified string is URL; otherwise, <c>false</c>.</returns>
@@ -305,7 +305,7 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Underlines the specified string.
+    /// Underlines the specified string.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>result</returns>
@@ -315,133 +315,133 @@ public static partial class BaseRegex
     }
 
     /// <summary>
-    ///     Chineses this instance.
+    /// Chineses this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Chinese)]
     private static partial Regex Chinese();
 
     /// <summary>
-    ///     Chineses the english.
+    /// Chineses the english.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.ChineseEnglish)]
     private static partial Regex ChineseEnglish();
 
     /// <summary>
-    ///     Chineses the underline.
+    /// Chineses the underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.ChineseUnderline)]
     private static partial Regex ChineseUnderline();
 
     /// <summary>
-    ///     Emails this instance.
+    /// Emails this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Email)]
     private static partial Regex Email();
 
     /// <summary>
-    ///     Englishes this instance.
+    /// Englishes this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.English)]
     private static partial Regex English();
 
     /// <summary>
-    ///     Englishes the underline.
+    /// Englishes the underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.EnglishUnderline)]
     private static partial Regex EnglishUnderline();
 
     /// <summary>
-    ///     Ips this instance.
+    /// Ips this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.IP)]
     private static partial Regex IP();
 
     /// <summary>
-    ///     Mobiles this instance.
+    /// Mobiles this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Mobile)]
     private static partial Regex Mobile();
 
     /// <summary>
-    ///     Negatives this instance.
+    /// Negatives this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Negative)]
     private static partial Regex Negative();
 
     /// <summary>
-    ///     Positives this instance.
+    /// Positives this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Positive)]
     private static partial Regex Positive();
 
     /// <summary>
-    ///     Positives the chinese.
+    /// Positives the chinese.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveChinese)]
     private static partial Regex PositiveChinese();
 
     /// <summary>
-    ///     Positives the chinese english.
+    /// Positives the chinese english.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveChineseEnglish)]
     private static partial Regex PositiveChineseEnglish();
 
     /// <summary>
-    ///     Positives the chinese english underline.
+    /// Positives the chinese english underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveChineseEnglishUnderline)]
     private static partial Regex PositiveChineseEnglishUnderline();
 
     /// <summary>
-    ///     Positives the chinese underline.
+    /// Positives the chinese underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveChineseUnderline)]
     private static partial Regex PositiveChineseUnderline();
 
     /// <summary>
-    ///     Positives the english.
+    /// Positives the english.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveEnglish)]
     private static partial Regex PositiveEnglish();
 
     /// <summary>
-    ///     Positives the english underline.
+    /// Positives the english underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveEnglishUnderline)]
     private static partial Regex PositiveEnglishUnderline();
 
     /// <summary>
-    ///     Positives the negative.
+    /// Positives the negative.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveNegative)]
     private static partial Regex PositiveNegative();
 
     /// <summary>
-    ///     Positives the underline.
+    /// Positives the underline.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.PositiveUnderline)]
     private static partial Regex PositiveUnderline();
 
     /// <summary>
-    ///     URLs this instance.
+    /// URLs this instance.
     /// </summary>
     /// <returns>Regex.</returns>
     [GeneratedRegex(Const.Url)]

@@ -38,7 +38,7 @@ public class BaseAuthFilter(string system, string resource, string operation) : 
     public string System { get; set; } = system;
 
     /// <summary>
-    ///     权限过滤
+    /// 权限过滤
     /// </summary>
     /// <param name="context"></param>
     public override void OnActionExecuting(ActionExecutingContext context)

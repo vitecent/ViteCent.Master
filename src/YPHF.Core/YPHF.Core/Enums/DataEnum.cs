@@ -8,22 +8,22 @@
 namespace YPHF.Core.Enums;
 
 /// <summary>
-///     Enum DataEnum
+/// Enum DataEnum
 /// </summary>
 public enum DataEnum
 {
     /// <summary>
-    ///     The model
+    /// The model
     /// </summary>
     Model = 1,
 
     /// <summary>
-    ///     The where
+    /// The where
     /// </summary>
     Where = 2,
 
     /// <summary>
-    ///     The SQL
+    /// The SQL
     /// </summary>
     SQL = 3
 }

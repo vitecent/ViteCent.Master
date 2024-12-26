@@ -14,12 +14,12 @@ using YPHF.Core.Web;
 namespace YPHF.Airspace.Service;
 
 /// <summary>
-///     程序入口类。
+/// 程序入口类。
 /// </summary>
 public class Program
 {
     /// <summary>
-    ///     应用程序的主入口点。
+    /// 应用程序的主入口点。
     /// </summary>
     /// <param name="args">命令行参数。</param>
     public static async Task Main(string[] args)

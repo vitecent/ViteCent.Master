@@ -12,7 +12,7 @@ namespace YPHF.Core.Register;
 public class BaseService
 {
     /// <summary>
-    ///     Gets the service.
+    /// Gets the service.
     /// </summary>
     /// <param name="list">The list.</param>
     /// <returns>System.Nullable&lt;ServiceConfig&gt;.</returns>

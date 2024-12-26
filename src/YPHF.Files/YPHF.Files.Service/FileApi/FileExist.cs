@@ -17,14 +17,14 @@ using YPHF.Files.Dto.File;
 namespace YPHF.Files.Service.FileApi;
 
 /// <summary>
-///     文件是否存在
+/// 文件是否存在
 /// </summary>
 [ApiController]
 [Route("File")]
 public class FileExist : BaseApi<GetFileArgs, BaseResult>
 {
     /// <summary>
-    ///     文件是否存在
+    /// 文件是否存在
     /// </summary>
     /// <param name="args">参数</param>
     /// <returns>处理结果</returns>

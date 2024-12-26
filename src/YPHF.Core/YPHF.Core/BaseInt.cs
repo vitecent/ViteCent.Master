@@ -8,12 +8,12 @@
 namespace YPHF.Core;
 
 /// <summary>
-///     Class IntHelper.
+/// Class IntHelper.
 /// </summary>
 public static class IntHelper
 {
     /// <summary>
-    ///     Gets the int.
+    /// Gets the int.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.Int32.</returns>
@@ -23,7 +23,7 @@ public static class IntHelper
     }
 
     /// <summary>
-    ///     Gets the int.
+    /// Gets the int.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="defaultValue">The default value.</param>

@@ -14,12 +14,12 @@ using System.Text;
 namespace YPHF.Core;
 
 /// <summary>
-///     Class PinYinExtensions.
+/// Class PinYinExtensions.
 /// </summary>
 public static class BasePinYin
 {
     /// <summary>
-    ///     Gets the chinese text.
+    /// Gets the chinese text.
     /// </summary>
     /// <param name="pinyin">The pinyin.</param>
     /// <returns>System.String.</returns>
@@ -35,7 +35,7 @@ public static class BasePinYin
     }
 
     /// <summary>
-    ///     Gets the initials.
+    /// Gets the initials.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -55,7 +55,7 @@ public static class BasePinYin
     }
 
     /// <summary>
-    ///     Gets the pin yin.
+    /// Gets the pin yin.
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>System.String.</returns>
@@ -76,7 +76,7 @@ public static class BasePinYin
     }
 
     /// <summary>
-    ///     Gets the pin yin.
+    /// Gets the pin yin.
     /// </summary>
     /// <param name="ch">The ch.</param>
     /// <returns>System.String.</returns>
@@ -96,7 +96,7 @@ public static class BasePinYin
     }
 
     /// <summary>
-    ///     Gets the index of the hash.
+    /// Gets the index of the hash.
     /// </summary>
     /// <param name="ch">The ch.</param>
     /// <returns>System.Int16.</returns>
