@@ -1,0 +1,13 @@
+services:
+  yphf.signal.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - RetryMigrations=true
+      - Port=8100
+    ports:
+      - "8100:80"
+      - "8105:50001"
+    volumes:
+      - "./logs/:/app/logs"

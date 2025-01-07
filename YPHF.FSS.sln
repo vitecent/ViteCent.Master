@@ -87,7 +87,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Events.Dal", "src\YPHF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Events.Model", "src\YPHF.Events\YPHF.Events.Model\YPHF.Events.Model.csproj", "{C63387AB-77D6-4457-A7B5-0F553D1A62DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Events.Services", "src\YPHF.Events\YPHF.Events.Services\YPHF.Events.Services.csproj", "{D8F7B2BD-3161-4915-A2F7-855A65846300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Events.Service", "src\YPHF.Events\YPHF.Events.Service\YPHF.Events.Service.csproj", "{D8F7B2BD-3161-4915-A2F7-855A65846300}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YPHF.Files.Service", "src\YPHF.Files\YPHF.Files.Service\YPHF.Files.Service.csproj", "{C41DCDF4-85AE-4BED-A9ED-50E2392F56A4}"
 EndProject

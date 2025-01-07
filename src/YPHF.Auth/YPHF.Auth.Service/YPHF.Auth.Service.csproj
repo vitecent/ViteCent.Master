@@ -7,8 +7,8 @@
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<DocumentationFile></DocumentationFile>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-		<DockerfileContext>..\..\..</DockerfileContext>
-		<DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<DockerfileContext></DockerfileContext>
+		<DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -20,6 +20,20 @@
 		<ProjectReference Include="..\..\YPHF.Dto\YPHF.Auth.Dto\YPHF.Auth.Dto.csproj" />
 		<ProjectReference Include="..\YPHF.Auth.Bll\YPHF.Auth.Bll.csproj" />
 		<ProjectReference Include="..\YPHF.Auth.Model\YPHF.Auth.Model.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="docker-compose.override.yml">
+			<DependentUpon>docker-compose.yml</DependentUpon>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="docker-compose.yml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Dockerfile">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Include=".dockerignore" />
 	</ItemGroup>
 
 </Project>

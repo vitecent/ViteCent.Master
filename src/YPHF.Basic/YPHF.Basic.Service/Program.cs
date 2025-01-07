@@ -24,7 +24,8 @@ public class Program
     {
         var xmls = new List<string>
         {
-            //"YPHF.Basic.Service"
+            "YPHF.Core.*.xml",
+            "YPHF.Basic.*.xml"
         };
 
         var microService = new BaseMicroService("YPHF.Basic.Service", xmls)

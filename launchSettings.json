@@ -14,7 +14,7 @@
         "yphf.gen.service": "StartDebugging",
         "yphf.gateway.service": "StartDebugging",
         "yphf.files.service": "StartDebugging",
-        "yphf.events.services": "StartDebugging",
+        "yphf.events.service": "StartDebugging",
         "yphf.basic.service": "StartDebugging",
         "yphf.auth.service": "StartDebugging",
         "yphf.airspace.Service": "StartDebugging"

@@ -9,9 +9,9 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
 using YPHF.Core.Data;
 using YPHF.Core.Enums;
+using YPHF.Core.Web.Api;
 
 #endregion
 
@@ -43,16 +43,14 @@ public class BaseAuthFilter(string system, string resource, string operation) : 
     /// <param name="context"></param>
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        dynamic controller = context.Controller;
-        var logger =
-            context.HttpContext.RequestServices.GetService(
-                typeof(ILogger<BaseAuthFilter>)) as ILogger<BaseAuthFilter> ?? default!;
+        var controller = (BaseLoginApi<BaseArgs, BaseResult>)context.Controller;
+        var logger = BaseLogger.GetLogger();
 
         var user = controller?.User;
 
         if (user is null)
         {
-            logger.LogWarning($"{user?.Name} InvokeAsync {System}:{Resource}:{Operation} No Login");
+            logger.Info($"{user?.Name} InvokeAsync {System}:{Resource}:{Operation} No Login");
             context.Result = new JsonResult(new BaseResult(301, "登录超时,请重新登录"));
 
             return;
@@ -61,13 +59,13 @@ public class BaseAuthFilter(string system, string resource, string operation) : 
         if (user?.IsSuperAdmin == (int)YesNoEnum.No)
             if (!IsAUth(user, System, Resource, Operation))
             {
-                logger.LogWarning($"{user.Name} InvokeAsync {System}:{Resource}:{Operation} No AUth");
+                logger.Info($"{user.Name} InvokeAsync {System}:{Resource}:{Operation} No AUth");
                 context.Result = new JsonResult(new BaseResult(401, "您没有权限访问该资源"));
 
                 return;
             }
 
-        logger.LogInformation($"{user?.Name} InvokeAsync {System}:{Resource}:{Operation} OK");
+        logger.Info($"{user?.Name} InvokeAsync {System}:{Resource}:{Operation} OK");
     }
 
     /// <summary>

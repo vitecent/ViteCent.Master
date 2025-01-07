@@ -1,0 +1,13 @@
+services:
+  yphf.push.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - RetryMigrations=true
+      - Port=8090
+    ports:
+      - "8090:80"
+      - "8095:50001"
+    volumes:
+      - "./logs/:/app/logs"

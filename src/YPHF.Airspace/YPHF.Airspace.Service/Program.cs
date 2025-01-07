@@ -27,7 +27,8 @@ public class Program
         // 定义一个包含 XML 文件路径的列表
         var xmls = new List<string>
         {
-            //"YPHF.Airspace.Service"
+            "YPHF.Core.*.xml",
+            "YPHF.Airspace.*.xml"
         };
 
         // 创建并配置微服务实例

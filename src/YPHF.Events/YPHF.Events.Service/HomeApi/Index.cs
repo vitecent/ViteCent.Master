@@ -15,7 +15,7 @@ using YPHF.Events.Dto.Home;
 
 #endregion
 
-namespace YPHF.Events.Services.HomeApi;
+namespace YPHF.Events.Service.HomeApi;
 
 /// <summary>
 /// </summary>

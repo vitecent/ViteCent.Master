@@ -12,7 +12,7 @@ using YPHF.Events.Bll;
 
 #endregion
 
-namespace YPHF.Events.Services;
+namespace YPHF.Events.Service;
 
 /// <summary>
 /// </summary>

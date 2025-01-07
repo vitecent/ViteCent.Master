@@ -1,0 +1,6 @@
+services:
+  yphf.plan.service:
+    image: ${DOCKER_REGISTRY-}yphfplanservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

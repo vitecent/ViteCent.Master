@@ -1,0 +1,13 @@
+services:
+  yphf.gov.service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - RetryMigrations=true
+      - Port=8060
+    ports:
+      - "8060:80"
+      - "8065:50001"
+    volumes:
+      - "./logs/:/app/logs"

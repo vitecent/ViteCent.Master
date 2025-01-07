@@ -13,7 +13,7 @@ using YPHF.Events.Model;
 
 #endregion
 
-namespace YPHF.Events.Services;
+namespace YPHF.Events.Service;
 
 /// <summary>
 /// </summary>

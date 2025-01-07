@@ -10,6 +10,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using YPHF.Core.Data;
+using YPHF.Core.Web.Api;
 
 #endregion
 
@@ -24,7 +25,7 @@ public class BaseLoginFilter : ActionFilterAttribute
     /// <param name="context"></param>
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        dynamic controller = context.Controller;
+        var controller = (BaseLoginApi<BaseArgs, BaseResult>)context.Controller;
 
         if (controller?.User == null) context.Result = new JsonResult(new BaseResult(301, "登录超时,请重新登录"));
     }

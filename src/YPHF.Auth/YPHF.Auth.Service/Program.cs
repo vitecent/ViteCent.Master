@@ -27,7 +27,8 @@ public class Program
         // XML文档列表
         var xmls = new List<string>
         {
-            //"YPHF.Auth.Service"
+            "YPHF.Core.*.xml",
+            "YPHF.Auth.*.xml"
         };
 
         // 创建微服务实例

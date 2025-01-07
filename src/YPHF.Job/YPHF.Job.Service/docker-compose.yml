@@ -1,0 +1,6 @@
+services:
+  yphf.job.service:
+    image: ${DOCKER_REGISTRY-}yphfjobservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

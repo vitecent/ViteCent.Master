@@ -29,7 +29,8 @@ public class Program
         // XML 配置文件列表
         var xmls = new List<string>
         {
-            //"YPHF.Job.Service"
+            "YPHF.Core.*.xml",
+            "YPHF.Job.*.xml"
         };
 
         // 创建并配置 JobMicroService 实例

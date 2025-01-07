@@ -108,7 +108,7 @@ public class SqlSugarFactory : IFactory, IDisposable
 
                                 case CommandEnum.Update:
                                     if (x.DataType == DataEnum.Model)
-                                        client.Updateable(x.Model).IgnoreColumns(ignoreAllNullColumns: true)
+                                        client.Updateable(x.Model).IgnoreColumns(true)
                                             .IsEnableUpdateVersionValidation().ExecuteCommand();
                                     else
                                         client.Updateable(x.Model).UpdateColumns(x.Where)
@@ -176,7 +176,7 @@ public class SqlSugarFactory : IFactory, IDisposable
     /// <param name="parameters">The parameters.</param>
     public void Delete<T>(string sql, object parameters = default!) where T : class, new()
     {
-        commands.Add(new Command
+        commands.Add(new Command()
         { CommandType = CommandEnum.Delete, DataType = DataEnum.SQL, SQL = sql, Parameters = parameters });
     }
 

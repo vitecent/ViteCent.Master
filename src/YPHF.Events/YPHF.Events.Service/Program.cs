@@ -11,7 +11,7 @@ using YPHF.Core.Web;
 
 #endregion
 
-namespace YPHF.Events.Services;
+namespace YPHF.Events.Service;
 
 /// <summary>
 /// </summary>
@@ -24,7 +24,8 @@ public class Program
     {
         var xmls = new List<string>
         {
-            //"YPHF.Events.Service"
+            "YPHF.Core.*.xml",
+            "YPHF.Events.*.xml"
         };
 
         var microService = new BaseMicroService("YPHF.Events.Service", xmls)

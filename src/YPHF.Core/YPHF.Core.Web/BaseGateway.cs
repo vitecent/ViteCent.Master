@@ -43,9 +43,9 @@ public class BaseGateway(
     /// Invokes the specified context.
     /// </summary>
     /// <param name="context">The context.</param>
-    /// <param name="logger">The logger.</param>
-    public async Task Invoke(HttpContext context, ILogger logger)
+    public async Task Invoke(HttpContext context)
     {
+        var logger = BaseLogger.GetLogger();
         var traceingId = string.Empty;
 
         if (context.Request.Headers.TryGetValue(Const.TraceingId, out var value)) traceingId = value.ToString();
@@ -57,11 +57,11 @@ public class BaseGateway(
             context.Request.Headers.TryAdd(Const.TraceingId, traceingId);
         }
 
-        logger.LogInformation($"Gateway TraceingId {traceingId}");
+        logger.Info($"Gateway TraceingId {traceingId}");
 
         context.Response.Headers.TryAdd(Const.TraceingId, traceingId);
 
-        var uri = await GetServiceUri(context);
+        var uri = GetServiceUri(context);
 
         if (!string.IsNullOrWhiteSpace(uri))
         {
@@ -82,7 +82,7 @@ public class BaseGateway(
 
             await policyWrap.ExecuteAsync(async () =>
             {
-                logger.LogInformation($"Gateway Url {uri}");
+                logger.Info($"Gateway Url {uri}");
 
                 var request = new HttpRequestMessage
                 {
@@ -101,7 +101,7 @@ public class BaseGateway(
 
                 context.Response.StatusCode = statusCode;
 
-                logger.LogInformation($"Gateway StatusCode {statusCode}");
+                logger.Info($"Gateway StatusCode {statusCode}");
 
                 foreach (var header in response.Headers) context.Response.Headers[header.Key] = header.Value.ToArray();
 
@@ -112,7 +112,7 @@ public class BaseGateway(
 
                 var body = context.Response.Body;
 
-                logger.LogInformation($"Gateway Response {body}");
+                logger.Info($"Gateway Response {body}");
 
                 await response.Content.CopyToAsync(body);
             });
@@ -128,7 +128,7 @@ public class BaseGateway(
     /// </summary>
     /// <param name="context">The context.</param>
     /// <returns>System.String.</returns>
-    private async Task<string> GetServiceUri(HttpContext context)
+    private string GetServiceUri(HttpContext context)
     {
         var baseUri = new Uri(context.Request.GetDisplayUrl());
 

@@ -1,0 +1,6 @@
+services:
+  yphf.gov.service:
+    image: ${DOCKER_REGISTRY-}yphfgovservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

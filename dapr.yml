@@ -1,0 +1,70 @@
+services:
+## airspace
+  yphf.airspace.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.airspace.service"
+
+## auth
+  yphf.auth.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.auth.service"
+
+## basic
+  yphf.basic.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.basic.service"
+
+## events
+  yphf.events.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.events.service"
+
+## files
+  yphf.files.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.files.service"
+
+## gateway
+  yphf.gateway.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.gateway.service"
+
+## gen
+  yphf.gen.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.gen.service"
+
+## gov
+  yphf.gov.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.gov.service"
+
+## job
+  yphf.job.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.job.service"
+
+## plan
+  yphf.plan.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.plan.service"
+
+## push
+  yphf.push.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.push.service"
+
+## signal
+  yphf.signal.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.signal.service"
+
+## statistics
+  yphf.statistics.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.statistics.service"
+
+## weather
+  yphf.weather.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:yphf.weather.service"

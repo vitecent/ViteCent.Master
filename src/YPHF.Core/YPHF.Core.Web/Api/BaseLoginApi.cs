@@ -31,6 +31,7 @@ public abstract class BaseLoginApi<Args, Result> : BaseApi<Args, Result>
     public BaseLoginApi()
     {
         var context = BaseHttpContext.Context;
+
         cache = context.RequestServices.GetService(typeof(IBaseCache)) as IBaseCache ?? default!;
     }
 

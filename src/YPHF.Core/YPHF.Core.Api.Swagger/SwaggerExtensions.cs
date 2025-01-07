@@ -39,11 +39,13 @@ public static class SwaggerExtensions
 
             foreach (var xml in xmls)
             {
-                var path = Path.Combine(AppContext.BaseDirectory, $"{xml}.xml");
+                var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, xml, SearchOption.AllDirectories);
 
-                logger.Info($"Swagger Xml ：{path}");
-
-                options.IncludeXmlComments(path, true);
+                foreach (var xmlFile in xmlFiles)
+                {
+                    logger.Info($"Swagger Xml ：{xmlFile}");
+                    options.IncludeXmlComments(xmlFile, true);
+                }
             }
 
             options.OrderActionsBy(x => x.RelativePath);
