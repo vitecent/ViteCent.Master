@@ -1,6 +1,0 @@
-services:
-  yphf.signal.service:
-    image: ${DOCKER_REGISTRY-}yphfsignalservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

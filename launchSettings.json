@@ -4,20 +4,10 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "yphf.weather.service": "StartDebugging",
-        "yphf.statistics.service": "StartDebugging",
-        "yphf.signal.service": "StartDebugging",
-        "yphf.push.service": "StartDebugging",
-        "yphf.plan.service": "StartDebugging",
         "yphf.job.service": "StartDebugging",
-        "yphf.gov.service": "StartDebugging",
-        "yphf.gen.service": "StartDebugging",
         "yphf.gateway.service": "StartDebugging",
         "yphf.files.service": "StartDebugging",
-        "yphf.events.service": "StartDebugging",
-        "yphf.basic.service": "StartDebugging",
-        "yphf.auth.service": "StartDebugging",
-        "yphf.airspace.Service": "StartDebugging"
+        "yphf.service.Service": "StartDebugging"
       }
     }
   }

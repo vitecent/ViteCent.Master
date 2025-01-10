@@ -22,11 +22,6 @@ namespace YPHF.Core.Register.Consul;
 public class ConsulRegister(string uri) : IRegister
 {
     /// <summary>
-    /// The key
-    /// </summary>
-    private static readonly object key = new();
-
-    /// <summary>
     /// The client
     /// </summary>
     private readonly ConsulClient client = new(x => { x.Address = new Uri(uri); });

@@ -1,6 +1,0 @@
-services:
-  yphf.events.service:
-    image: ${DOCKER_REGISTRY-}yphfeventsservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

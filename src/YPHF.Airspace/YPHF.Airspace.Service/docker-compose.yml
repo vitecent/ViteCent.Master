@@ -1,6 +1,0 @@
-services:
-  yphf.airspace.service:
-    image: ${DOCKER_REGISTRY-}yphfairspaceservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

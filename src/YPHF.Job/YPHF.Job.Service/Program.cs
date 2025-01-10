@@ -54,7 +54,7 @@ public class Program
                 var trigger = TriggerBuilder.Create()
                     .WithIdentity("HomeJob", "HomeGroup")
                     .StartNow()
-                    .WithCronSchedule("0/5 * * * * ?")
+                    .WithCronSchedule("0 0/1 * * * ? ")
                     .Build();
 
                 // 将作业和触发器注册到调度器
