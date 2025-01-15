@@ -6,3 +6,4 @@ Upload/
 *.user
 *.exe
 *.jar
+packages/

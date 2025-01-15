@@ -59,9 +59,6 @@ public class HomeJob : IJob
 
         logger.LogInformation($"{DateTime.Now:yyyy-MM-dd HH:mm:ss}获取到{services.Count}个服务");
 
-        if (services.Count != 0)
-        {
-            cache.SetString(Const.RegistServices, services.ToJson(), TimeSpan.FromMinutes(2));
-        }
+        if (services.Count != 0) cache.SetString(Const.RegistServices, services.ToJson(), TimeSpan.FromMinutes(2));
     }
 }

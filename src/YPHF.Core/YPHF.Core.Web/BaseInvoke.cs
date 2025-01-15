@@ -85,7 +85,7 @@ public class BaseInvoke<Args, Result>
     private async Task<Result> InvokeDaprMethodAsync(HttpMethod method, string service, string api, Args args,
         string token)
     {
-        var request = dapr.CreateInvokeMethodRequest(method, service, api, args);
+        var request = dapr.CreateInvokeMethodRequest<Args>(method, service, api, null, args);
 
         if (!string.IsNullOrWhiteSpace(token)) request.Headers.Add(Const.Token, token);
 

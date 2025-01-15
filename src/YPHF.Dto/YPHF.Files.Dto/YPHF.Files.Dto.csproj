@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\YPHF.Core\YPHF.Core\YPHF.Core.csproj" />
+	  <PackageReference Include="YPHF.Core" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>

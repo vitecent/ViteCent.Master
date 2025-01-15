@@ -13,10 +13,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+		<PackageReference Include="YPHF.Core.Web" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\YPHF.Core\YPHF.Core.Web\YPHF.Core.Web.csproj" />
 		<ProjectReference Include="..\..\YPHF.Dto\YPHF.Service.Dto\YPHF.Service.Dto.csproj" />
 		<ProjectReference Include="..\YPHF.Service.Bll\YPHF.Service.Bll.csproj" />
 		<ProjectReference Include="..\YPHF.Service.Model\YPHF.Service.Model.csproj" />

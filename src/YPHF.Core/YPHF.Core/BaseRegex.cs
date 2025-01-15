@@ -93,17 +93,17 @@ public static partial class BaseRegex
         switch (length)
         {
             case 18:
-                {
-                    return str.IsIdCard18();
-                }
+            {
+                return str.IsIdCard18();
+            }
             case 15:
-                {
-                    return str.IsIdCard15();
-                }
+            {
+                return str.IsIdCard15();
+            }
             default:
-                {
-                    return false;
-                }
+            {
+                return false;
+            }
         }
     }
 

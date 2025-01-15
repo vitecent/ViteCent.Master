@@ -12,4 +12,8 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\YPHF.Core.Logging\YPHF.Core.Logging.csproj" />
+	</ItemGroup>
+
 </Project>

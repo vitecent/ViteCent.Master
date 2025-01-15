@@ -73,6 +73,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YPHF.Core.Api.Swagger", "sr
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{79050854-3323-407C-8989-31BCB46067F5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YPHF.Nuget", "YPHF.Nuget", "{7834E455-CCE2-457A-9DFA-9A05BB073430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YPHF.Nuget.Service", "src\YPHF.Nuget\YPHF.Nuget.Service\YPHF.Nuget.Service.csproj", "{71E8CD84-2C98-4979-BCDC-1A14C3103091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,6 +203,10 @@ Global
 		{79050854-3323-407C-8989-31BCB46067F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79050854-3323-407C-8989-31BCB46067F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79050854-3323-407C-8989-31BCB46067F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E8CD84-2C98-4979-BCDC-1A14C3103091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E8CD84-2C98-4979-BCDC-1A14C3103091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E8CD84-2C98-4979-BCDC-1A14C3103091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E8CD84-2C98-4979-BCDC-1A14C3103091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +241,7 @@ Global
 		{3C75DD6C-7955-4ECD-9A26-0187BE76B918} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
 		{36C1E620-42E5-4CE9-8DDD-8F1BCAFFA32B} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
 		{990BD9AC-A225-463B-A723-F4DFFC7A7C6B} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
+		{71E8CD84-2C98-4979-BCDC-1A14C3103091} = {7834E455-CCE2-457A-9DFA-9A05BB073430}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B275C1A-10DA-4B8D-9F86-5F20E89E9F3E}

@@ -8,7 +8,6 @@
 #region
 
 using YPHF.Core.Orm.SqlSugar;
-
 using YPHF.Service.Model;
 
 #endregion

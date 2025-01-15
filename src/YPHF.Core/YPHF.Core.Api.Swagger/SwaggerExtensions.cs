@@ -10,8 +10,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using YPHF.Core.Data;
 
 #endregion
 
@@ -29,52 +27,7 @@ public static class SwaggerExtensions
     /// <returns></returns>
     public static IServiceCollection AddSwagger(this IServiceCollection services, string title, List<string> xmls)
     {
-        var logger = BaseLogger.GetLogger();
-
-        services.AddSwaggerGen(options =>
-        {
-            options.SwaggerDoc("v1", new OpenApiInfo { Title = title, Version = "v1" });
-
-            logger.Info($"Swagger Title ：{title}");
-
-            foreach (var xml in xmls)
-            {
-                var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, xml, SearchOption.AllDirectories);
-
-                foreach (var xmlFile in xmlFiles)
-                {
-                    logger.Info($"Swagger Xml ：{xmlFile}");
-                    options.IncludeXmlComments(xmlFile, true);
-                }
-            }
-
-            options.OrderActionsBy(x => x.RelativePath);
-
-            logger.Info($"Swagger Add Token In Header");
-
-            options.AddSecurityDefinition("Token", new OpenApiSecurityScheme
-            {
-                Description = "请输入Token",
-                Name = Const.Token,
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.ApiKey
-            });
-
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Token"
-                        }
-                    },
-                    Array.Empty<string>()
-                }
-            });
-        });
+        services.AddOpenApi();
 
         return services;
     }
@@ -85,11 +38,7 @@ public static class SwaggerExtensions
     /// <returns></returns>
     public static IApplicationBuilder UseSwaggerDashboard(this WebApplication app)
     {
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
         return app;
     }

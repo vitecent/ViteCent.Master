@@ -9,9 +9,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\YPHF.Core\YPHF.Core.Orm.SqlSugar\YPHF.Core.Orm.SqlSugar.csproj" />
-	  <ProjectReference Include="..\..\YPHF.Dto\YPHF.Service.Dto\YPHF.Service.Dto.csproj" />
-	  <ProjectReference Include="..\YPHF.Service.Model\YPHF.Service.Model.csproj" />
+		<PackageReference Include="YPHF.Core.Orm.SqlSugar" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\YPHF.Dto\YPHF.Service.Dto\YPHF.Service.Dto.csproj" />
+		<ProjectReference Include="..\YPHF.Service.Model\YPHF.Service.Model.csproj" />
 	</ItemGroup>
 
 </Project>

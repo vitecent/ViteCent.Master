@@ -44,7 +44,6 @@ public static class ConsulExtensions
     /// Uses the consul.
     /// </summary>
     /// <param name="app">The app.</param>
-    /// <param name="logger">The app.</param>
     /// <returns>IApplicationBuilder.</returns>
     public static async Task<IApplicationBuilder> UseConsulAsync(this WebApplication app)
     {

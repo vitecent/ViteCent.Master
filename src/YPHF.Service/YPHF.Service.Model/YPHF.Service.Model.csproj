@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\YPHF.Core\YPHF.Core.Orm.SqlSugar\YPHF.Core.Orm.SqlSugar.csproj" />
+		<PackageReference Include="YPHF.Core.Orm.SqlSugar" Version="1.0.0" />
 	</ItemGroup>
 
 </Project>
