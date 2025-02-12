@@ -1,6 +1,6 @@
 services:
 ## service
-  yphf.service.service.dapr:
+  template.service.service.dapr:
     command: [ "./daprd",
       "-app-id", "Service",
       "-app-port", "80",
@@ -14,7 +14,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## files
-  yphf.files.service.dapr:
+  template.files.service.dapr:
     command: [ "./daprd",
       "-app-id", "Files",
       "-app-port", "80",
@@ -28,7 +28,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## gateway
-  yphf.gateway.service.dapr:
+  template.gateway.service.dapr:
     command: [ "./daprd",
       "-app-id", "Gateway",
       "-app-port", "80",
@@ -42,7 +42,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## job
-  yphf.job.service.dapr:
+  template.job.service.dapr:
     command: [ "./daprd",
       "-app-id", "Job",
       "-app-port", "80",

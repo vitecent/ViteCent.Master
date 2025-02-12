@@ -1,0 +1,6 @@
+services:
+  template.gateway.service:
+    image: ${DOCKER_REGISTRY-}templategatewayservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

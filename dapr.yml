@@ -1,20 +1,20 @@
 services:
 ## service
-  yphf.service.service.dapr:
+  template.service.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:yphf.service.service"
+    network_mode: "service:template.service.service"
 
 ## files
-  yphf.files.service.dapr:
+  template.files.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:yphf.files.service"
+    network_mode: "service:template.files.service"
 
 ## gateway
-  yphf.gateway.service.dapr:
+  template.gateway.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:yphf.gateway.service"
+    network_mode: "service:template.gateway.service"
 
 ## job
-  yphf.job.service.dapr:
+  template.job.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:yphf.job.service"
+    network_mode: "service:template.job.service"

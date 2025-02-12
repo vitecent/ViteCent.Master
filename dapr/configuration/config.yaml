@@ -1,8 +1,8 @@
 apiVersion: dapr.io/v1alpha1
 kind: Configuration
 metadata:
-  name: yphf-config
-  namespace: yphf
+  name: template-config
+  namespace: template
 spec:
   tracing:
     samplingRate: "1"

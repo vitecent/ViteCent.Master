@@ -1,6 +1,0 @@
-services:
-  yphf.files.service:
-    image: ${DOCKER_REGISTRY-}yphffilesservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

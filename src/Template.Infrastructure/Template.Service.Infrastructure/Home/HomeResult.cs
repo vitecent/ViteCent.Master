@@ -1,0 +1,25 @@
+﻿/*
+ *
+ * 版权所有 ：易鹏航服
+ * 作   者 : duhuifeng
+ *
+ */
+
+namespace Template.Service.Infrastructure.Home;
+
+/// <summary>
+/// </summary>
+public class HomeResult
+{
+    /// <summary>
+    /// </summary>
+    public string Code { get; set; } = default!;
+
+    /// <summary>
+    /// </summary>
+    public string Id { get; set; } = default!;
+
+    /// <summary>
+    /// </summary>
+    public string Name { get; set; } = default!;
+}

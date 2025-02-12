@@ -1,6 +1,0 @@
-services:
-  yphf.gateway.service:
-    image: ${DOCKER_REGISTRY-}yphfgatewayservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

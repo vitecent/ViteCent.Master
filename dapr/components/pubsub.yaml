@@ -1,8 +1,8 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: yphf-pubsub
-  namespace: yphf
+  name: template-pubsub
+  namespace: template
 spec:
   type: pubsub.redis
   version: v1

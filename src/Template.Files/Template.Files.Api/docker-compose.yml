@@ -1,0 +1,6 @@
+services:
+  template.files.service:
+    image: ${DOCKER_REGISTRY-}templatefilesservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

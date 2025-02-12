@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Dapr.AspNetCore" Version="1.14.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.2" />
+		<PackageReference Include="Polly" Version="8.5.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Template.Core.Api.Swagger\Template.Core.Api.Swagger.csproj" />
+		<ProjectReference Include="..\Template.Core.Authorize.Jwt\Template.Core.Authorize.Jwt.csproj" />
+		<ProjectReference Include="..\Template.Core.Cache.Redis\Template.Core.Cache.Redis.csproj" />
+		<ProjectReference Include="..\Template.Core.Job.Quartz\Template.Core.Job.Quartz.csproj" />
+		<ProjectReference Include="..\Template.Core.Logging.Log4Net\Template.Core.Logging.Log4Net.csproj" />
+		<ProjectReference Include="..\Template.Core.Orm.SqlSugar\Template.Core.Orm.SqlSugar.csproj" />
+		<ProjectReference Include="..\Template.Core.Register.Consul\Template.Core.Register.Consul.csproj" />
+		<ProjectReference Include="..\Template.Core.Trace.Zipkin\Template.Core.Trace.Zipkin.csproj" />
+	</ItemGroup>
+
+</Project>
