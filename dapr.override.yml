@@ -1,6 +1,6 @@
 services:
 ## service
-  template.service.service.dapr:
+  vitecent.service.service.dapr:
     command: [ "./daprd",
       "-app-id", "Service",
       "-app-port", "80",
@@ -14,7 +14,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## files
-  template.files.service.dapr:
+  vitecent.files.service.dapr:
     command: [ "./daprd",
       "-app-id", "Files",
       "-app-port", "80",
@@ -28,7 +28,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## gateway
-  template.gateway.service.dapr:
+  vitecent.gateway.service.dapr:
     command: [ "./daprd",
       "-app-id", "Gateway",
       "-app-port", "80",
@@ -42,7 +42,7 @@ services:
       - "./dapr/configuration/:/configuration"
 
 ## job
-  template.job.service.dapr:
+  vitecent.job.service.dapr:
     command: [ "./daprd",
       "-app-id", "Job",
       "-app-port", "80",

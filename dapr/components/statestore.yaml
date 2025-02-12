@@ -1,8 +1,8 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: template-statestore
-  namespace: template
+  name: ViteCent-statestore
+  namespace: ViteCent
 spec:
   type: state.redis
   version: v1

@@ -1,20 +1,20 @@
 services:
 ## service
-  template.service.service.dapr:
+  vitecent.service.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:template.service.service"
+    network_mode: "service:vitecent.service.service"
 
 ## files
-  template.files.service.dapr:
+  vitecent.files.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:template.files.service"
+    network_mode: "service:vitecent.files.service"
 
 ## gateway
-  template.gateway.service.dapr:
+  vitecent.gateway.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:template.gateway.service"
+    network_mode: "service:vitecent.gateway.service"
 
 ## job
-  template.job.service.dapr:
+  vitecent.job.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:template.job.service"
+    network_mode: "service:vitecent.job.service"

@@ -1,0 +1,6 @@
+services:
+  vitecent.job.service:
+    image: ${DOCKER_REGISTRY-}vitecentjobservice:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile

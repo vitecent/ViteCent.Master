@@ -7,7 +7,7 @@
 		<ProjectGuid>79050854-3323-407c-8989-31bcb46067f5</ProjectGuid>
 		<DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
 		<DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-		<DockerServiceName>template</DockerServiceName>
+		<DockerServiceName>ViteCent</DockerServiceName>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="dapr.override.yml" >
