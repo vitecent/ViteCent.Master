@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViteCent.Service", "ViteCent.Service", "{B58BB604-4FF2-457C-9E12-1EFAA82B9108}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViteCent.Auth", "ViteCent.Auth", "{B58BB604-4FF2-457C-9E12-1EFAA82B9108}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Service.Api", "src\ViteCent.Service\ViteCent.Service.Api\ViteCent.Service.Api.csproj", "{AD32C394-C921-4F5B-8A3B-558F1D2C60D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Auth.Api", "src\ViteCent.Auth\ViteCent.Auth.Api\ViteCent.Auth.Api.csproj", "{AD32C394-C921-4F5B-8A3B-558F1D2C60D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Service.Application", "src\ViteCent.Service\ViteCent.Service.Application\ViteCent.Service.Application.csproj", "{C7B03FC4-06D0-4B6D-A7A4-7B823CB19984}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Auth.Application", "src\ViteCent.Auth\ViteCent.Auth.Application\ViteCent.Auth.Application.csproj", "{C7B03FC4-06D0-4B6D-A7A4-7B823CB19984}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Service.Domain", "src\ViteCent.Service\ViteCent.Service.Domain\ViteCent.Service.Domain.csproj", "{B2C6C062-3BBE-4D15-8607-BE37D4B5D7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Auth.Domain", "src\ViteCent.Auth\ViteCent.Auth.Domain\ViteCent.Auth.Domain.csproj", "{B2C6C062-3BBE-4D15-8607-BE37D4B5D7AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Service.Entity", "src\ViteCent.Service\ViteCent.Service.Entity\ViteCent.Service.Entity.csproj", "{15941FF9-50E2-4776-B82A-8DBEE9FDA413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Auth.Entity", "src\ViteCent.Auth\ViteCent.Auth.Entity\ViteCent.Auth.Entity.csproj", "{15941FF9-50E2-4776-B82A-8DBEE9FDA413}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Service.Data", "src\ViteCent.Data\ViteCent.Service.Data\ViteCent.Service.Data.csproj", "{84D51187-8D86-4D6B-A917-7447DE868203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViteCent.Auth.Data", "src\ViteCent.Data\ViteCent.Auth.Data\ViteCent.Auth.Data.csproj", "{84D51187-8D86-4D6B-A917-7447DE868203}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViteCent.Core", "ViteCent.Core", "{84DD6EDF-747D-40F8-A05C-7F1A0653DE83}"
 EndProject
@@ -76,6 +76,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Core.Authorize", "src\ViteCent.Core\ViteCent.Core.Authorize\ViteCent.Core.Authorize.csproj", "{49DA985E-BD81-4989-B1F8-6C0A983DB88A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Core.Authorize.Jwt", "src\ViteCent.Core\ViteCent.Core.Authorize.Jwt\ViteCent.Core.Authorize.Jwt.csproj", "{186C4866-6BC0-4F79-9EE5-E47C94D2D3AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViteCent.Basic", "ViteCent.Basic", "{3A7F9367-4D80-4967-9CA2-23465868E2DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Basic.Api", "src\ViteCent.Basic\ViteCent.Basic.Api\ViteCent.Basic.Api.csproj", "{42221D54-246D-43FD-AF2D-D36A12B368C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Basic.Application", "src\ViteCent.Basic\ViteCent.Basic.Application\ViteCent.Basic.Application.csproj", "{8B47A4E2-7FEA-46AC-B751-794F01755FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Basic.Domain", "src\ViteCent.Basic\ViteCent.Basic.Domain\ViteCent.Basic.Domain.csproj", "{48AE6671-3AE4-4192-9BA4-70869DB4E383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Basic.Entity", "src\ViteCent.Basic\ViteCent.Basic.Entity\ViteCent.Basic.Entity.csproj", "{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViteCent.Basic.Data", "src\ViteCent.Data\ViteCent.Basic.Data\ViteCent.Basic.Data.csproj", "{5DCC0F43-2482-48B3-B44D-B5C821133861}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +223,26 @@ Global
 		{186C4866-6BC0-4F79-9EE5-E47C94D2D3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{186C4866-6BC0-4F79-9EE5-E47C94D2D3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{186C4866-6BC0-4F79-9EE5-E47C94D2D3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42221D54-246D-43FD-AF2D-D36A12B368C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42221D54-246D-43FD-AF2D-D36A12B368C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42221D54-246D-43FD-AF2D-D36A12B368C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42221D54-246D-43FD-AF2D-D36A12B368C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B47A4E2-7FEA-46AC-B751-794F01755FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B47A4E2-7FEA-46AC-B751-794F01755FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B47A4E2-7FEA-46AC-B751-794F01755FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B47A4E2-7FEA-46AC-B751-794F01755FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AE6671-3AE4-4192-9BA4-70869DB4E383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AE6671-3AE4-4192-9BA4-70869DB4E383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AE6671-3AE4-4192-9BA4-70869DB4E383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AE6671-3AE4-4192-9BA4-70869DB4E383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DCC0F43-2482-48B3-B44D-B5C821133861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DCC0F43-2482-48B3-B44D-B5C821133861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DCC0F43-2482-48B3-B44D-B5C821133861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DCC0F43-2482-48B3-B44D-B5C821133861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -247,6 +279,11 @@ Global
 		{990BD9AC-A225-463B-A723-F4DFFC7A7C6B} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
 		{49DA985E-BD81-4989-B1F8-6C0A983DB88A} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
 		{186C4866-6BC0-4F79-9EE5-E47C94D2D3AD} = {84DD6EDF-747D-40F8-A05C-7F1A0653DE83}
+		{42221D54-246D-43FD-AF2D-D36A12B368C2} = {3A7F9367-4D80-4967-9CA2-23465868E2DB}
+		{8B47A4E2-7FEA-46AC-B751-794F01755FB8} = {3A7F9367-4D80-4967-9CA2-23465868E2DB}
+		{48AE6671-3AE4-4192-9BA4-70869DB4E383} = {3A7F9367-4D80-4967-9CA2-23465868E2DB}
+		{54CB0229-F5A7-4CF2-9AC0-9AC3F0213F26} = {3A7F9367-4D80-4967-9CA2-23465868E2DB}
+		{5DCC0F43-2482-48B3-B44D-B5C821133861} = {3A7F9367-4D80-4967-9CA2-23465868E2DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B275C1A-10DA-4B8D-9F86-5F20E89E9F3E}

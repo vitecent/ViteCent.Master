@@ -1,8 +1,13 @@
 services:
-## service
-  vitecent.service.service.dapr:
+## auth
+  vitecent.auth.service.dapr:
     image: "daprio/dapr:1.15.0-rc.2"
-    network_mode: "service:vitecent.service.service"
+    network_mode: "service:vitecent.auth.service"
+
+## basic
+  vitecent.basic.service.dapr:
+    image: "daprio/dapr:1.15.0-rc.2"
+    network_mode: "service:vitecent.basic.service"
 
 ## files
   vitecent.files.service.dapr:

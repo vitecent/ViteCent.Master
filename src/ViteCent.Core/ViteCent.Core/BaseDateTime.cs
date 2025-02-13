@@ -1,11 +1,4 @@
-﻿/*
- *
- * 版权所有 ：ViteCent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Core;
+﻿namespace ViteCent.Core;
 
 /// <summary>
 ///     Class DateTimeHelper.

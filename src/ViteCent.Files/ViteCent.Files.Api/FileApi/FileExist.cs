@@ -1,6 +1,6 @@
 ﻿/*
  *
- * 版权所有 ：ViteCent
+ * 作    者 ：vitecent
  * 作   者 : ViteCent
  *
  */
@@ -10,7 +10,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
-using ViteCent.Files.Infrastructure.File;
+using ViteCent.Files.Data.File;
+
 
 #endregion
 

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "ViteCent.Auth": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "openapi/v1.json",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:8000",
+      "dotnetRunMessages": true
+    }
+  }
+}

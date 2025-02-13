@@ -1,6 +1,6 @@
 /*
  *
- * 版权所有 ：ViteCent
+ * 作    者 ：vitecent
  * 作   者 : ViteCent
  *
  */

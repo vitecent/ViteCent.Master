@@ -1,15 +1,4 @@
-﻿/*
- *
- * 版权所有 ：Template
- * 作    者 ：template
- *
- */
-
-#region
-
-using ViteCent.Core.Web;
-
-#endregion
+﻿using ViteCent.Core.Web;
 
 namespace ViteCent.Job.Api;
 

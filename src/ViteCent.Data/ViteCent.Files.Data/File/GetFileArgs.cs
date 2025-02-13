@@ -1,17 +1,10 @@
-﻿/*
- *
- * 版权所有 ：ViteCent
- * 作   者 : ViteCent
- *
- */
-
-#region
+﻿#region
 
 using ViteCent.Core.Data;
 
 #endregion
 
-namespace ViteCent.Files.Infrastructure.File;
+namespace ViteCent.Files.Data.File;
 
 /// <summary>
 /// </summary>

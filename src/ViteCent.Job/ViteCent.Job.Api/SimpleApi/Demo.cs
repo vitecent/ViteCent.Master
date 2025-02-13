@@ -1,11 +1,4 @@
-﻿/*
- *
- * 版权所有 ：Template
- * 作    者 ：template
- *
- */
-
-#region
+﻿#region
 
 using Microsoft.AspNetCore.Mvc;
 using ViteCent.Core.Data;

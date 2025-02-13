@@ -1,11 +1,4 @@
-﻿/*
- *
- * 版权所有 ：ViteCent
- * 作   者 : ViteCent
- *
- */
-
-#region
+﻿#region
 
 using System.Reflection;
 using log4net;

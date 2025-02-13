@@ -33,7 +33,9 @@
 		<None Update="Dockerfile">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Include=".dockerignore" />
+		<None Include=".dockerignore">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

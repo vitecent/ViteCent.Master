@@ -1,8 +1,22 @@
 services:
-## service
-  vitecent.service.service.dapr:
+## auth
+  vitecent.auth.service.dapr:
     command: [ "./daprd",
-      "-app-id", "Service",
+      "-app-id", "Auth",
+      "-app-port", "80",
+      "-log-level", "debug",
+      "-placement-host-address", "dapr-placement:50000",
+      "-components-path", "/components",
+      "-config", "/configuration/config.yaml"
+    ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+## basic
+  vitecent.basic.service.dapr:
+    command: [ "./daprd",
+      "-app-id", "Basic",
       "-app-port", "80",
       "-log-level", "debug",
       "-placement-host-address", "dapr-placement:50000",
