@@ -1,15 +1,8 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
+﻿#region
 
-#region
-
-using ViteCent.Core.Web;
-using ViteCent.Auth.Entity;
 using ViteCent.Auth.Data.Simple;
+using ViteCent.Auth.Entity;
+using ViteCent.Core.Web;
 
 #endregion
 

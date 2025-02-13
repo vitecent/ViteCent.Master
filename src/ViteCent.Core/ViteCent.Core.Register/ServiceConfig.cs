@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Core.Register;
+﻿namespace ViteCent.Core.Register;
 
 /// <summary>
 ///     Class ServiceConfig.

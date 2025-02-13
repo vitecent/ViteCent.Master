@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Core.Orm;
+﻿namespace ViteCent.Core.Orm;
 
 /// <summary>
 ///     Class BaseDataBase.

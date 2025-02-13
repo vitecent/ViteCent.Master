@@ -1,20 +1,13 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作    者 ：ViteCent
- *
- */
-
-#region
+﻿#region
 
 using AutoMapper;
 using MediatR;
+using ViteCent.Auth.Data.Simple;
+using ViteCent.Auth.Domain;
+using ViteCent.Auth.Entity;
 using ViteCent.Core.Data;
 using ViteCent.Core.Orm;
 using ViteCent.Core.Orm.SqlSugar;
-using ViteCent.Auth.Domain;
-using ViteCent.Auth.Entity;
-using ViteCent.Auth.Data.Simple;
 
 #endregion
 
@@ -47,7 +40,6 @@ public class DemoApplication : BaseApplication<SimpleEntity>, IRequestHandler<Si
     public override IBaseDomain<SimpleEntity> Domain => _domain;
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

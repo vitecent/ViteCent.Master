@@ -2,12 +2,12 @@
 
 using AutoMapper;
 using MediatR;
-using ViteCent.Core.Data;
-using ViteCent.Core.Orm;
-using ViteCent.Core.Orm.SqlSugar;
 using ViteCent.Basic.Data.Simple;
 using ViteCent.Basic.Domain;
 using ViteCent.Basic.Entity;
+using ViteCent.Core.Data;
+using ViteCent.Core.Orm;
+using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
 
@@ -40,7 +40,6 @@ public class DemoApplication : BaseApplication<SimpleEntity>, IRequestHandler<Si
     public override IBaseDomain<SimpleEntity> Domain => _domain;
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

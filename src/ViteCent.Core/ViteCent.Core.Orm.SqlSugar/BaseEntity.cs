@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Core.Orm.SqlSugar;
+﻿namespace ViteCent.Core.Orm.SqlSugar;
 
 /// <summary>
 ///     Class BaseEntity. Implements the <see cref="ViteCent.Core.Orm.IBaseEntity" />

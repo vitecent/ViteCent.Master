@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-#region
+﻿#region
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

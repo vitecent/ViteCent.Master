@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Auth.Data.Simple;
+﻿namespace ViteCent.Auth.Data.Simple;
 
 /// <summary>
 /// </summary>

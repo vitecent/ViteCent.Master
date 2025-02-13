@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-#region
+﻿#region
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

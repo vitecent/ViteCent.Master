@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-namespace ViteCent.Core.Data;
+﻿namespace ViteCent.Core.Data;
 
 /// <summary>
 ///     Class BaseSystem.

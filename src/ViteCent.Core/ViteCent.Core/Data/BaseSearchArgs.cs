@@ -1,11 +1,4 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
-#region
+﻿#region
 
 using ViteCent.Core.Enums;
 

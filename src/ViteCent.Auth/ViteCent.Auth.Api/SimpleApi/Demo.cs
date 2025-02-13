@@ -1,17 +1,10 @@
-﻿/*
- *
- * 作    者 ：vitecent
- * 作    者 ：ViteCent
- *
- */
-
-#region
+﻿#region
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ViteCent.Auth.Data.Simple;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
-using ViteCent.Auth.Data.Simple;
 
 #endregion
 

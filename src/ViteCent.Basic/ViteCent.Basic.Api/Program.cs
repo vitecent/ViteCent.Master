@@ -1,10 +1,3 @@
-/*
- *
- * 作    者 ：vitecent
- * 作   者 : ViteCent
- *
- */
-
 #region
 
 using ViteCent.Core.Web;
@@ -28,11 +21,11 @@ public class Program
         var xmls = new List<string>
         {
             "ViteCent.Core.*.xml",
-            "ViteCent.Auth.*.xml"
+            "ViteCent.Basic.*.xml"
         };
 
         // 创建并配置微服务实例
-        var microService = new BaseMicroService("ViteCent.Auth.Service", xmls)
+        var microService = new BaseMicroService("ViteCent.Basic.Service", xmls)
         {
             OnBuild = builder =>
             {

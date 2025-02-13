@@ -2,9 +2,9 @@
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ViteCent.Basic.Data.Simple;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
-using ViteCent.Basic.Data.Simple;
 
 #endregion
 
