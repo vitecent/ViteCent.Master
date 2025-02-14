@@ -13,5 +13,5 @@ public class GetFileArgs : BaseArgs
     /// <summary>
     ///     文件路径
     /// </summary>
-    public string Path { get; set; } = default!;
+    public string Path { get; set; } = string.Empty;
 }

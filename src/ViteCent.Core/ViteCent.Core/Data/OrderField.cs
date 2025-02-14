@@ -15,7 +15,7 @@ public class OrderField
     ///     Gets or sets the field.
     /// </summary>
     /// <value>The field.</value>
-    public string Field { get; set; } = default!;
+    public string Field { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the type of the order.

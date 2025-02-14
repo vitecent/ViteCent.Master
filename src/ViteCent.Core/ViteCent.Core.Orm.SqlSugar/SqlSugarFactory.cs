@@ -226,7 +226,7 @@ public class SqlSugarFactory : IFactory, IDisposable
 
         if (args.Limit < 1) args.Limit = 10;
 
-        var where = args.ToSQL();
+        var where = args.ToSql();
         var query = client.Queryable<T>().Where(where.Item1, where.Item2);
 
         foreach (var order in args.Order)

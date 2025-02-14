@@ -15,7 +15,7 @@ public class SearchItem
     ///     Gets or sets the field.
     /// </summary>
     /// <value>The field.</value>
-    public string Field { get; set; } = default!;
+    public string Field { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the group.
@@ -33,5 +33,5 @@ public class SearchItem
     ///     Gets or sets the value.
     /// </summary>
     /// <value>The value.</value>
-    public object Value { get; set; } = default!;
+    public object Value { get; set; } = string.Empty;
 }

@@ -9,13 +9,13 @@ public class ServiceConfig
     ///     Gets or sets the address.
     /// </summary>
     /// <value>The address.</value>
-    public string Address { get; set; } = default!;
+    public string Address { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the check.
     /// </summary>
     /// <value>The check.</value>
-    public string Check { get; set; } = default!;
+    public string Check { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the deregister.
@@ -27,7 +27,7 @@ public class ServiceConfig
     ///     Gets or sets the identifier.
     /// </summary>
     /// <value>The identifier.</value>
-    public string Id { get; set; } = default!;
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the port.
@@ -39,7 +39,7 @@ public class ServiceConfig
     ///     Gets or sets the name.
     /// </summary>
     /// <value>The name.</value>
-    public string Name { get; set; } = default!;
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the port.

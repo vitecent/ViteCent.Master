@@ -27,23 +27,23 @@ public class Command
     ///     Gets or sets the Entity.
     /// </summary>
     /// <value>The Entity.</value>
-    public dynamic Entity { get; set; } = default!;
+    public dynamic Entity { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the parameters.
     /// </summary>
     /// <value>The parameters.</value>
-    public object Parameters { get; set; } = default!;
+    public object Parameters { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the SQL.
     /// </summary>
     /// <value>The SQL.</value>
-    public string SQL { get; set; } = default!;
+    public string SQL { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the where.
     /// </summary>
     /// <value>The where.</value>
-    public dynamic Where { get; set; } = default!;
+    public dynamic Where { get; set; } = string.Empty;
 }

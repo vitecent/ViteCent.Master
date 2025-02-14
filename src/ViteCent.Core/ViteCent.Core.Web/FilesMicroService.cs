@@ -96,7 +96,7 @@ public class FilesMicroService : MicroService
 
         // 映射静态资源
         logger.Info("开始映射静态资源");
-        app.MapStaticAssets("wwwroot");
+        app.MapStaticAssets();
 
         // 使用 Swagger 仪表板
         logger.Info("开始使用 Swagger 仪表板");

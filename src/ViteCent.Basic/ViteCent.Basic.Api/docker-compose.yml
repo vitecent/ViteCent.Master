@@ -1,6 +1,6 @@
 services:
-  vitecent.auth.api:
-    image: ${DOCKER_REGISTRY-}vitecentauthservice:1.0.0
+  vitecent.basic.api:
+    image: ${DOCKER_REGISTRY-}vitecentbasicservice:1.0.0
     build:
       context: .
       dockerfile: Dockerfile

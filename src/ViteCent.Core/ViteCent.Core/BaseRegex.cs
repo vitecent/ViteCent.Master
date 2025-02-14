@@ -36,9 +36,7 @@ public static partial class BaseRegex
     ///     Determines whether [is chinese underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is chinese underline] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is chinese underline] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsChineseUnderline(this string str)
     {
         return ChineseUnderline().IsMatch(str);
@@ -146,9 +144,7 @@ public static partial class BaseRegex
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
-    /// <returns>
-    ///     <c>true</c> if [is negative decimal] [the specified length]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is negative decimal] [the specified length]; otherwise, <c>false</c>.</returns>
     public static bool IsNegativeDecimal(this string str, int length = 2)
     {
         return Regex.IsMatch(str, string.Format(Const.NegativeDecimal, length));
@@ -181,9 +177,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive chinese] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive chinese] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive chinese] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveChinese(this string str)
     {
         return PositiveChinese().IsMatch(str);
@@ -206,8 +200,7 @@ public static partial class BaseRegex
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>
-    ///     <c>true</c> if [is positive chinese english underline] [the specified string];
-    ///     otherwise, <c>false</c>.
+    ///     <c>true</c> if [is positive chinese english underline] [the specified string]; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsPositiveChineseEnglishUnderline(this string str)
     {
@@ -231,9 +224,7 @@ public static partial class BaseRegex
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive decimal] [the specified length]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive decimal] [the specified length]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveDecimal(this string str, int length = 2)
     {
         return Regex.IsMatch(str, string.Format(Const.PositiveDecimal, length));
@@ -243,9 +234,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive english] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive english] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive english] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveEnglish(this string str)
     {
         return PositiveEnglish().IsMatch(str);
@@ -267,9 +256,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive negative] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive negative] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive negative] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveNegative(this string str)
     {
         return PositiveNegative().IsMatch(str);
@@ -279,9 +266,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive underline] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive underline] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveUnderline(this string str)
     {
         return PositiveUnderline().IsMatch(str);

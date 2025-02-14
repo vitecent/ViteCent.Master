@@ -10,5 +10,5 @@ public class SqlSugarDataBase : BaseDataBase
     ///     Gets or sets the tables.
     /// </summary>
     /// <value>The tables.</value>
-    public List<SqlSugarTable> Tables { get; set; } = default!;
+    public List<SqlSugarTable> Tables { get; set; } = [];
 }

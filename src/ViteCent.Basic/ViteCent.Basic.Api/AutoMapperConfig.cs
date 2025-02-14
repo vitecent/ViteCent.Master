@@ -1,7 +1,5 @@
 ﻿#region
 
-using ViteCent.Basic.Data.Simple;
-using ViteCent.Basic.Entity;
 using ViteCent.Core.Web;
 
 #endregion

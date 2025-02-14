@@ -10,5 +10,5 @@ public class SqlSugarTable : BaseTable
     ///     Gets or sets the fields.
     /// </summary>
     /// <value>The fields.</value>
-    public List<SqlSugarField> Fields { get; set; } = default!;
+    public List<SqlSugarField> Fields { get; set; } = [];
 }

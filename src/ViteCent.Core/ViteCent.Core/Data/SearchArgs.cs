@@ -28,13 +28,13 @@ public class SearchArgs : BaseArgs
     ///     Gets or sets the limit.
     /// </summary>
     /// <value>The limit.</value>
-    public int Limit { get; set; } = default!;
+    public int Limit { get; set; }
 
     /// <summary>
     ///     Gets or sets the offset.
     /// </summary>
     /// <value>The offset.</value>
-    public int Offset { get; set; } = default!;
+    public int Offset { get; set; }
 
     /// <summary>
     ///     Gets or sets the order.
@@ -46,13 +46,13 @@ public class SearchArgs : BaseArgs
     ///     Gets or sets the total.
     /// </summary>
     /// <value>The total.</value>
-    public int Total { get; set; } = default!;
+    public int Total { get; set; }
 
     /// <summary>
     ///     Converts to sql.
     /// </summary>
     /// <returns>(string, object).</returns>
-    public (string, object) ToSQL()
+    public (string, object) ToSql()
     {
         var result = string.Empty;
         var parameters = new Dictionary<string, object>();

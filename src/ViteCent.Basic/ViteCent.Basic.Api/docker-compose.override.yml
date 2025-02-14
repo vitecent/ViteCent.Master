@@ -1,13 +1,13 @@
 services:
-  vitecent.auth.service:
+  vitecent.basic.service:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
       - ASPNETCORE_URLS=http://0.0.0.0:80
       - RetryMigrations=true
-      - Port=8000
+      - Port=8010
     ports:
-      - "8000:80"
-      - "8005:50001"
+      - "8010:80"
+      - "8015:50001"
     volumes:
       - "./Logs/:/app/Logs"

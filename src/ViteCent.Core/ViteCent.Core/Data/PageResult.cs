@@ -59,7 +59,7 @@ public class PageResult<T> : BaseResult
     ///     Gets or sets the rows.
     /// </summary>
     /// <value>The rows.</value>
-    public List<T> Rows { get; set; } = default!;
+    public List<T> Rows { get; set; } = [];
 
     /// <summary>
     ///     Gets or sets the total.

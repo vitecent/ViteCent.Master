@@ -5,9 +5,9 @@ services:
       - ASPNETCORE_HTTP_PORTS=80
       - ASPNETCORE_URLS=http://0.0.0.0:80
       - RetryMigrations=true
-      - Port=8040
+      - Port=8020
     ports:
-      - "8040:80"
-      - "8045:50001"
+      - "8020:80"
+      - "8025:50001"
     volumes:
       - "./Logs/:/app/Logs"

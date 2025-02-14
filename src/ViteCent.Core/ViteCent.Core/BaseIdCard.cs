@@ -61,9 +61,7 @@ public static class IdCardHelper
     ///     Determines whether [is identifier card15] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is identifier card15] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is identifier card15] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsIdCard15(this string str)
     {
         //数字验证
@@ -85,9 +83,7 @@ public static class IdCardHelper
     ///     Determines whether [is identifier card18] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is identifier card18] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is identifier card18] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsIdCard18(this string str)
     {
         //数字验证

@@ -37,7 +37,7 @@ public class BaseResult
     ///     Gets or sets the content.
     /// </summary>
     /// <value>The content.</value>
-    public string Content { get; set; } = default!;
+    public string Content { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets a value indicating whether this <see cref="BaseResult" /> is succeed.

@@ -8,7 +8,7 @@ public class KeyValue<T>
 {
     /// <summary>
     /// </summary>
-    public string Key { get; set; } = default!;
+    public string Key { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the value.
