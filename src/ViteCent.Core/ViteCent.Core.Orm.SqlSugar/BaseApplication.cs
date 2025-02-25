@@ -30,21 +30,21 @@ public abstract class BaseApplication<T> : IBaseApplication<T> where T : IBaseEn
     /// <summary>
     ///     Adds the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
-    public virtual async Task<BaseResult> AddAsync(T Entity)
+    public virtual async Task<BaseResult> AddAsync(T entity)
     {
-        return await Domain.AddAsync(Entity);
+        return await Domain.AddAsync(entity);
     }
 
     /// <summary>
     ///     Edits the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
-    public virtual async Task<BaseResult> EditAsync(T Entity)
+    public virtual async Task<BaseResult> EditAsync(T entity)
     {
-        return await Domain.EditAsync(Entity);
+        return await Domain.EditAsync(entity);
     }
 
     /// <summary>

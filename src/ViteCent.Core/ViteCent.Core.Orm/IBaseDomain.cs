@@ -22,16 +22,16 @@ public interface IBaseDomain<T> where T : IBaseEntity, new()
     /// <summary>
     ///     Adds the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>Task&lt;BaseResult&gt;.</returns>
-    Task<BaseResult> AddAsync(T Entity);
+    Task<BaseResult> AddAsync(T entity);
 
     /// <summary>
     ///     Edits the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>Task&lt;BaseResult&gt;.</returns>
-    Task<BaseResult> EditAsync(T Entity);
+    Task<BaseResult> EditAsync(T entity);
 
     /// <summary>
     ///     Gets the asynchronous.

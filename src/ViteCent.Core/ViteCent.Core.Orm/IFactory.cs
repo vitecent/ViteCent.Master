@@ -29,8 +29,8 @@ public interface IFactory
     ///     Deletes the specified Entitys.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entitys">The Entitys.</param>
-    void Delete<T>(List<T> Entitys) where T : class, new();
+    /// <param name="entitys">The Entitys.</param>
+    void Delete<T>(List<T> entitys) where T : class, new();
 
     /// <summary>
     ///     Deletes the specified SQL.
@@ -44,15 +44,15 @@ public interface IFactory
     ///     Deletes the specified Entity.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entity">The Entity.</param>
-    void Delete<T>(T Entity) where T : class, new();
+    /// <param name="entity">The Entity.</param>
+    void Delete<T>(T entity) where T : class, new();
 
     /// <summary>
     ///     Inserts the specified Entitys.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entitys">The Entitys.</param>
-    void Insert<T>(List<T> Entitys) where T : class, new();
+    /// <param name="entitys">The Entitys.</param>
+    void Insert<T>(List<T> entitys) where T : class, new();
 
     /// <summary>
     ///     Inserts the specified SQL.
@@ -66,8 +66,8 @@ public interface IFactory
     ///     Inserts the specified Entity.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entity">The Entity.</param>
-    void Insert<T>(T Entity) where T : class, new();
+    /// <param name="entity">The Entity.</param>
+    void Insert<T>(T entity) where T : class, new();
 
     /// <summary>
     ///     Pages the asynchronous.
@@ -81,16 +81,16 @@ public interface IFactory
     ///     Updates the specified Entitys.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entitys">The Entitys.</param>
-    void Update<T>(List<T> Entitys) where T : class, new();
+    /// <param name="entitys">The Entitys.</param>
+    void Update<T>(List<T> entitys) where T : class, new();
 
     /// <summary>
     ///     Updates the specified Entitys.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entitys">The Entitys.</param>
+    /// <param name="entitys">The Entitys.</param>
     /// <param name="columns">The columns.</param>
-    void Update<T>(List<T> Entitys, Expression<Func<T, object>> columns) where T : class, new();
+    void Update<T>(List<T> entitys, Expression<Func<T, object>> columns) where T : class, new();
 
     /// <summary>
     ///     Updates the specified SQL.
@@ -104,14 +104,14 @@ public interface IFactory
     ///     Updates the specified Entity.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entity">The Entity.</param>
-    void Update<T>(T Entity) where T : class, new();
+    /// <param name="entity">The Entity.</param>
+    void Update<T>(T entity) where T : class, new();
 
     /// <summary>
     ///     Updates the specified Entity.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <param name="columns">The columns.</param>
-    void Update<T>(T Entity, Expression<Func<T, object>> columns) where T : class, new();
+    void Update<T>(T entity, Expression<Func<T, object>> columns) where T : class, new();
 }

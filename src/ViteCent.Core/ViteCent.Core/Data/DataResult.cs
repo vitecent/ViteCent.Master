@@ -18,10 +18,10 @@ public class DataResult<T> : BaseResult
     /// <summary>
     ///     Initializes a new instance of the <see cref="DataResult{T}" /> class.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
-    public DataResult(T Entity)
+    /// <param name="entity">The Entity.</param>
+    public DataResult(T entity)
     {
-        Data = Entity;
+        Data = entity;
     }
 
     /// <summary>

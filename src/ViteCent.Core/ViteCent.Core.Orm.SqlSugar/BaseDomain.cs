@@ -36,22 +36,22 @@ public abstract class BaseDomain<T> : IBaseDomain<T> where T : BaseEntity, new()
     /// <summary>
     ///     Adds the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
-    public virtual async Task<BaseResult> AddAsync(T Entity)
+    public virtual async Task<BaseResult> AddAsync(T entity)
     {
-        Client.Insert(Entity);
+        Client.Insert(entity);
         return await Client.CommitAsync();
     }
 
     /// <summary>
     ///     Edits the asynchronous.
     /// </summary>
-    /// <param name="Entity">The Entity.</param>
+    /// <param name="entity">The Entity.</param>
     /// <returns>A Task&lt;BaseResult&gt; representing the asynchronous operation.</returns>
-    public virtual async Task<BaseResult> EditAsync(T Entity)
+    public virtual async Task<BaseResult> EditAsync(T entity)
     {
-        Client.Update(Entity);
+        Client.Update(entity);
         return await Client.CommitAsync();
     }
 

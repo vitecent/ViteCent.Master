@@ -84,17 +84,17 @@ public static partial class BaseRegex
         switch (length)
         {
             case 18:
-            {
-                return str.IsIdCard18();
-            }
+                {
+                    return str.IsIdCard18();
+                }
             case 15:
-            {
-                return str.IsIdCard15();
-            }
+                {
+                    return str.IsIdCard15();
+                }
             default:
-            {
-                return false;
-            }
+                {
+                    return false;
+                }
         }
     }
 
@@ -155,9 +155,7 @@ public static partial class BaseRegex
     /// </summary>
     /// <param name="str">The string.</param>
     /// <param name="length">The length.</param>
-    /// <returns>
-    ///     <c>true</c> if [is negative decimal decimal] [the specified length]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is negative decimal decimal] [the specified length]; otherwise, <c>false</c>.</returns>
     public static bool IsNegativeDecimalDecimal(this string str, int length = 2)
     {
         return Regex.IsMatch(str, string.Format(Const.NegativeDecimalDecimal, length));
@@ -187,9 +185,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive chinese english] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive chinese english] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive chinese english] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveChineseEnglish(this string str)
     {
         return PositiveChineseEnglish().IsMatch(str);
@@ -199,9 +195,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive chinese english underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive chinese english underline] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive chinese english underline] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveChineseEnglishUnderline(this string str)
     {
         return PositiveChineseEnglishUnderline().IsMatch(str);
@@ -211,9 +205,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive chinese underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive chinese underline] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive chinese underline] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveChineseUnderline(this string str)
     {
         return PositiveChineseUnderline().IsMatch(str);
@@ -244,9 +236,7 @@ public static partial class BaseRegex
     ///     Determines whether [is positive english underline] [the specified string].
     /// </summary>
     /// <param name="str">The string.</param>
-    /// <returns>
-    ///     <c>true</c> if [is positive english underline] [the specified string]; otherwise, <c>false</c>.
-    /// </returns>
+    /// <returns><c>true</c> if [is positive english underline] [the specified string]; otherwise, <c>false</c>.</returns>
     public static bool IsPositiveEnglishUnderline(this string str)
     {
         return PositiveEnglishUnderline().IsMatch(str);

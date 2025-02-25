@@ -24,7 +24,8 @@ public class BaseEntity : IBaseEntity
     /// <summary>
     ///     on update CURRENT_TIMESTAMP
     /// </summary>
-    [SugarColumn(ColumnName = "dataVersion", IsEnableUpdateVersionValidation = true, IsOnlyIgnoreInsert = true, IsOnlyIgnoreUpdate = true)]
+    [SugarColumn(ColumnName = "dataVersion", IsEnableUpdateVersionValidation = true, IsOnlyIgnoreInsert = true,
+        IsOnlyIgnoreUpdate = true)]
     public DateTime DataVersion { get; set; }
 
     /// <summary>

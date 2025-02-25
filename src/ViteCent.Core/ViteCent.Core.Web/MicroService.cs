@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.IO.Compression;
 using log4net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
+
+using System.IO.Compression;
 using ViteCent.Core.Authorize.Jwt;
 using ViteCent.Core.Data;
 using ViteCent.Core.Logging.Log4Net;

@@ -9,12 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SqlSugarCore" Version="5.1.4.175" />
-		<PackageReference Include="AutoMapper" Version="13.0.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\ViteCent.Core.Orm\ViteCent.Core.Orm.csproj" />
+		<ProjectReference Include="..\..\ViteCent.Core\ViteCent.Core\ViteCent.Core.csproj" />
 	</ItemGroup>
 
 </Project>
