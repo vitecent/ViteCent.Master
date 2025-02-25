@@ -1,6 +1,0 @@
-services:
-  vitecent.basic.api:
-    image: ${DOCKER_REGISTRY-}vitecentbasicservice:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile

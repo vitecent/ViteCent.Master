@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\ViteCent.Core\ViteCent.Core.Orm.SqlSugar\ViteCent.Core.Orm.SqlSugar.csproj" />
+		<PackageReference Include="ViteCent.Core.Orm.SqlSugar" Version="9.0.0" />
 	</ItemGroup>
 
 </Project>
