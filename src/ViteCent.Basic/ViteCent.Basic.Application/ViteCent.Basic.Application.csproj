@@ -9,13 +9,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="AutoMapper" Version="14.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\ViteCent.Data\ViteCent.Basic.Data\ViteCent.Basic.Data.csproj" />
 		<ProjectReference Include="..\ViteCent.Basic.Domain\ViteCent.Basic.Domain.csproj" />
-		<ProjectReference Include="..\ViteCent.Basic.Entity\ViteCent.Basic.Entity.csproj" />
 	</ItemGroup>
 
 </Project>

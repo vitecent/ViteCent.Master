@@ -9,7 +9,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ViteCent.Core" Version="9.0.0" />
+		<PackageReference Include="ViteCent.Core" Version="9.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\ViteCent.Basic\ViteCent.Basic.Entity\ViteCent.Basic.Entity.csproj" />
 	</ItemGroup>
 
 </Project>

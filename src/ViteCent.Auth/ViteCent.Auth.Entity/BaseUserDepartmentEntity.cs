@@ -1,6 +1,8 @@
-﻿#region
+#region
 
+using MediatR;
 using SqlSugar;
+using ViteCent.Core.Data;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -8,20 +10,21 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Entity;
 
 /// <summary>
+///     BaseUserDepartmentEntity.
 /// </summary>
 [Serializable]
 [SugarTable("base_user_department")]
-public class BaseUserDepartmentEntity : CompanyEntity
+public class BaseUserDepartmentEntity : CompanyEntity, IRequest<BaseResult>
 {
     /// <summary>
-    ///     departmentId
+    ///     部门标识
     /// </summary>
-    [SugarColumn(ColumnName = "departmentId")]
+    [SugarColumn(ColumnName = "departmentId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "部门标识")]
     public string DepartmentId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     userId
+    ///     用户标识
     /// </summary>
-    [SugarColumn(ColumnName = "userId")]
+    [SugarColumn(ColumnName = "userId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "用户标识")]
     public string UserId { get; set; } = string.Empty;
 }

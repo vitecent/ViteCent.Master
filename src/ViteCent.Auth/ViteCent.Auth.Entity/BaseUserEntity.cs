@@ -1,6 +1,8 @@
-﻿#region
+#region
 
+using MediatR;
 using SqlSugar;
+using ViteCent.Core.Data;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -8,81 +10,81 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Entity;
 
 /// <summary>
-///     Class BaseUserEntity.
+///     BaseUserEntity.
 /// </summary>
 [Serializable]
 [SugarTable("base_user")]
-public class BaseUserEntity : CompanyEntity
+public class BaseUserEntity : CompanyEntity, IRequest<BaseResult>
 {
     /// <summary>
-    ///     avatar
+    ///     头像
     /// </summary>
-    [SugarColumn(ColumnName = "avatar")]
+    [SugarColumn(ColumnName = "avatar", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "头像")]
     public string Avatar { get; set; } = string.Empty;
 
     /// <summary>
-    ///     birthday
+    ///     出生日期
     /// </summary>
-    [SugarColumn(ColumnName = "birthday")]
-    public DateTime Birthday { get; set; }
+    [SugarColumn(ColumnName = "birthday", IsNullable = true, ColumnDataType = "date", ColumnDescription = "出生日期")]
+    public DateTime? Birthday { get; set; }
 
     /// <summary>
-    ///     description
+    ///     简介
     /// </summary>
-    [SugarColumn(ColumnName = "description")]
+    [SugarColumn(ColumnName = "description", IsNullable = true, ColumnDataType = "varchar", Length = 5000, ColumnDescription = "简介")]
     public string Description { get; set; } = string.Empty;
 
     /// <summary>
-    ///     email
+    ///     邮箱
     /// </summary>
-    [SugarColumn(ColumnName = "email")]
+    [SugarColumn(ColumnName = "email", IsNullable = true, ColumnDataType = "varchar", Length = 100, ColumnDescription = "邮箱")]
     public string Email { get; set; } = string.Empty;
 
     /// <summary>
-    ///     gender
+    ///     性别
     /// </summary>
-    [SugarColumn(ColumnName = "gender")]
+    [SugarColumn(ColumnName = "gender", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "性别")]
     public int Gender { get; set; }
 
     /// <summary>
-    ///     idCard
+    ///     身份证
     /// </summary>
-    [SugarColumn(ColumnName = "idCard")]
+    [SugarColumn(ColumnName = "idCard", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "身份证")]
     public string IdCard { get; set; } = string.Empty;
 
     /// <summary>
-    ///     nickname
+    ///     昵称
     /// </summary>
-    [SugarColumn(ColumnName = "nickname")]
+    [SugarColumn(ColumnName = "nickname", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "昵称")]
     public string Nickname { get; set; } = string.Empty;
 
     /// <summary>
-    ///     password
+    ///     密码
     /// </summary>
-    [SugarColumn(ColumnName = "password")]
+    [SugarColumn(ColumnName = "password", ColumnDataType = "varchar", Length = 50, ColumnDescription = "密码")]
     public string Password { get; set; } = string.Empty;
 
     /// <summary>
-    ///     phone
+    ///     电话
     /// </summary>
-    [SugarColumn(ColumnName = "phone")]
+    [SugarColumn(ColumnName = "phone", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "电话")]
     public string Phone { get; set; } = string.Empty;
 
     /// <summary>
-    ///     realName
+    ///     真实姓名
     /// </summary>
-    [SugarColumn(ColumnName = "realName")]
+    [SugarColumn(ColumnName = "realName", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "真实姓名")]
     public string RealName { get; set; } = string.Empty;
 
     /// <summary>
-    ///     username
+    ///     用户名
     /// </summary>
-    [SugarColumn(ColumnName = "username")]
+    [SugarColumn(ColumnName = "username", ColumnDataType = "varchar", Length = 50, ColumnDescription = "用户名")]
     public string Username { get; set; } = string.Empty;
 
     /// <summary>
-    ///     userNo
+    ///     编号
     /// </summary>
-    [SugarColumn(ColumnName = "userNo")]
+    [SugarColumn(ColumnName = "userNo", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "编号")]
     public string UserNo { get; set; } = string.Empty;
 }

@@ -1,6 +1,8 @@
-﻿#region
+#region
 
+using MediatR;
 using SqlSugar;
+using ViteCent.Core.Data;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -8,32 +10,33 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Entity;
 
 /// <summary>
+///     BaseRolePermissionEntity.
 /// </summary>
 [Serializable]
 [SugarTable("base_role_permission")]
-public class BaseRolePermissionEntity : CompanyEntity
+public class BaseRolePermissionEntity : CompanyEntity, IRequest<BaseResult>
 {
     /// <summary>
-    ///     moduleId
+    ///     模块标识
     /// </summary>
-    [SugarColumn(ColumnName = "moduleId")]
+    [SugarColumn(ColumnName = "moduleId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "模块标识")]
     public string ModuleId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     operationId
+    ///     操作标识
     /// </summary>
-    [SugarColumn(ColumnName = "operationId")]
+    [SugarColumn(ColumnName = "operationId", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "操作标识")]
     public string OperationId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     resourceId
+    ///     资源标识
     /// </summary>
-    [SugarColumn(ColumnName = "resourceId")]
+    [SugarColumn(ColumnName = "resourceId", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "资源标识")]
     public string ResourceId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     roleId
+    ///     角色标识
     /// </summary>
-    [SugarColumn(ColumnName = "roleId")]
+    [SugarColumn(ColumnName = "roleId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "角色标识")]
     public string RoleId { get; set; } = string.Empty;
 }

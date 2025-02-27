@@ -1,6 +1,8 @@
-﻿#region
+#region
 
+using MediatR;
 using SqlSugar;
+using ViteCent.Core.Data;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -8,201 +10,201 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Basic.Entity;
 
 /// <summary>
-///     BaseModuleFieldEntity
+///     BaseModuleFieldEntity.
 /// </summary>
 [Serializable]
 [SugarTable("base_module_field")]
-public class BaseModuleFieldEntity : CompanyEntity
+public class BaseModuleFieldEntity : CompanyEntity, IRequest<BaseResult>
 {
     /// <summary>
-    ///     abbreviation
+    ///     简称
     /// </summary>
-    [SugarColumn(ColumnName = "abbreviation")]
+    [SugarColumn(ColumnName = "abbreviation", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "简称")]
     public string Abbreviation { get; set; } = string.Empty;
 
     /// <summary>
-    ///     addOrder
+    ///     新增排序
     /// </summary>
-    [SugarColumn(ColumnName = "addOrder")]
+    [SugarColumn(ColumnName = "addOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "新增排序")]
     public string AddOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     addWidth
+    ///     新增宽度
     /// </summary>
-    [SugarColumn(ColumnName = "addWidth")]
+    [SugarColumn(ColumnName = "addWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "新增宽度")]
     public string AddWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     allowNull
+    ///     允许为空
     /// </summary>
-    [SugarColumn(ColumnName = "allowNull")]
+    [SugarColumn(ColumnName = "allowNull", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "允许为空")]
     public int AllowNull { get; set; }
 
     /// <summary>
-    ///     code
+    ///     编码
     /// </summary>
-    [SugarColumn(ColumnName = "code")]
+    [SugarColumn(ColumnName = "code", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "编码")]
     public string Code { get; set; } = string.Empty;
 
     /// <summary>
-    ///     dataType
+    ///     类型
     /// </summary>
-    [SugarColumn(ColumnName = "dataType")]
+    [SugarColumn(ColumnName = "dataType", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "类型")]
     public string DataType { get; set; } = string.Empty;
 
     /// <summary>
-    ///     description
+    ///     简介
     /// </summary>
-    [SugarColumn(ColumnName = "description")]
+    [SugarColumn(ColumnName = "description", IsNullable = true, ColumnDataType = "varchar", Length = 5000, ColumnDescription = "简介")]
     public string Description { get; set; } = string.Empty;
 
     /// <summary>
-    ///     detailsOrder
+    ///     详情排序
     /// </summary>
-    [SugarColumn(ColumnName = "detailsOrder")]
+    [SugarColumn(ColumnName = "detailsOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "详情排序")]
     public string DetailsOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     detailsWidth
+    ///     详情宽度
     /// </summary>
-    [SugarColumn(ColumnName = "detailsWidth")]
+    [SugarColumn(ColumnName = "detailsWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "详情宽度")]
     public string DetailsWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     exportOrder
+    ///     导出排序
     /// </summary>
-    [SugarColumn(ColumnName = "exportOrder")]
+    [SugarColumn(ColumnName = "exportOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "导出排序")]
     public string ExportOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     exportWidth
+    ///     导出宽度
     /// </summary>
-    [SugarColumn(ColumnName = "exportWidth")]
+    [SugarColumn(ColumnName = "exportWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "导出宽度")]
     public string ExportWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     isIndex
+    ///     是否索引
     /// </summary>
-    [SugarColumn(ColumnName = "isIndex")]
+    [SugarColumn(ColumnName = "isIndex", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "是否索引")]
     public int IsIndex { get; set; }
 
     /// <summary>
-    ///     isUnique
+    ///     是否唯一
     /// </summary>
-    [SugarColumn(ColumnName = "isUnique")]
+    [SugarColumn(ColumnName = "isUnique", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "是否唯一")]
     public int IsUnique { get; set; }
 
     /// <summary>
-    ///     listOrder
+    ///     列表排序
     /// </summary>
-    [SugarColumn(ColumnName = "listOrder")]
+    [SugarColumn(ColumnName = "listOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "列表排序")]
     public string ListOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     listWidth
+    ///     列表宽度
     /// </summary>
-    [SugarColumn(ColumnName = "listWidth")]
+    [SugarColumn(ColumnName = "listWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "列表宽度")]
     public string ListWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     maxLength
+    ///     最大长度
     /// </summary>
-    [SugarColumn(ColumnName = "maxLength")]
+    [SugarColumn(ColumnName = "maxLength", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "最大长度")]
     public string MaxLength { get; set; } = string.Empty;
 
     /// <summary>
-    ///     minLength
+    ///     最小长度
     /// </summary>
-    [SugarColumn(ColumnName = "minLength")]
+    [SugarColumn(ColumnName = "minLength", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "最小长度")]
     public string MinLength { get; set; } = string.Empty;
 
     /// <summary>
-    ///     moduleId
+    ///     模块标识
     /// </summary>
-    [SugarColumn(ColumnName = "moduleId")]
+    [SugarColumn(ColumnName = "moduleId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "模块标识")]
     public string ModuleId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     name
+    ///     名称
     /// </summary>
-    [SugarColumn(ColumnName = "name")]
+    [SugarColumn(ColumnName = "name", ColumnDataType = "varchar", Length = 100, ColumnDescription = "名称")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    ///     printOrder
+    ///     打印排序
     /// </summary>
-    [SugarColumn(ColumnName = "printOrder")]
+    [SugarColumn(ColumnName = "printOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "打印排序")]
     public string PrintOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     printWidth
+    ///     打印宽度
     /// </summary>
-    [SugarColumn(ColumnName = "printWidth")]
+    [SugarColumn(ColumnName = "printWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "打印宽度")]
     public string PrintWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     searchOrder
+    ///     搜索排序
     /// </summary>
-    [SugarColumn(ColumnName = "searchOrder")]
+    [SugarColumn(ColumnName = "searchOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "搜索排序")]
     public string SearchOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     searchWidth
+    ///     搜索宽度
     /// </summary>
-    [SugarColumn(ColumnName = "searchWidth")]
+    [SugarColumn(ColumnName = "searchWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "搜索宽度")]
     public string SearchWidth { get; set; } = string.Empty;
 
     /// <summary>
-    ///     showInAdd
+    ///     新增可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInAdd")]
+    [SugarColumn(ColumnName = "showInAdd", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "新增可见")]
     public int ShowInAdd { get; set; }
 
     /// <summary>
-    ///     showInDetails
+    ///     详情可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInDetails")]
+    [SugarColumn(ColumnName = "showInDetails", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "详情可见")]
     public int ShowInDetails { get; set; }
 
     /// <summary>
-    ///     showInExport
+    ///     导出可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInExport")]
+    [SugarColumn(ColumnName = "showInExport", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "导出可见")]
     public int ShowInExport { get; set; }
 
     /// <summary>
-    ///     showInList
+    ///     列表可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInList")]
+    [SugarColumn(ColumnName = "showInList", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "列表可见")]
     public int ShowInList { get; set; }
 
     /// <summary>
-    ///     showInPrint
+    ///     打印可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInPrint")]
+    [SugarColumn(ColumnName = "showInPrint", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "打印可见")]
     public int ShowInPrint { get; set; }
 
     /// <summary>
-    ///     showInSearch
+    ///     搜索可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInSearch")]
+    [SugarColumn(ColumnName = "showInSearch", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "搜索可见")]
     public int ShowInSearch { get; set; }
 
     /// <summary>
-    ///     showInUpdate
+    ///     修改可见
     /// </summary>
-    [SugarColumn(ColumnName = "showInUpdate")]
+    [SugarColumn(ColumnName = "showInUpdate", IsNullable = true, ColumnDataType = "int", Length = 11, ColumnDescription = "修改可见")]
     public int ShowInUpdate { get; set; }
 
     /// <summary>
-    ///     updateOrder
+    ///     修改排序
     /// </summary>
-    [SugarColumn(ColumnName = "updateOrder")]
+    [SugarColumn(ColumnName = "updateOrder", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "修改排序")]
     public string UpdateOrder { get; set; } = string.Empty;
 
     /// <summary>
-    ///     updateWidth
+    ///     修改宽度
     /// </summary>
-    [SugarColumn(ColumnName = "updateWidth")]
+    [SugarColumn(ColumnName = "updateWidth", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "修改宽度")]
     public string UpdateWidth { get; set; } = string.Empty;
 }

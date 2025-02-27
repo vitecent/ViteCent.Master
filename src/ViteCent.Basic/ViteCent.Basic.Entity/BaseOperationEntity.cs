@@ -1,6 +1,8 @@
-﻿#region
+#region
 
+using MediatR;
 using SqlSugar;
+using ViteCent.Core.Data;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -8,44 +10,45 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Basic.Entity;
 
 /// <summary>
+///     BaseOperationEntity.
 /// </summary>
 [Serializable]
 [SugarTable("base_operation")]
-public class BaseOperationEntity : CompanyEntity
+public class BaseOperationEntity : CompanyEntity, IRequest<BaseResult>
 {
     /// <summary>
-    ///     abbreviation
+    ///     简称
     /// </summary>
-    [SugarColumn(ColumnName = "abbreviation")]
+    [SugarColumn(ColumnName = "abbreviation", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "简称")]
     public string Abbreviation { get; set; } = string.Empty;
 
     /// <summary>
-    ///     code
+    ///     编码
     /// </summary>
-    [SugarColumn(ColumnName = "code")]
+    [SugarColumn(ColumnName = "code", IsNullable = true, ColumnDataType = "varchar", Length = 50, ColumnDescription = "编码")]
     public string Code { get; set; } = string.Empty;
 
     /// <summary>
-    ///     description
+    ///     简介
     /// </summary>
-    [SugarColumn(ColumnName = "description")]
+    [SugarColumn(ColumnName = "description", IsNullable = true, ColumnDataType = "varchar", Length = 5000, ColumnDescription = "简介")]
     public string Description { get; set; } = string.Empty;
 
     /// <summary>
-    ///     moduleId
+    ///     模块标识
     /// </summary>
-    [SugarColumn(ColumnName = "moduleId")]
+    [SugarColumn(ColumnName = "moduleId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "模块标识")]
     public string ModuleId { get; set; } = string.Empty;
 
     /// <summary>
-    ///     name
+    ///     名称
     /// </summary>
-    [SugarColumn(ColumnName = "name")]
+    [SugarColumn(ColumnName = "name", ColumnDataType = "varchar", Length = 100, ColumnDescription = "名称")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    ///     resourceId
+    ///     模块标识
     /// </summary>
-    [SugarColumn(ColumnName = "resourceId")]
+    [SugarColumn(ColumnName = "resourceId", ColumnDataType = "varchar", Length = 50, ColumnDescription = "模块标识")]
     public string ResourceId { get; set; } = string.Empty;
 }
