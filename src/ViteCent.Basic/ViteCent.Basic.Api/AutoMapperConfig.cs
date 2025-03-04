@@ -11,53 +11,47 @@ using ViteCent.Core.Web;
 namespace ViteCent.Basic.Api;
 
 /// <summary>
-///     AutoMapper配置类，继承自BaseMapperConfig
 /// </summary>
 public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
-    ///     配置映射关系的方法
     /// </summary>
     public override void Map()
     {
         #region BaseModule
 
+        CreateMap<AddBaseModuleArgs, AddBaseModuleEntity>();
+        CreateMap<EditBaseModuleArgs, GetBaseModuleEntityArgs>();
         CreateMap<GetBaseModuleArgs, GetBaseModuleEntityArgs>();
         CreateMap<SearchBaseModuleArgs, SearchBaseModuleEntityArgs>();
-        CreateMap<AddBaseModuleArgs, BaseModuleEntity>();
-        CreateMap<BaseModuleEntity, BaseModuleResult>();
-        CreateMap<EditBaseModuleArgs, GetBaseModuleEntityArgs>();
-
+       CreateMap<BaseModuleEntity, BaseModuleResult>();
         #endregion
 
         #region BaseModuleField
 
+        CreateMap<AddBaseModuleFieldArgs, AddBaseModuleFieldEntity>();
+        CreateMap<EditBaseModuleFieldArgs, GetBaseModuleFieldEntityArgs>();
         CreateMap<GetBaseModuleFieldArgs, GetBaseModuleFieldEntityArgs>();
         CreateMap<SearchBaseModuleFieldArgs, SearchBaseModuleFieldEntityArgs>();
-        CreateMap<AddBaseModuleFieldArgs, BaseModuleFieldEntity>();
-        CreateMap<BaseModuleFieldEntity, BaseModuleFieldResult>();
-        CreateMap<EditBaseModuleFieldArgs, GetBaseModuleFieldEntityArgs>();
-
+       CreateMap<BaseModuleFieldEntity, BaseModuleFieldResult>();
         #endregion
 
         #region BaseOperation
 
+        CreateMap<AddBaseOperationArgs, AddBaseOperationEntity>();
+        CreateMap<EditBaseOperationArgs, GetBaseOperationEntityArgs>();
         CreateMap<GetBaseOperationArgs, GetBaseOperationEntityArgs>();
         CreateMap<SearchBaseOperationArgs, SearchBaseOperationEntityArgs>();
-        CreateMap<AddBaseOperationArgs, BaseOperationEntity>();
-        CreateMap<BaseOperationEntity, BaseOperationResult>();
-        CreateMap<EditBaseOperationArgs, GetBaseOperationEntityArgs>();
-
+       CreateMap<BaseOperationEntity, BaseOperationResult>();
         #endregion
 
         #region BaseResource
 
+        CreateMap<AddBaseResourceArgs, AddBaseResourceEntity>();
+        CreateMap<EditBaseResourceArgs, GetBaseResourceEntityArgs>();
         CreateMap<GetBaseResourceArgs, GetBaseResourceEntityArgs>();
         CreateMap<SearchBaseResourceArgs, SearchBaseResourceEntityArgs>();
-        CreateMap<AddBaseResourceArgs, BaseResourceEntity>();
-        CreateMap<BaseResourceEntity, BaseResourceResult>();
-        CreateMap<EditBaseResourceArgs, GetBaseResourceEntityArgs>();
-
+       CreateMap<BaseResourceEntity, BaseResourceResult>();
         #endregion
     }
 }

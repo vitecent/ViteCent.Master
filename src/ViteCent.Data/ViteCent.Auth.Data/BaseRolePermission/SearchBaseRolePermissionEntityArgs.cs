@@ -9,7 +9,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Data.BaseRolePermission;
 
 /// <summary>
-///     SearchEntityArgs
 /// </summary>
 public class SearchBaseRolePermissionEntityArgs : SearchArgs, IRequest<List<BaseRolePermissionEntity>>
 {

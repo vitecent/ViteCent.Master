@@ -10,22 +10,19 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Domain.BaseDepartment;
 
 /// <summary>
-///     AddBaseDepartment
 /// </summary>
-public class AddBaseDepartment : BaseDomain<BaseDepartmentEntity>, IRequestHandler<BaseDepartmentEntity, BaseResult>
+public class AddBaseDepartment : BaseDomain<BaseDepartmentEntity>, IRequestHandler<AddBaseDepartmentEntity, BaseResult>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Auth";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public async Task<BaseResult> Handle(BaseDepartmentEntity request, CancellationToken cancellationToken)
+    public async Task<BaseResult> Handle(AddBaseDepartmentEntity request, CancellationToken cancellationToken)
     {
         return await base.AddAsync(request);
     }

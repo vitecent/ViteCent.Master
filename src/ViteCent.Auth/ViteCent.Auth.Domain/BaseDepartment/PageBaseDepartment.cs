@@ -10,17 +10,14 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Domain.BaseDepartment;
 
 /// <summary>
-///     PageBaseDepartment
 /// </summary>
 public class PageBaseDepartment : BaseDomain<BaseDepartmentEntity>, IRequestHandler<SearchBaseDepartmentEntityArgs, List<BaseDepartmentEntity>>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Auth";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

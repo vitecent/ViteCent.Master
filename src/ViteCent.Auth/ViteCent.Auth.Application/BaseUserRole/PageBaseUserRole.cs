@@ -10,33 +10,28 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseUserRole;
 
 /// <summary>
-///     PageBaseUserRole
 /// </summary>
 public class PageBaseUserRole : IRequestHandler<SearchBaseUserRoleArgs, PageResult<BaseUserRoleResult>>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     PageBaseUserRole
     /// </summary>
     public PageBaseUserRole()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
@@ -44,11 +39,11 @@ public class PageBaseUserRole : IRequestHandler<SearchBaseUserRoleArgs, PageResu
     public async Task<PageResult<BaseUserRoleResult>> Handle(SearchBaseUserRoleArgs request,
         CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<SearchBaseUserRoleEntityArgs>(request);
+        var args = mapper.Map<SearchBaseUserRoleEntityArgs>(request);
 
-        var list = await _mediator.Send(args);
+        var list = await mediator.Send(args);
 
-        var rows = _mapper.Map<List<BaseUserRoleResult>>(list);
+        var rows = mapper.Map<List<BaseUserRoleResult>>(list);
 
         var result = new PageResult<BaseUserRoleResult>(args.Offset, args.Limit, args.Total, rows);
 

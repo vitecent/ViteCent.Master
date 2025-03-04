@@ -10,17 +10,14 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Basic.Domain.BaseOperation;
 
 /// <summary>
-///     PageBaseOperation
 /// </summary>
 public class PageBaseOperation : BaseDomain<BaseOperationEntity>, IRequestHandler<SearchBaseOperationEntityArgs, List<BaseOperationEntity>>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Basic";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

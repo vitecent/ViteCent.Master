@@ -1,4 +1,4 @@
-﻿#region
+#region
 
 using Autofac;
 using MediatR;
@@ -10,20 +10,15 @@ using Module = Autofac.Module;
 namespace ViteCent.Basic.Api;
 
 /// <summary>
-///     AutoFacConfig 类用于配置 Autofac 依赖注入容器。
 /// </summary>
 public class AutoFacConfig : Module
 {
     /// <summary>
-    ///     重写 Load 方法以注册依赖项。
     /// </summary>
-    /// <param name="builder">用于注册依赖项的 ContainerBuilder 对象。</param>
+    /// <param name="builder"></param>
     protected override void Load(ContainerBuilder builder)
     {
         base.Load(builder);
-
-        // 注册 MediatR 的核心服务
-        builder.RegisterType<Mediator>().As<IMediator>().InstancePerLifetimeScope();
 
         var path = AppDomain.CurrentDomain.BaseDirectory;
 

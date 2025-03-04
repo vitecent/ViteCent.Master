@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
@@ -9,15 +9,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ViteCent.Core" Version="9.0.1" />
+		<PackageReference Include="ViteCent.Core" Version="9.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\ViteCent.Auth\ViteCent.Auth.Entity\ViteCent.Auth.Entity.csproj" />
+		<ProjectReference Include="..\..\ViteCent.Auth\ViteCent.Auth.Entity\ViteCent.Auth.Entity.csproj" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="BaseUser\" />
-	</ItemGroup>
-
 </Project>

@@ -3,25 +3,29 @@ using Microsoft.AspNetCore.Mvc;
 using ViteCent.Auth.Data.BaseRole;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
+using ViteCent.Core.Web.Filter;
 
 namespace ViteCent.Auth.Api.BaseRole;
 
 /// <summary>
-///     BaseRole
 /// </summary>
 [ApiController]
 [Route("BaseRole")]
-public class EditBaseRole(IMediator mediator) : BaseApi<EditBaseRoleArgs, BaseResult>
+[BaseLoginFilter]
+public class EditBaseRole(IMediator mediator) : BaseLoginApi<EditBaseRoleArgs, BaseResult>
 {
     /// <summary>
-    ///     Edit
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
     [HttpPost]
     [Route("Edit")]
+    [BaseAuthFilter("Auth", "BaseRole", "Edit")]
     public override async Task<BaseResult> InvokeAsync(EditBaseRoleArgs args)
     {
+        if (args == null)
+            return new BaseResult(500, "参数不能为空");
+
         return await mediator.Send(args);
     }
 }

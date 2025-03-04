@@ -12,7 +12,6 @@ namespace ViteCent.Basic.Data.BaseOperation;
 public class GetBaseOperationEntityArgs : IRequest<BaseOperationEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

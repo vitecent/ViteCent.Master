@@ -10,17 +10,14 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Basic.Domain.BaseModule;
 
 /// <summary>
-///     GetBaseModule
 /// </summary>
 public class GetBaseModule : BaseDomain<BaseModuleEntity>, IRequestHandler<GetBaseModuleEntityArgs, BaseModuleEntity>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Basic";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

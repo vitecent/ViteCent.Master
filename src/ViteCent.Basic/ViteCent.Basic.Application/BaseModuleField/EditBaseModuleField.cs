@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Basic.Data.BaseModuleField;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -10,46 +12,84 @@ using ViteCent.Core.Data;
 namespace ViteCent.Basic.Application.BaseModuleField;
 
 /// <summary>
-///     EditBaseModuleField
 /// </summary>
 public class EditBaseModuleField : IRequestHandler<EditBaseModuleFieldArgs, BaseResult>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     EditBaseModuleField
+    /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
     /// </summary>
     public EditBaseModuleField()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<BaseResult> Handle(EditBaseModuleFieldArgs request, CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<GetBaseModuleFieldEntityArgs>(request);
+        var args = mapper.Map<GetBaseModuleFieldEntityArgs>(request);
 
-        var entity = await _mediator.Send(args);
+        var entity = await mediator.Send(args);
 
-        entity.Updater = "Admin";
+        entity.Abbreviation = request.Abbreviation; 
+        entity.AddOrder = request.AddOrder; 
+        entity.AddWidth = request.AddWidth; 
+        entity.AllowNull = request.AllowNull; 
+        entity.Code = request.Code; 
+        entity.DataType = request.DataType; 
+        entity.Description = request.Description; 
+        entity.DetailsOrder = request.DetailsOrder; 
+        entity.DetailsWidth = request.DetailsWidth; 
+        entity.ExportOrder = request.ExportOrder; 
+        entity.ExportWidth = request.ExportWidth; 
+        entity.IsIndex = request.IsIndex; 
+        entity.IsUnique = request.IsUnique; 
+        entity.ListOrder = request.ListOrder; 
+        entity.ListWidth = request.ListWidth; 
+        entity.MaxLength = request.MaxLength; 
+        entity.MinLength = request.MinLength; 
+        entity.ModuleId = request.ModuleId; 
+        entity.Name = request.Name; 
+        entity.PrintOrder = request.PrintOrder; 
+        entity.PrintWidth = request.PrintWidth; 
+        entity.SearchOrder = request.SearchOrder; 
+        entity.SearchWidth = request.SearchWidth; 
+        entity.ShowInAdd = request.ShowInAdd; 
+        entity.ShowInDetails = request.ShowInDetails; 
+        entity.ShowInExport = request.ShowInExport; 
+        entity.ShowInList = request.ShowInList; 
+        entity.ShowInPrint = request.ShowInPrint; 
+        entity.ShowInSearch = request.ShowInSearch; 
+        entity.ShowInUpdate = request.ShowInUpdate; 
+        entity.Status = request.Status; 
+        entity.UpdateOrder = request.UpdateOrder; 
+        entity.UpdateWidth = request.UpdateWidth; 
+        entity.Updater = user?.Name ?? string.Empty;;
         entity.UpdateTime = DateTime.Now;
+        entity.DataVersion = DateTime.Now;
 
-        return await _mediator.Send(entity);
+        return await mediator.Send(entity);
     }
 }

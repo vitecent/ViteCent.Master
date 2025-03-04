@@ -9,7 +9,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Basic.Data.BaseModuleField;
 
 /// <summary>
-///     SearchEntityArgs
 /// </summary>
 public class SearchBaseModuleFieldEntityArgs : SearchArgs, IRequest<List<BaseModuleFieldEntity>>
 {

@@ -3,25 +3,29 @@ using Microsoft.AspNetCore.Mvc;
 using ViteCent.Basic.Data.BaseModuleField;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
+using ViteCent.Core.Web.Filter;
 
 namespace ViteCent.Basic.Api.BaseModuleField;
 
 /// <summary>
-///     BaseModuleField
 /// </summary>
 [ApiController]
 [Route("BaseModuleField")]
-public class EditBaseModuleField(IMediator mediator) : BaseApi<EditBaseModuleFieldArgs, BaseResult>
+[BaseLoginFilter]
+public class EditBaseModuleField(IMediator mediator) : BaseLoginApi<EditBaseModuleFieldArgs, BaseResult>
 {
     /// <summary>
-    ///     Edit
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
     [HttpPost]
     [Route("Edit")]
+    [BaseAuthFilter("Basic", "BaseModuleField", "Edit")]
     public override async Task<BaseResult> InvokeAsync(EditBaseModuleFieldArgs args)
     {
+        if (args == null)
+            return new BaseResult(500, "参数不能为空");
+
         return await mediator.Send(args);
     }
 }

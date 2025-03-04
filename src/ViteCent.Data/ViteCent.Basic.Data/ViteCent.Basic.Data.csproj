@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
@@ -9,11 +9,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ViteCent.Core" Version="9.0.1" />
+		<PackageReference Include="ViteCent.Core" Version="9.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\ViteCent.Basic\ViteCent.Basic.Entity\ViteCent.Basic.Entity.csproj" />
 	</ItemGroup>
-
 </Project>

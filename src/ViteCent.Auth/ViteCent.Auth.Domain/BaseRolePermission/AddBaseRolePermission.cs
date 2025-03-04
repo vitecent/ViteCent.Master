@@ -10,22 +10,19 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Auth.Domain.BaseRolePermission;
 
 /// <summary>
-///     AddBaseRolePermission
 /// </summary>
-public class AddBaseRolePermission : BaseDomain<BaseRolePermissionEntity>, IRequestHandler<BaseRolePermissionEntity, BaseResult>
+public class AddBaseRolePermission : BaseDomain<BaseRolePermissionEntity>, IRequestHandler<AddBaseRolePermissionEntity, BaseResult>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Auth";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public async Task<BaseResult> Handle(BaseRolePermissionEntity request, CancellationToken cancellationToken)
+    public async Task<BaseResult> Handle(AddBaseRolePermissionEntity request, CancellationToken cancellationToken)
     {
         return await base.AddAsync(request);
     }

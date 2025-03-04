@@ -8,7 +8,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Basic.Data.BaseModule;
 
 /// <summary>
-///     SearchBaseModuleArgs
 /// </summary>
 public class SearchBaseModuleArgs : SearchArgs, IRequest<PageResult<BaseModuleResult>>
 {

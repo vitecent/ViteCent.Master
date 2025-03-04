@@ -12,7 +12,6 @@ namespace ViteCent.Auth.Data.BaseRolePermission;
 public class GetBaseRolePermissionEntityArgs : IRequest<BaseRolePermissionEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

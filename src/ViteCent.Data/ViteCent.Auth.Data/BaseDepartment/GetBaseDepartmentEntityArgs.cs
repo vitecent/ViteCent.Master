@@ -12,7 +12,6 @@ namespace ViteCent.Auth.Data.BaseDepartment;
 public class GetBaseDepartmentEntityArgs : IRequest<BaseDepartmentEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

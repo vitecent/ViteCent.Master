@@ -5,27 +5,31 @@ using Microsoft.AspNetCore.Mvc;
 using ViteCent.Auth.Data.BaseRole;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
+using ViteCent.Core.Web.Filter;
 
 #endregion
 
 namespace ViteCent.Auth.Api.BaseRole;
 
 /// <summary>
-///     PageBaseRole
 /// </summary>
 [ApiController]
 [Route("BaseRole")]
-public class PageBaseRole(IMediator mediator) : BaseApi<SearchBaseRoleArgs, PageResult<BaseRoleResult>>
+[BaseLoginFilter]
+public class PageBaseRole(IMediator mediator) : BaseLoginApi<SearchBaseRoleArgs, PageResult<BaseRoleResult>>
 {
     /// <summary>
-    ///     Page
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
     [HttpPost]
     [Route("Page")]
+    [BaseAuthFilter("Auth", "BaseRole", "Get")]
     public override async Task<PageResult<BaseRoleResult>> InvokeAsync(SearchBaseRoleArgs args)
     {
+        if (args == null)
+            return new PageResult<BaseRoleResult>(500, "参数不能为空");
+
         return await mediator.Send(args);
     }
 }

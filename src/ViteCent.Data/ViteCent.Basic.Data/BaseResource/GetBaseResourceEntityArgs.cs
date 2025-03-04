@@ -12,7 +12,6 @@ namespace ViteCent.Basic.Data.BaseResource;
 public class GetBaseResourceEntityArgs : IRequest<BaseResourceEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

@@ -10,33 +10,28 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseUserDepartment;
 
 /// <summary>
-///     PageBaseUserDepartment
 /// </summary>
 public class PageBaseUserDepartment : IRequestHandler<SearchBaseUserDepartmentArgs, PageResult<BaseUserDepartmentResult>>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     PageBaseUserDepartment
     /// </summary>
     public PageBaseUserDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
@@ -44,11 +39,11 @@ public class PageBaseUserDepartment : IRequestHandler<SearchBaseUserDepartmentAr
     public async Task<PageResult<BaseUserDepartmentResult>> Handle(SearchBaseUserDepartmentArgs request,
         CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<SearchBaseUserDepartmentEntityArgs>(request);
+        var args = mapper.Map<SearchBaseUserDepartmentEntityArgs>(request);
 
-        var list = await _mediator.Send(args);
+        var list = await mediator.Send(args);
 
-        var rows = _mapper.Map<List<BaseUserDepartmentResult>>(list);
+        var rows = mapper.Map<List<BaseUserDepartmentResult>>(list);
 
         var result = new PageResult<BaseUserDepartmentResult>(args.Offset, args.Limit, args.Total, rows);
 

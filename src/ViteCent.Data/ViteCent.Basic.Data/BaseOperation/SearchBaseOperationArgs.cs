@@ -8,7 +8,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Basic.Data.BaseOperation;
 
 /// <summary>
-///     SearchBaseOperationArgs
 /// </summary>
 public class SearchBaseOperationArgs : SearchArgs, IRequest<PageResult<BaseOperationResult>>
 {

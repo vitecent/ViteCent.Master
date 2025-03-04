@@ -9,7 +9,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Data.BaseUser;
 
 /// <summary>
-///     SearchEntityArgs
 /// </summary>
 public class SearchBaseUserEntityArgs : SearchArgs, IRequest<List<BaseUserEntity>>
 {

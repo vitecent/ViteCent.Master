@@ -10,22 +10,19 @@ using ViteCent.Core.Orm.SqlSugar;
 namespace ViteCent.Basic.Domain.BaseOperation;
 
 /// <summary>
-///     AddBaseOperation
 /// </summary>
-public class AddBaseOperation : BaseDomain<BaseOperationEntity>, IRequestHandler<BaseOperationEntity, BaseResult>
+public class AddBaseOperation : BaseDomain<BaseOperationEntity>, IRequestHandler<AddBaseOperationEntity, BaseResult>
 {
     /// <summary>
-    ///     DataBaseName
     /// </summary>
     public override string DataBaseName => "ViteCent.Basic";
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public async Task<BaseResult> Handle(BaseOperationEntity request, CancellationToken cancellationToken)
+    public async Task<BaseResult> Handle(AddBaseOperationEntity request, CancellationToken cancellationToken)
     {
         return await base.AddAsync(request);
     }

@@ -10,44 +10,39 @@ using ViteCent.Core.Data;
 namespace ViteCent.Basic.Application.BaseModule;
 
 /// <summary>
-///     GetBaseModule
 /// </summary>
 public class GetBaseModule : IRequestHandler<GetBaseModuleArgs, DataResult<BaseModuleResult>>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     GetBaseModule
     /// </summary>
     public GetBaseModule()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<DataResult<BaseModuleResult>> Handle(GetBaseModuleArgs request, CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<GetBaseModuleEntityArgs>(request);
+        var args = mapper.Map<GetBaseModuleEntityArgs>(request);
 
-        var entity = await _mediator.Send(args);
+        var entity = await mediator.Send(args);
 
-        var dto = _mapper.Map<BaseModuleResult>(entity);
+        var dto = mapper.Map<BaseModuleResult>(entity);
 
         return new DataResult<BaseModuleResult>(dto);
         ;

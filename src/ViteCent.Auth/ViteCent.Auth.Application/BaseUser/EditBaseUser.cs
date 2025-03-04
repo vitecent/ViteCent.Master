@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Auth.Data.BaseUser;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -10,46 +12,64 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseUser;
 
 /// <summary>
-///     EditBaseUser
 /// </summary>
 public class EditBaseUser : IRequestHandler<EditBaseUserArgs, BaseResult>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     EditBaseUser
+    /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
     /// </summary>
     public EditBaseUser()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<BaseResult> Handle(EditBaseUserArgs request, CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<GetBaseUserEntityArgs>(request);
+        var args = mapper.Map<GetBaseUserEntityArgs>(request);
 
-        var entity = await _mediator.Send(args);
+        var entity = await mediator.Send(args);
 
-        entity.Updater = "Admin";
+        entity.Avatar = request.Avatar; 
+        entity.Birthday = request.Birthday; 
+        entity.Description = request.Description; 
+        entity.Email = request.Email; 
+        entity.Gender = request.Gender; 
+        entity.IdCard = request.IdCard; 
+        entity.Nickname = request.Nickname; 
+        entity.Password = request.Password; 
+        entity.Phone = request.Phone; 
+        entity.RealName = request.RealName; 
+        entity.Status = request.Status; 
+        entity.Username = request.Username; 
+        entity.UserNo = request.UserNo; 
+        entity.Updater = user?.Name ?? string.Empty;;
         entity.UpdateTime = DateTime.Now;
+        entity.DataVersion = DateTime.Now;
 
-        return await _mediator.Send(entity);
+        return await mediator.Send(entity);
     }
 }

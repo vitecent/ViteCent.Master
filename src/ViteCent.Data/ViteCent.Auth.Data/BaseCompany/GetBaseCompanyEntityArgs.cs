@@ -12,7 +12,6 @@ namespace ViteCent.Auth.Data.BaseCompany;
 public class GetBaseCompanyEntityArgs : IRequest<BaseCompanyEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

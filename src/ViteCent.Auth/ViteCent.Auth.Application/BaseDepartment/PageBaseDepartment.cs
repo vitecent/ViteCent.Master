@@ -10,33 +10,28 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseDepartment;
 
 /// <summary>
-///     PageBaseDepartment
 /// </summary>
 public class PageBaseDepartment : IRequestHandler<SearchBaseDepartmentArgs, PageResult<BaseDepartmentResult>>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     PageBaseDepartment
     /// </summary>
     public PageBaseDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
@@ -44,11 +39,11 @@ public class PageBaseDepartment : IRequestHandler<SearchBaseDepartmentArgs, Page
     public async Task<PageResult<BaseDepartmentResult>> Handle(SearchBaseDepartmentArgs request,
         CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<SearchBaseDepartmentEntityArgs>(request);
+        var args = mapper.Map<SearchBaseDepartmentEntityArgs>(request);
 
-        var list = await _mediator.Send(args);
+        var list = await mediator.Send(args);
 
-        var rows = _mapper.Map<List<BaseDepartmentResult>>(list);
+        var rows = mapper.Map<List<BaseDepartmentResult>>(list);
 
         var result = new PageResult<BaseDepartmentResult>(args.Offset, args.Limit, args.Total, rows);
 

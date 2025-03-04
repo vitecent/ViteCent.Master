@@ -14,83 +14,74 @@ using ViteCent.Core.Web;
 namespace ViteCent.Auth.Api;
 
 /// <summary>
-///     AutoMapper配置类，继承自BaseMapperConfig
 /// </summary>
 public class AutoMapperConfig : BaseMapperConfig
 {
     /// <summary>
-    ///     配置映射关系的方法
     /// </summary>
     public override void Map()
     {
         #region BaseCompany
 
+        CreateMap<AddBaseCompanyArgs, AddBaseCompanyEntity>();
+        CreateMap<EditBaseCompanyArgs, GetBaseCompanyEntityArgs>();
         CreateMap<GetBaseCompanyArgs, GetBaseCompanyEntityArgs>();
         CreateMap<SearchBaseCompanyArgs, SearchBaseCompanyEntityArgs>();
-        CreateMap<AddBaseCompanyArgs, BaseCompanyEntity>();
-        CreateMap<BaseCompanyEntity, BaseCompanyResult>();
-        CreateMap<EditBaseCompanyArgs, GetBaseCompanyEntityArgs>();
-
+       CreateMap<BaseCompanyEntity, BaseCompanyResult>();
         #endregion
 
         #region BaseDepartment
 
+        CreateMap<AddBaseDepartmentArgs, AddBaseDepartmentEntity>();
+        CreateMap<EditBaseDepartmentArgs, GetBaseDepartmentEntityArgs>();
         CreateMap<GetBaseDepartmentArgs, GetBaseDepartmentEntityArgs>();
         CreateMap<SearchBaseDepartmentArgs, SearchBaseDepartmentEntityArgs>();
-        CreateMap<AddBaseDepartmentArgs, BaseDepartmentEntity>();
-        CreateMap<BaseDepartmentEntity, BaseDepartmentResult>();
-        CreateMap<EditBaseDepartmentArgs, GetBaseDepartmentEntityArgs>();
-
+       CreateMap<BaseDepartmentEntity, BaseDepartmentResult>();
         #endregion
 
         #region BaseRole
 
+        CreateMap<AddBaseRoleArgs, AddBaseRoleEntity>();
+        CreateMap<EditBaseRoleArgs, GetBaseRoleEntityArgs>();
         CreateMap<GetBaseRoleArgs, GetBaseRoleEntityArgs>();
         CreateMap<SearchBaseRoleArgs, SearchBaseRoleEntityArgs>();
-        CreateMap<AddBaseRoleArgs, BaseRoleEntity>();
-        CreateMap<BaseRoleEntity, BaseRoleResult>();
-        CreateMap<EditBaseRoleArgs, GetBaseRoleEntityArgs>();
-
+       CreateMap<BaseRoleEntity, BaseRoleResult>();
         #endregion
 
         #region BaseRolePermission
 
+        CreateMap<AddBaseRolePermissionArgs, AddBaseRolePermissionEntity>();
+        CreateMap<EditBaseRolePermissionArgs, GetBaseRolePermissionEntityArgs>();
         CreateMap<GetBaseRolePermissionArgs, GetBaseRolePermissionEntityArgs>();
         CreateMap<SearchBaseRolePermissionArgs, SearchBaseRolePermissionEntityArgs>();
-        CreateMap<AddBaseRolePermissionArgs, BaseRolePermissionEntity>();
-        CreateMap<BaseRolePermissionEntity, BaseRolePermissionResult>();
-        CreateMap<EditBaseRolePermissionArgs, GetBaseRolePermissionEntityArgs>();
-
+       CreateMap<BaseRolePermissionEntity, BaseRolePermissionResult>();
         #endregion
 
         #region BaseUser
 
+        CreateMap<AddBaseUserArgs, AddBaseUserEntity>();
+        CreateMap<EditBaseUserArgs, GetBaseUserEntityArgs>();
         CreateMap<GetBaseUserArgs, GetBaseUserEntityArgs>();
         CreateMap<SearchBaseUserArgs, SearchBaseUserEntityArgs>();
-        CreateMap<AddBaseUserArgs, BaseUserEntity>();
-        CreateMap<BaseUserEntity, BaseUserResult>();
-        CreateMap<EditBaseUserArgs, GetBaseUserEntityArgs>();
-
+       CreateMap<BaseUserEntity, BaseUserResult>();
         #endregion
 
         #region BaseUserDepartment
 
+        CreateMap<AddBaseUserDepartmentArgs, AddBaseUserDepartmentEntity>();
+        CreateMap<EditBaseUserDepartmentArgs, GetBaseUserDepartmentEntityArgs>();
         CreateMap<GetBaseUserDepartmentArgs, GetBaseUserDepartmentEntityArgs>();
         CreateMap<SearchBaseUserDepartmentArgs, SearchBaseUserDepartmentEntityArgs>();
-        CreateMap<AddBaseUserDepartmentArgs, BaseUserDepartmentEntity>();
-        CreateMap<BaseUserDepartmentEntity, BaseUserDepartmentResult>();
-        CreateMap<EditBaseUserDepartmentArgs, GetBaseUserDepartmentEntityArgs>();
-
+       CreateMap<BaseUserDepartmentEntity, BaseUserDepartmentResult>();
         #endregion
 
         #region BaseUserRole
 
+        CreateMap<AddBaseUserRoleArgs, AddBaseUserRoleEntity>();
+        CreateMap<EditBaseUserRoleArgs, GetBaseUserRoleEntityArgs>();
         CreateMap<GetBaseUserRoleArgs, GetBaseUserRoleEntityArgs>();
         CreateMap<SearchBaseUserRoleArgs, SearchBaseUserRoleEntityArgs>();
-        CreateMap<AddBaseUserRoleArgs, BaseUserRoleEntity>();
-        CreateMap<BaseUserRoleEntity, BaseUserRoleResult>();
-        CreateMap<EditBaseUserRoleArgs, GetBaseUserRoleEntityArgs>();
-
+       CreateMap<BaseUserRoleEntity, BaseUserRoleResult>();
         #endregion
     }
 }

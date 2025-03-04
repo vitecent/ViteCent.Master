@@ -10,44 +10,39 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseUserDepartment;
 
 /// <summary>
-///     GetBaseUserDepartment
 /// </summary>
 public class GetBaseUserDepartment : IRequestHandler<GetBaseUserDepartmentArgs, DataResult<BaseUserDepartmentResult>>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     GetBaseUserDepartment
     /// </summary>
     public GetBaseUserDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<DataResult<BaseUserDepartmentResult>> Handle(GetBaseUserDepartmentArgs request, CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<GetBaseUserDepartmentEntityArgs>(request);
+        var args = mapper.Map<GetBaseUserDepartmentEntityArgs>(request);
 
-        var entity = await _mediator.Send(args);
+        var entity = await mediator.Send(args);
 
-        var dto = _mapper.Map<BaseUserDepartmentResult>(entity);
+        var dto = mapper.Map<BaseUserDepartmentResult>(entity);
 
         return new DataResult<BaseUserDepartmentResult>(dto);
         ;

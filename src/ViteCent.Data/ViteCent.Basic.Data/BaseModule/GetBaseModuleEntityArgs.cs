@@ -12,7 +12,6 @@ namespace ViteCent.Basic.Data.BaseModule;
 public class GetBaseModuleEntityArgs : IRequest<BaseModuleEntity>
 {
     /// <summary>
-    ///     标识
     /// </summary>
     public string Id { get; set; } = string.Empty;
 }

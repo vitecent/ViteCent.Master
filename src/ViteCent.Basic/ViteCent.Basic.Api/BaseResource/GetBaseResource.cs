@@ -5,27 +5,31 @@ using Microsoft.AspNetCore.Mvc;
 using ViteCent.Basic.Data.BaseResource;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
+using ViteCent.Core.Web.Filter;
 
 #endregion
 
 namespace ViteCent.Basic.Api.BaseResource;
 
 /// <summary>
-///     GetBaseResource
 /// </summary>
 [ApiController]
 [Route("BaseResource")]
-public class GetBaseResource(IMediator mediator) : BaseApi<GetBaseResourceArgs, DataResult<BaseResourceResult>>
+[BaseLoginFilter]
+public class GetBaseResource(IMediator mediator) : BaseLoginApi<GetBaseResourceArgs, DataResult<BaseResourceResult>>
 {
     /// <summary>
-    ///     Get
     /// </summary>
     /// <param name="args"></param>
     /// <returns></returns>
     [HttpPost]
     [Route("Get")]
+    [BaseAuthFilter("Basic", "BaseResource", "Get")]
     public override async Task<DataResult<BaseResourceResult>> InvokeAsync(GetBaseResourceArgs args)
     {
+        if (args == null)
+            return new DataResult<BaseResourceResult>(500, "参数不能为空");
+
         return await mediator.Send(args);
     }
 }

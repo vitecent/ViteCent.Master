@@ -8,7 +8,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Data.BaseUserRole;
 
 /// <summary>
-///     SearchBaseUserRoleArgs
 /// </summary>
 public class SearchBaseUserRoleArgs : SearchArgs, IRequest<PageResult<BaseUserRoleResult>>
 {

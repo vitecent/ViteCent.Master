@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Auth.Data.BaseUserDepartment;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -10,46 +12,54 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Application.BaseUserDepartment;
 
 /// <summary>
-///     EditBaseUserDepartment
 /// </summary>
 public class EditBaseUserDepartment : IRequestHandler<EditBaseUserDepartmentArgs, BaseResult>
 {
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMapper _mapper;
+    private readonly IMapper mapper;
 
     /// <summary>
-    ///     _mediator
     /// </summary>
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     /// <summary>
-    ///     EditBaseUserDepartment
+    /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
     /// </summary>
     public EditBaseUserDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        _mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
-        _mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
     }
 
     /// <summary>
-    ///     Handle
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     public async Task<BaseResult> Handle(EditBaseUserDepartmentArgs request, CancellationToken cancellationToken)
     {
-        var args = _mapper.Map<GetBaseUserDepartmentEntityArgs>(request);
+        var args = mapper.Map<GetBaseUserDepartmentEntityArgs>(request);
 
-        var entity = await _mediator.Send(args);
+        var entity = await mediator.Send(args);
 
-        entity.Updater = "Admin";
+        entity.DepartmentId = request.DepartmentId; 
+        entity.Status = request.Status; 
+        entity.UserId = request.UserId; 
+        entity.Updater = user?.Name ?? string.Empty;;
         entity.UpdateTime = DateTime.Now;
+        entity.DataVersion = DateTime.Now;
 
-        return await _mediator.Send(entity);
+        return await mediator.Send(entity);
     }
 }

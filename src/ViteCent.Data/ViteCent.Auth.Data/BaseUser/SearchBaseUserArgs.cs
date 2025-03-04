@@ -8,7 +8,6 @@ using ViteCent.Core.Data;
 namespace ViteCent.Auth.Data.BaseUser;
 
 /// <summary>
-///     SearchBaseUserArgs
 /// </summary>
 public class SearchBaseUserArgs : SearchArgs, IRequest<PageResult<BaseUserResult>>
 {
