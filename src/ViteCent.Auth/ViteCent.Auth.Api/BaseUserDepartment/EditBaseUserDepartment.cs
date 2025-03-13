@@ -1,9 +1,13 @@
+#region
+
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ViteCent.Auth.Data.BaseUserDepartment;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
 using ViteCent.Core.Web.Filter;
+
+#endregion
 
 namespace ViteCent.Auth.Api.BaseUserDepartment;
 

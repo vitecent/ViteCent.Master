@@ -1,9 +1,13 @@
+#region
+
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ViteCent.Basic.Data.BaseResource;
 using ViteCent.Core.Data;
 using ViteCent.Core.Web.Api;
 using ViteCent.Core.Web.Filter;
+
+#endregion
 
 namespace ViteCent.Basic.Api.BaseResource;
 
@@ -25,7 +29,7 @@ public class AddBaseResource(IMediator mediator) : BaseLoginApi<AddBaseResourceA
     {
         if (args == null)
             return new BaseResult(500, "参数不能为空");
-        
+
         return await mediator.Send(args);
     }
 }

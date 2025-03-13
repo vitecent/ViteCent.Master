@@ -2,7 +2,7 @@
 
 using MediatR;
 using ViteCent.Auth.Data.BaseRole;
-using ViteCent.Auth.Entity;
+using ViteCent.Auth.Entity.BaseRole;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -24,6 +24,6 @@ public class GetBaseRole : BaseDomain<BaseRoleEntity>, IRequestHandler<GetBaseRo
     /// <returns></returns>
     public async Task<BaseRoleEntity> Handle(GetBaseRoleEntityArgs request, CancellationToken cancellationToken)
     {
-        return await base.GetAsync(x => x.Id == request.Id);
+        return await base.GetAsync(x => x.Id == request.Id && x.CompanyId == request.CompanyId);
     }
 }

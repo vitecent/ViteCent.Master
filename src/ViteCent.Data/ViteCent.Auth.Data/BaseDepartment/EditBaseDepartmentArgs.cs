@@ -2,6 +2,7 @@ namespace ViteCent.Auth.Data.BaseDepartment;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class EditBaseDepartmentArgs : AddBaseDepartmentArgs
 {
     /// <summary>

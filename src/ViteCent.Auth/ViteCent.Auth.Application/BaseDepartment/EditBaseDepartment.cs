@@ -33,13 +33,15 @@ public class EditBaseDepartment : IRequestHandler<EditBaseDepartmentArgs, BaseRe
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
 
         var json = context.User.FindFirstValue(ClaimTypes.UserData);
 
         if (!string.IsNullOrWhiteSpace(json))
             user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -50,22 +52,24 @@ public class EditBaseDepartment : IRequestHandler<EditBaseDepartmentArgs, BaseRe
     public async Task<BaseResult> Handle(EditBaseDepartmentArgs request, CancellationToken cancellationToken)
     {
         var args = mapper.Map<GetBaseDepartmentEntityArgs>(request);
+        args.CompanyId = user?.Company?.Id ?? string.Empty;
 
-        var entity = await mediator.Send(args);
+        var entity = await mediator.Send(args, cancellationToken);
 
-        entity.Abbreviation = request.Abbreviation; 
-        entity.Code = request.Code; 
-        entity.Description = request.Description; 
-        entity.Level = request.Level; 
-        entity.Manager = request.Manager; 
-        entity.ManagerPhone = request.ManagerPhone; 
-        entity.Name = request.Name; 
-        entity.ParentId = request.ParentId; 
-        entity.Status = request.Status; 
-        entity.Updater = user?.Name ?? string.Empty;;
+        entity.Abbreviation = request.Abbreviation;
+        entity.Code = request.Code;
+        entity.Description = request.Description;
+        entity.Level = request.Level;
+        entity.Manager = request.Manager;
+        entity.ManagerPhone = request.ManagerPhone;
+        entity.Name = request.Name;
+        entity.ParentId = request.ParentId;
+        entity.Status = request.Status;
+        entity.CompanyId = user?.Company?.Id ?? string.Empty;
+        entity.Updater = user?.Name ?? string.Empty;
         entity.UpdateTime = DateTime.Now;
         entity.DataVersion = DateTime.Now;
 
-        return await mediator.Send(entity);
+        return await mediator.Send(entity, cancellationToken);
     }
 }

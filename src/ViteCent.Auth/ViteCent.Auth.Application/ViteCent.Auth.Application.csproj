@@ -10,6 +10,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="14.0.0" />
+		<PackageReference Include="ViteCent.Core.Cache" Version="9.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>

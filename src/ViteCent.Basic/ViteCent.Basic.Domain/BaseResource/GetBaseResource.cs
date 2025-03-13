@@ -2,7 +2,7 @@
 
 using MediatR;
 using ViteCent.Basic.Data.BaseResource;
-using ViteCent.Basic.Entity;
+using ViteCent.Basic.Entity.BaseResource;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -24,6 +24,6 @@ public class GetBaseResource : BaseDomain<BaseResourceEntity>, IRequestHandler<G
     /// <returns></returns>
     public async Task<BaseResourceEntity> Handle(GetBaseResourceEntityArgs request, CancellationToken cancellationToken)
     {
-        return await base.GetAsync(x => x.Id == request.Id);
+        return await base.GetAsync(x => x.Id == request.Id && x.CompanyId == request.CompanyId);
     }
 }

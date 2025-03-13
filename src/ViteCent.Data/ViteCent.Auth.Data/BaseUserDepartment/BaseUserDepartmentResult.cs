@@ -2,6 +2,7 @@ namespace ViteCent.Auth.Data.BaseUserDepartment;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class BaseUserDepartmentResult
 {
     /// <summary>

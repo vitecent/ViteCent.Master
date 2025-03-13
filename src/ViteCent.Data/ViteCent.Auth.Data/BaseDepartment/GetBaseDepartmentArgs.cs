@@ -9,6 +9,7 @@ namespace ViteCent.Auth.Data.BaseDepartment;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class GetBaseDepartmentArgs : BaseArgs, IRequest<DataResult<BaseDepartmentResult>>
 {
     /// <summary>

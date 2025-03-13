@@ -9,6 +9,7 @@ namespace ViteCent.Basic.Data.BaseOperation;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class AddBaseOperationArgs : BaseArgs, IRequest<BaseResult>
 {
     /// <summary>

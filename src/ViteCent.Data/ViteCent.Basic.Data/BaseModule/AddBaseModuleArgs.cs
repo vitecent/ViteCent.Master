@@ -9,6 +9,7 @@ namespace ViteCent.Basic.Data.BaseModule;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class AddBaseModuleArgs : BaseArgs, IRequest<BaseResult>
 {
     /// <summary>

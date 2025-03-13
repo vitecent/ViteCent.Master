@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Auth.Data.BaseDepartment;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -23,12 +25,23 @@ public class GetBaseDepartment : IRequestHandler<GetBaseDepartmentArgs, DataResu
 
     /// <summary>
     /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
+    /// </summary>
     public GetBaseDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -39,12 +52,12 @@ public class GetBaseDepartment : IRequestHandler<GetBaseDepartmentArgs, DataResu
     public async Task<DataResult<BaseDepartmentResult>> Handle(GetBaseDepartmentArgs request, CancellationToken cancellationToken)
     {
         var args = mapper.Map<GetBaseDepartmentEntityArgs>(request);
+        args.CompanyId = user?.Company?.Id ?? string.Empty;
 
-        var entity = await mediator.Send(args);
+        var entity = await mediator.Send(args, cancellationToken);
 
         var dto = mapper.Map<BaseDepartmentResult>(entity);
 
         return new DataResult<BaseDepartmentResult>(dto);
-        ;
     }
 }

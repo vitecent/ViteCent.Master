@@ -2,6 +2,7 @@ namespace ViteCent.Basic.Data.BaseOperation;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class EditBaseOperationArgs : AddBaseOperationArgs
 {
     /// <summary>

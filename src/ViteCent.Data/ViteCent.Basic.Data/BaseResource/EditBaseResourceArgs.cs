@@ -2,6 +2,7 @@ namespace ViteCent.Basic.Data.BaseResource;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class EditBaseResourceArgs : AddBaseResourceArgs
 {
     /// <summary>

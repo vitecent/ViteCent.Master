@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Auth.Data.BaseUser;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -23,12 +25,23 @@ public class GetBaseUser : IRequestHandler<GetBaseUserArgs, DataResult<BaseUserR
 
     /// <summary>
     /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
+    /// </summary>
     public GetBaseUser()
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -39,12 +52,12 @@ public class GetBaseUser : IRequestHandler<GetBaseUserArgs, DataResult<BaseUserR
     public async Task<DataResult<BaseUserResult>> Handle(GetBaseUserArgs request, CancellationToken cancellationToken)
     {
         var args = mapper.Map<GetBaseUserEntityArgs>(request);
+        args.CompanyId = user?.Company?.Id ?? string.Empty;
 
-        var entity = await mediator.Send(args);
+        var entity = await mediator.Send(args, cancellationToken);
 
         var dto = mapper.Map<BaseUserResult>(entity);
 
         return new DataResult<BaseUserResult>(dto);
-        ;
     }
 }

@@ -21,7 +21,6 @@ public class Program
             "ViteCent.Auth.*.xml"
         };
 
-       
         var microService = new BaseMicroService("ViteCent.Auth.Api", xmls)
         {
             OnBuild = builder =>

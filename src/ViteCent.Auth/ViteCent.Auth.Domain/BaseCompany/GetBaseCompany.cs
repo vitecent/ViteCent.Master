@@ -2,7 +2,7 @@
 
 using MediatR;
 using ViteCent.Auth.Data.BaseCompany;
-using ViteCent.Auth.Entity;
+using ViteCent.Auth.Entity.BaseCompany;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion

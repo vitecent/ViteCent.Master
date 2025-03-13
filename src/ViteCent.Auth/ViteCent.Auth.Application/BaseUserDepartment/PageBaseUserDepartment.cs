@@ -2,7 +2,9 @@
 
 using AutoMapper;
 using MediatR;
+using System.Security.Claims;
 using ViteCent.Auth.Data.BaseUserDepartment;
+using ViteCent.Core;
 using ViteCent.Core.Data;
 
 #endregion
@@ -23,12 +25,23 @@ public class PageBaseUserDepartment : IRequestHandler<SearchBaseUserDepartmentAr
 
     /// <summary>
     /// </summary>
+    private readonly BaseUserInfo user;
+
+    /// <summary>
+    /// </summary>
     public PageBaseUserDepartment()
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+
+        var json = context.User.FindFirstValue(ClaimTypes.UserData);
+
+        if (!string.IsNullOrWhiteSpace(json))
+            user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -41,7 +54,14 @@ public class PageBaseUserDepartment : IRequestHandler<SearchBaseUserDepartmentAr
     {
         var args = mapper.Map<SearchBaseUserDepartmentEntityArgs>(request);
 
-        var list = await mediator.Send(args);
+        args.Args.RemoveAll(x => x.Field == "CompanyId");
+        args.Args.Add(new SearchItem()
+        {
+            Field = "CompanyId",
+            Value = user?.Company?.Id ?? string.Empty,
+        });
+
+        var list = await mediator.Send(args, cancellationToken);
 
         var rows = mapper.Map<List<BaseUserDepartmentResult>>(list);
 

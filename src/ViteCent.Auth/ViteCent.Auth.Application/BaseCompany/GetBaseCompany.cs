@@ -27,8 +27,8 @@ public class GetBaseCompany : IRequestHandler<GetBaseCompanyArgs, DataResult<Bas
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
     }
 
     /// <summary>
@@ -40,11 +40,10 @@ public class GetBaseCompany : IRequestHandler<GetBaseCompanyArgs, DataResult<Bas
     {
         var args = mapper.Map<GetBaseCompanyEntityArgs>(request);
 
-        var entity = await mediator.Send(args);
+        var entity = await mediator.Send(args, cancellationToken);
 
         var dto = mapper.Map<BaseCompanyResult>(entity);
 
         return new DataResult<BaseCompanyResult>(dto);
-        ;
     }
 }

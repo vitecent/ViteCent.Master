@@ -9,6 +9,7 @@ namespace ViteCent.Basic.Data.BaseResource;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class GetBaseResourceArgs : BaseArgs, IRequest<DataResult<BaseResourceResult>>
 {
     /// <summary>

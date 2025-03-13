@@ -9,6 +9,7 @@ namespace ViteCent.Auth.Data.BaseUserRole;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class GetBaseUserRoleArgs : BaseArgs, IRequest<DataResult<BaseUserRoleResult>>
 {
     /// <summary>

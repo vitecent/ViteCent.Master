@@ -9,8 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ViteCent.Core.Orm.SqlSugar" Version="9.0.2" />
+		<PackageReference Include="ViteCent.Core.Orm.SqlSugar" Version="9.0.3" />
 		<PackageReference Include="MediatR" Version="12.4.1" />
 	</ItemGroup>
-
 </Project>

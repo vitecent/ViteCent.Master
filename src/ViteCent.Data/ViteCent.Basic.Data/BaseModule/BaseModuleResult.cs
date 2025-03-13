@@ -2,6 +2,7 @@ namespace ViteCent.Basic.Data.BaseModule;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class BaseModuleResult
 {
     /// <summary>

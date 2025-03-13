@@ -7,7 +7,7 @@ using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
 
-namespace ViteCent.Auth.Entity;
+namespace ViteCent.Auth.Entity.BaseRole;
 
 /// <summary>
 /// </summary>

@@ -9,6 +9,7 @@ namespace ViteCent.Auth.Data.BaseRolePermission;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class SearchBaseRolePermissionArgs : SearchArgs, IRequest<PageResult<BaseRolePermissionResult>>
 {
 }

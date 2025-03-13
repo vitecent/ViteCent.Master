@@ -33,13 +33,15 @@ public class EditBaseUser : IRequestHandler<EditBaseUserArgs, BaseResult>
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
 
         var json = context.User.FindFirstValue(ClaimTypes.UserData);
 
         if (!string.IsNullOrWhiteSpace(json))
             user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -50,26 +52,28 @@ public class EditBaseUser : IRequestHandler<EditBaseUserArgs, BaseResult>
     public async Task<BaseResult> Handle(EditBaseUserArgs request, CancellationToken cancellationToken)
     {
         var args = mapper.Map<GetBaseUserEntityArgs>(request);
+        args.CompanyId = user?.Company?.Id ?? string.Empty;
 
-        var entity = await mediator.Send(args);
+        var entity = await mediator.Send(args, cancellationToken);
 
-        entity.Avatar = request.Avatar; 
-        entity.Birthday = request.Birthday; 
-        entity.Description = request.Description; 
-        entity.Email = request.Email; 
-        entity.Gender = request.Gender; 
-        entity.IdCard = request.IdCard; 
-        entity.Nickname = request.Nickname; 
-        entity.Password = request.Password; 
-        entity.Phone = request.Phone; 
-        entity.RealName = request.RealName; 
-        entity.Status = request.Status; 
-        entity.Username = request.Username; 
-        entity.UserNo = request.UserNo; 
-        entity.Updater = user?.Name ?? string.Empty;;
+        entity.Avatar = request.Avatar;
+        entity.Birthday = request.Birthday;
+        entity.Description = request.Description;
+        entity.Email = request.Email;
+        entity.Gender = request.Gender;
+        entity.IdCard = request.IdCard;
+        entity.Nickname = request.Nickname;
+        entity.Password = request.Password;
+        entity.Phone = request.Phone;
+        entity.RealName = request.RealName;
+        entity.Status = request.Status;
+        entity.Username = request.Username;
+        entity.UserNo = request.UserNo;
+        entity.CompanyId = user?.Company?.Id ?? string.Empty;
+        entity.Updater = user?.Name ?? string.Empty;
         entity.UpdateTime = DateTime.Now;
         entity.DataVersion = DateTime.Now;
 
-        return await mediator.Send(entity);
+        return await mediator.Send(entity, cancellationToken);
     }
 }

@@ -2,7 +2,7 @@
 
 using MediatR;
 using ViteCent.Basic.Data.BaseModule;
-using ViteCent.Basic.Entity;
+using ViteCent.Basic.Entity.BaseModule;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -24,6 +24,6 @@ public class GetBaseModule : BaseDomain<BaseModuleEntity>, IRequestHandler<GetBa
     /// <returns></returns>
     public async Task<BaseModuleEntity> Handle(GetBaseModuleEntityArgs request, CancellationToken cancellationToken)
     {
-        return await base.GetAsync(x => x.Id == request.Id);
+        return await base.GetAsync(x => x.Id == request.Id && x.CompanyId == request.CompanyId);
     }
 }

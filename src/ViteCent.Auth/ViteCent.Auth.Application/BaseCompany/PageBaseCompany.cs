@@ -27,8 +27,8 @@ public class PageBaseCompany : IRequestHandler<SearchBaseCompanyArgs, PageResult
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class PageBaseCompany : IRequestHandler<SearchBaseCompanyArgs, PageResult
     {
         var args = mapper.Map<SearchBaseCompanyEntityArgs>(request);
 
-        var list = await mediator.Send(args);
+        var list = await mediator.Send(args, cancellationToken);
 
         var rows = mapper.Map<List<BaseCompanyResult>>(list);
 

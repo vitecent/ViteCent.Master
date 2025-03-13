@@ -9,6 +9,7 @@ namespace ViteCent.Auth.Data.BaseCompany;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class GetBaseCompanyArgs : BaseArgs, IRequest<DataResult<BaseCompanyResult>>
 {
     /// <summary>

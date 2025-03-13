@@ -9,6 +9,7 @@ namespace ViteCent.Basic.Data.BaseOperation;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class SearchBaseOperationArgs : SearchArgs, IRequest<PageResult<BaseOperationResult>>
 {
 }

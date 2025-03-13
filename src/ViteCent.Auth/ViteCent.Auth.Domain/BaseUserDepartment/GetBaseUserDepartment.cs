@@ -2,7 +2,7 @@
 
 using MediatR;
 using ViteCent.Auth.Data.BaseUserDepartment;
-using ViteCent.Auth.Entity;
+using ViteCent.Auth.Entity.BaseUserDepartment;
 using ViteCent.Core.Orm.SqlSugar;
 
 #endregion
@@ -24,6 +24,6 @@ public class GetBaseUserDepartment : BaseDomain<BaseUserDepartmentEntity>, IRequ
     /// <returns></returns>
     public async Task<BaseUserDepartmentEntity> Handle(GetBaseUserDepartmentEntityArgs request, CancellationToken cancellationToken)
     {
-        return await base.GetAsync(x => x.Id == request.Id);
+        return await base.GetAsync(x => x.Id == request.Id && x.CompanyId == request.CompanyId);
     }
 }

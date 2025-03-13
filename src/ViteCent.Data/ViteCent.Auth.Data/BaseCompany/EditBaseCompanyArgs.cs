@@ -2,6 +2,7 @@ namespace ViteCent.Auth.Data.BaseCompany;
 
 /// <summary>
 /// </summary>
+[Serializable]
 public class EditBaseCompanyArgs : AddBaseCompanyArgs
 {
     /// <summary>

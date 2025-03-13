@@ -4,8 +4,9 @@ using AutoMapper;
 using MediatR;
 using System.Security.Claims;
 using ViteCent.Auth.Data.BaseUserDepartment;
-using ViteCent.Auth.Entity;
+using ViteCent.Auth.Entity.BaseUserDepartment;
 using ViteCent.Core;
+using ViteCent.Core.Cache;
 using ViteCent.Core.Data;
 
 #endregion
@@ -16,6 +17,10 @@ namespace ViteCent.Auth.Application.BaseUserDepartment;
 /// </summary>
 public class AddBaseUserDepartment : IRequestHandler<AddBaseUserDepartmentArgs, BaseResult>
 {
+    /// <summary>
+    /// </summary>
+    private readonly IBaseCache cache;
+
     /// <summary>
     /// </summary>
     private readonly IMapper mapper;
@@ -34,13 +39,16 @@ public class AddBaseUserDepartment : IRequestHandler<AddBaseUserDepartmentArgs, 
     {
         var context = BaseHttpContext.Context;
 
-        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
+        cache = context.RequestServices.GetService(typeof(IBaseCache)) as IBaseCache ?? default!;
         mapper = context.RequestServices.GetService(typeof(IMapper)) as IMapper ?? default!;
+        mediator = context.RequestServices.GetService(typeof(IMediator)) as IMediator ?? default!;
 
         var json = context.User.FindFirstValue(ClaimTypes.UserData);
 
         if (!string.IsNullOrWhiteSpace(json))
             user = json.DeJson<BaseUserInfo>();
+        else
+            user = new BaseUserInfo();
     }
 
     /// <summary>
@@ -52,11 +60,16 @@ public class AddBaseUserDepartment : IRequestHandler<AddBaseUserDepartmentArgs, 
     {
         var entity = mapper.Map<AddBaseUserDepartmentEntity>(request);
 
-        entity.Id = Guid.NewGuid().ToString("N");
-        entity.Creator = user?.Name ?? string.Empty;;
+        entity.Id = await cache.NextIdentity(new NextIdentifyArg()
+        {
+            CompanyId = user?.Company?.Id ?? string.Empty,
+            Name = "BaseUserDepartment",
+        });
+        entity.CompanyId = user?.Company?.Id ?? string.Empty;
+        entity.Creator = user?.Name ?? string.Empty;
         entity.CreateTime = DateTime.Now;
         entity.DataVersion = DateTime.Now;
 
-        return await mediator.Send(entity);
+        return await mediator.Send(entity, cancellationToken);
     }
 }
